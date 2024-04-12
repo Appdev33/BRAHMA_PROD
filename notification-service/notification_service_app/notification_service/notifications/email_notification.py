@@ -42,4 +42,4 @@ send_email(sender_email='notificationmailer77@gmail.com',
            smtp_server='smtp.gmail.com',
            smtp_port=587,
            smtp_username='notificationmailer77@gmail.com',
-           smtp_password='yhce qtyz vddy ')
+           smtp_password='yhce qtyz vddy')
