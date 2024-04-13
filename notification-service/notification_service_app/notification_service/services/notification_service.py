@@ -2,14 +2,16 @@ from notification_service.notifications.email_notification import send_email
 # from notification_service.notifications.sms_notification import send_sms
 # from notification_service.notifications.telegram_notification import send_telegram_message
 # from notification_service.notifications.whatsapp_notification import send_whatsapp_message
-from notification_service.utils.logging_config import logger
+from config.logging_config import configure_logging
+
+logger = configure_logging('notification-service')
 
 class NotificationService:
     @staticmethod
     def send_notification(notification_type, recipient, message):
 
         if notification_type == 'email':
-            send_email(recipient, message)
+            send_email(recipient, message, '','','','','','')
             logger.info(f"Email notification sent to {recipient}")
         elif notification_type == 'sms':
             # send_sms(recipient, message)

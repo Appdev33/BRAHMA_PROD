@@ -1,7 +1,20 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-# from notification_service.utils.logging_config import logger
+from config.logging_config import configure_logging
+
+logger = configure_logging('notification-service')
+
+# sender_email='notificationmailer77@gmail.com',
+# recipient_email='app.devplatform@gmail.com',
+# subject='Kafka microservices message',
+# message='Hi this is a message sent via kafka',
+# smtp_server='smtp.gmail.com',
+# smtp_port=587,
+# smtp_username='notificationmailer77@gmail.com',
+# smtp_password='yhce qtyz vddy rrzf'
+
+
 
 def send_email(sender_email, recipient_email, subject, message, smtp_server, smtp_port, smtp_username, smtp_password):
     """Send an email notification."""
@@ -28,7 +41,7 @@ def send_email(sender_email, recipient_email, subject, message, smtp_server, smt
 
         # Close connection
         server.quit()
-
+        logger.info(f"Email notification sent to {recipient_email}")
         print(f"Email notification sent to {recipient_email}")
     except Exception as e:
         print(f"Error sending email notification: {e}")
@@ -42,4 +55,5 @@ send_email(sender_email='notificationmailer77@gmail.com',
            smtp_server='smtp.gmail.com',
            smtp_port=587,
            smtp_username='notificationmailer77@gmail.com',
-           smtp_password='yhce qtyz vddy')
+           smtp_password='yhce qtyz vddy rrzf')
+
