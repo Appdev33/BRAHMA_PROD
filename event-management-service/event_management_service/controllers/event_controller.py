@@ -1,5 +1,8 @@
 from flask import Blueprint, request
 from event_management_service.services.event_service import EventService
+from config.logging_config import configure_logging
+
+logger = configure_logging('event-management-service')
 
 event_blueprint = Blueprint('events', __name__)
 
@@ -15,6 +18,7 @@ def create_event():
         return {'error': 'Payload is required'}, 400
     
     EventService.process_event(event_type, **payload)
+    logger.info('Event created successfully....')
     
     return {'message': 'Event created successfully'}, 201
 

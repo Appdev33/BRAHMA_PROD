@@ -1,3 +1,4 @@
+
 import logging
 from logging.handlers import RotatingFileHandler
 import os
@@ -17,4 +18,7 @@ def configure_logging(microservice_name):
     file_handler.setFormatter(file_formatter)
 
     # Add file handler to root logger
-    logging.getLogger('').addHandler(file_handler)
+    logger = logging.getLogger('')
+    logger.addHandler(file_handler)
+
+    return logger

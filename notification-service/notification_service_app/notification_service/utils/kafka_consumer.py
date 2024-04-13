@@ -1,7 +1,9 @@
 from confluent_kafka import Consumer, KafkaError
 import json
 from notification_service.services.notification_service import NotificationService
-from notification_service.utils.logging_config import logger
+from config.logging_config import configure_logging
+
+logger = configure_logging('notification-service')
 
 def consume_notification_messages(bootstrap_servers, topic):
     """Consume notification messages from Kafka and process them."""
@@ -28,14 +30,11 @@ def consume_notification_messages(bootstrap_servers, topic):
             # Process the message
             try:
                 event_data = json.loads(msg.value().decode('utf-8'))
-                print('>>>>>>>>>>>>>>>>>>%s',event_data)
                 event_type = event_data['type']
-                # event_payload = event_data['payload']
+
                 # Process the event type as needed
                 print(f"Received event: {event_data}")
                 notification_data = json.loads(msg.value().decode('utf-8'))
-                # recipient = notification_data['recipient']
-                # message = notification_data['message']
                 notification_type ='email'  
                 NotificationService.send_notification(notification_type, '', '')
                 # logger.info(f"Notification message processed: {event_payload}")

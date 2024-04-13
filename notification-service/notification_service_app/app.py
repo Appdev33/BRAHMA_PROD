@@ -1,7 +1,11 @@
 from flask import Flask
 from notification_service.controller.notification_controller import notification_blueprint
-from notification_service.utils.logging_config import logger
 from notification_service.utils.kafka_consumer import consume_notification_messages
+from config.logging_config import configure_logging
+
+
+microservice_name = 'notification-service'
+logger = configure_logging(microservice_name)
 
 app = Flask(__name__)
 
@@ -21,6 +25,6 @@ if __name__ == "__main__":
         consume_notification_messages(bootstrap_servers, topic)
     except Exception as e:
         logger.error(f"Error starting Kafka consumer: {e}")
-
+    # logger.info('Starting the notifcation app....')
     # Run Flask app
     app.run(debug=True)
