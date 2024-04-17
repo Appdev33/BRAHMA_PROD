@@ -81,7 +81,7 @@ public class RegistrationController {
             
             // Send notification to the user
             if (authResponse.getStatusCode() == HttpStatus.CREATED) {
-                event = "{\"event_type\": \"user_registration\", \"payload\": {\"username\": \"" + username + "\", \"message\": \"Welcome toewewew our platform!\"}}";
+                event = "{\"event_type\": \"user_registration\", \"payload\": {\"username\": \"" + username + "\", \"message\": \"Welcome to our platform!\"}}";
                 HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_JSON);
                 HttpEntity<String> eventEntity = new HttpEntity<>(event, headers);
