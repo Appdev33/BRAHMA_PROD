@@ -204,3 +204,16 @@ chat_microservice/
 ├── requirements.txt        # Python dependencies
 └── .env                    # Environment variables
 ̦
+
+IMPORTANT COMMAND USED 
+docker run -d --name mongo \
+  -e MONGO_INITDB_ROOT_USERNAME=user \
+  -e MONGO_INITDB_ROOT_PASSWORD=password \
+  -p 27017:27017 \
+  mongo:latest
+
+docker run -d --name mongo \
+  -e MONGO_INITDB_ROOT_USERNAME=user \
+  -e MONGO_INITDB_ROOT_PASSWORD=password \
+  -p 27017:27017 \
+  mongo:latest
