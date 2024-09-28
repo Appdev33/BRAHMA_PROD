@@ -217,3 +217,155 @@ docker run -d --name mongo \
   -e MONGO_INITDB_ROOT_PASSWORD=password \
   -p 27017:27017 \
   mongo:latest
+
+
+NEW DESIGN BASED ON MULTIPLE MICROSERVICES
+
+chat_microservices/
+├── microservices/                  # Directory for all microservices
+│   ├── chat_service/               # Chat microservice
+│   │   ├── app/
+│   │   │   ├── __init__.py
+│   │   │   ├── main.py              # Entry point of the chat service
+│   │   │   ├── core/                # Core utilities and configurations
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── config.py        # Global settings and configurations
+│   │   │   │   ├── security.py      # Security (JWT, OAuth2)
+│   │   │   │   ├── exceptions.py    # Custom exception handling
+│   │   │   │   └── logging_config.py # Logging configuration
+│   │   │   ├── models/              # Database models (ORM)
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── user.py          # User model
+│   │   │   │   ├── message.py       # Message model
+│   │   │   │   ├── chatroom.py      # Chatroom model for multi-chat
+│   │   │   │   └── video_call.py    # Video call model
+│   │   │   ├── schemas/             # Data validation schemas (Pydantic)
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── user_schema.py
+│   │   │   │   ├── message_schema.py # Message validation schemas
+│   │   │   │   ├── chatroom_schema.py # Chatroom schemas for multi-chat
+│   │   │   │   └── video_call_schema.py # Video call schemas
+│   │   │   ├── repositories/         # Repository pattern for data access
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── abstract_repository.py # Abstract base class for repositories
+│   │   │   │   ├── user_repository.py # User repository
+│   │   │   │   ├── message_repository.py # Message repository
+│   │   │   │   ├── chatroom_repository.py # Chatroom repository
+│   │   │   │   └── video_call_repository.py # Video call repository
+│   │   │   ├── services/             # Business logic
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── user_service.py   # User service
+│   │   │   │   ├── message_service.py # Message service for 1:1 chat
+│   │   │   │   ├── chatroom_service.py # Chatroom service for multi-chat
+│   │   │   │   └── video_call_service.py # Video call service
+│   │   │   ├── api/                  # API layer (FastAPI routes)
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── routes.py         # Route registration
+│   │   │   │   ├── dependencies.py   # Dependency injection for services
+│   │   │   │   └── endpoints/        # API endpoints
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── user_endpoints.py # User endpoints
+│   │   │   │       ├── message_endpoints.py # Endpoints for sending/receiving messages
+│   │   │   │       ├── chatroom_endpoints.py # Endpoints for multi-chat
+│   │   │   │       └── video_call_endpoints.py # Endpoints for video call functionality
+│   │   │   ├── utils/                # Utility functions and helpers
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── logger.py         # Logger utility
+│   │   │   │   └── validators.py     # Data validation helpers
+│   │   │   ├── middleware.py         # Custom middleware
+│   │   │   ├── database.py           # Database session management
+│   │   │   └── tests/                # Test cases
+│   │   │       ├── __init__.py
+│   │   │       ├── test_user.py      # Unit tests for user functionality
+│   │   │       ├── test_message.py   # Unit tests for messages
+│   │   │       ├── test_chatroom.py  # Tests for multi-chat functionality
+│   │   │       ├── test_video_call.py # Tests for video call functionality
+│   │   │       └── conftest.py       # Fixtures for tests
+│   │   ├── requirements.txt           # Python dependencies for chat service
+│   │   ├── Dockerfile                 # Dockerfile for chat service
+│   │   └── .env                      # Environment variables for chat service
+│   │
+│   ├── user_service/                 # User microservice
+│   │   ├── app/
+│   │   │   ├── __init__.py
+│   │   │   ├── main.py               # Entry point of the user service
+│   │   │   ├── core/                 # Core utilities and configurations
+│   │   │   ├── models/               # Database models (ORM)
+│   │   │   ├── schemas/              # Data validation schemas (Pydantic)
+│   │   │   ├── repositories/          # Repository pattern for data access
+│   │   │   ├── services/              # Business logic
+│   │   │   ├── api/                   # API layer (FastAPI routes)
+│   │   │   ├── utils/                 # Utility functions and helpers
+│   │   │   └── tests/                 # Test cases for the user service
+│   │   ├── requirements.txt           # Python dependencies for user service
+│   │   ├── Dockerfile                 # Dockerfile for user service
+│   │   └── .env                      # Environment variables for user service
+│   │
+│   ├── notification_service/         # Notification microservice
+│   │   ├── app/
+│   │   │   ├── __init__.py
+│   │   │   ├── main.py               # Entry point of the notification service
+│   │   │   ├── core/                 # Core utilities and configurations
+│   │   │   ├── models/               # Database models (ORM)
+│   │   │   ├── schemas/              # Data validation schemas (Pydantic)
+│   │   │   ├── repositories/          # Repository pattern for data access
+│   │   │   ├── services/              # Business logic
+│   │   │   ├── api/                   # API layer (FastAPI routes)
+│   │   │   ├── utils/                 # Utility functions and helpers
+│   │   │   └── tests/                 # Test cases for the notification service
+│   │   ├── requirements.txt           # Python dependencies for notification service
+│   │   ├── Dockerfile                 # Dockerfile for notification service
+│   │   └── .env                      # Environment variables for notification service
+│   │
+│   └── ...                            # Additional microservices can be added here
+│
+├── docker-compose.yml                # Docker Compose file for multi-service setup
+├── .env                              # Global environment variables (if any)
+├── .gitignore                        # Files and directories to ignore in version control
+├── README.md                         # Project documentation
+└── scripts/                          # Utility scripts for common tasks
+    ├── migrate_all.py                # Script to migrate all services
+    └── seed_all.py                   # Script to seed all services
+
+
+chat_microservices/
+├── microservices/                  # Directory for all microservices
+│   ├── chat_service/               # Chat microservice
+│   │   ├── app/
+│   │   │   ├── ...
+│   │   ├── requirements.txt           # Python dependencies for chat service
+│   │   ├── Dockerfile                 # Dockerfile for chat service
+│   │   ├── .env                      # Environment variables for chat service
+│   │   ├── .env.dev                  # Development environment variables for chat service
+│   │   ├── .env.test                 # Testing environment variables for chat service
+│   │   ├── .env.prod                 # Production environment variables for chat service
+│   │
+│   ├── user_service/                 # User microservice
+│   │   ├── app/
+│   │   │   ├── ...
+│   │   ├── requirements.txt           # Python dependencies for user service
+│   │   ├── Dockerfile                 # Dockerfile for user service
+│   │   ├── .env                      # Environment variables for user service
+│   │   ├── .env.dev                  # Development environment variables for user service
+│   │   ├── .env.test                 # Testing environment variables for user service
+│   │   ├── .env.prod                 # Production environment variables for user service
+│   │
+│   ├── notification_service/         # Notification microservice
+│   │   ├── app/
+│   │   │   ├── ...
+│   │   ├── requirements.txt           # Python dependencies for notification service
+│   │   ├── Dockerfile                 # Dockerfile for notification service
+│   │   ├── .env                      # Environment variables for notification service
+│   │   ├── .env.dev                  # Development environment variables for notification service
+│   │   ├── .env.test                 # Testing environment variables for notification service
+│   │   ├── .env.prod                 # Production environment variables for notification service
+│   │
+│   └── ...                            # Additional microservices can be added here
+│
+├── .env                              # Global environment variables (if any)
+├── docker-compose.yml                # Docker Compose file for multi-service setup
+├── .gitignore                        # Files and directories to ignore in version control
+├── README.md                         # Project documentation
+└── scripts/                          # Utility scripts for common tasks
+    ├── migrate_all.py                # Script to migrate all services
+    └── seed_all.py                   # Script to seed all services
