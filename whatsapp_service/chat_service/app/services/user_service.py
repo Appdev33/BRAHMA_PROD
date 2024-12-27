@@ -1,8 +1,10 @@
 from repositories.user_repository import UserRepository
 from schemas.user_schema import UserRequestDTO, UserResponseDTO
-from exceptions.custom_exceptions import UserNotFoundException
+# from exceptions.custom_exceptions import UserNotFoundException
 from typing import List
 from models.sql.User import User
+from exceptions.user_exceptions import EmailAlreadyTakenError, UserAlreadyExistsException, UserNotFoundException
+
 
 class UserService:
     def __init__(self, user_repository: UserRepository):

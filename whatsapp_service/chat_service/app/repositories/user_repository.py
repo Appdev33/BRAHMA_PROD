@@ -29,37 +29,42 @@ from sqlalchemy.orm import Session
 from models.sql.User import User
 from schemas.user_schema import UserRequestDTO, UserResponseDTO
 from datetime import datetime
+from sqlalchemy.exc import IntegrityError
+from exceptions.user_exceptions import EmailAlreadyTakenError, UserAlreadyExistsException, UserNotFoundException
+import time
+
 
 class UserRepository:
     def __init__(self, db: Session):
         self.db = db
 
     def create_user(self, user: UserRequestDTO) -> UserResponseDTO:
-        # Check if the email already exists
-        existing_user = self.db.query(User).filter(User.email == user.email).first()
-        if existing_user:
-            raise ValueError(f"Email {user.email} is already taken.")
+            # Check if the email already exists
+            existing_user = self.db.query(User).filter(User.email == user.email).first()
+            if existing_user:
+                raise EmailAlreadyTakenError(user.email)  # Raise the custom exception
 
-        # Create a new user in the database
-        db_user = User(name=user.name, email=user.email, created_at=datetime.now(), updated_at=datetime.now())
-        
-        try:
-            # Add the user to the session and commit to the database
-            self.db.add(db_user)
-            self.db.commit()
-            self.db.refresh(db_user)  # Refresh to get the id and other DB fields
-        except IntegrityError as e:
-            self.db.rollback()  # Rollback in case of error
-            raise ValueError(f"Error occurred: {str(e)}")
+            # Create a new user in the database
+            db_user = User(name=user.name, email=user.email, created_at=datetime.now(), updated_at=datetime.now())
+            
+            try:
+                # Add the user to the session and commit to the database
+                self.db.add(db_user)
+                self.db.commit()
+                self.db.refresh(db_user)  # Refresh to get the id and other DB fields
+            except IntegrityError as e:
+                self.db.rollback()  # Rollback in case of error
+                raise ValueError(f"Error occurred: {str(e)}")
 
-        # Return the user as a DTO
-        return UserResponseDTO(
-            id=str(db_user.id),  # Use db_user.id, which will have the generated ID after commit
-            name=db_user.name,
-            email=db_user.email,
-            created_at=db_user.created_at.isoformat(),  # Convert datetime to string
-            updated_at=db_user.updated_at.isoformat(),  # Convert datetime to string
-        )
+            # Return the user as a DTO
+            return UserResponseDTO(
+                id=str(db_user.id),  # Use db_user.id, which will have the generated ID after commit
+                name=db_user.name,
+                email=db_user.email,
+                created_at=db_user.created_at.isoformat(),  
+                updated_at=db_user.updated_at.isoformat(),  
+            )
+
 
 
     def get_user_by_id(self, user_id: int) -> UserResponseDTO | None:
@@ -90,6 +95,7 @@ class UserRepository:
 
     def get_all_users(self) -> list[UserResponseDTO]:
         # Fetch all users and map them to DTOs
+        # time.sleep(5)
         users = self.db.query(User).all()
         return [
             UserResponseDTO(

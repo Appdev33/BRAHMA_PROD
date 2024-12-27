@@ -2,6 +2,16 @@
 from fastapi import FastAPI
 from api.routes.user_routes import router as user_router
 from db.init_db import initialize_db  # Import the DB initialization function (used for development)
+from exceptions.handlers import (
+    email_already_taken_exception_handler, 
+    user_already_exists_exception_handler, 
+    user_not_found_exception_handler
+)
+from exceptions.user_exceptions import (
+    EmailAlreadyTakenError, 
+    UserAlreadyExistsException, 
+    UserNotFoundException
+)
 
 app = FastAPI(
     title="User Service API",
@@ -11,6 +21,11 @@ app = FastAPI(
 
 # Register Routes
 app.include_router(user_router, prefix="/api/users", tags=["Users"])
+
+app.add_exception_handler(EmailAlreadyTakenError, email_already_taken_exception_handler)
+app.add_exception_handler(UserAlreadyExistsException, user_already_exists_exception_handler)
+app.add_exception_handler(UserNotFoundException, user_not_found_exception_handler)
+
 
 # Initialize the database (for dev purposes only)
 @app.on_event("startup")
