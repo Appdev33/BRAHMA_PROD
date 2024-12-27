@@ -55,6 +55,7 @@ from db.sql.config import get_db
 from exceptions.user_exceptions import EmailAlreadyTakenError, UserAlreadyExistsException, UserNotFoundException
 from exceptions.handlers import email_already_taken_exception_handler, user_already_exists_exception_handler, user_not_found_exception_handler
 from fastapi import HTTPException
+import asyncio
 
 router = APIRouter()
 
@@ -108,21 +109,33 @@ async def get_user_by_id(id: int, user_service: UserService = Depends(get_user_s
 
 @router.get("/", response_model=list[UserResponseDTO])
 async def get_all_users(user_service: UserService = Depends(get_user_service)):
+    await asyncio.sleep(5)
     return user_service.get_all_users()
 
 
 @router.delete("/{id}", status_code=204)
-async def delete_user(id: int, user_service: UserService = Depends(get_user_service)):
+def delete_user(id: int, user_service: UserService = Depends(get_user_service)):
     try:
+        # Attempt to delete the user
         user_service.delete_user(id)
-        return None
+        
+        # Log successful deletion
+        # logger.info(f"User with ID {id} deleted successfully.")
+
+        # Returning None and 204 No Content for successful deletion (no body in response)
+        return {"message": f"User with ID {id} deleted successfully."}
     except UserNotFoundException as e:
+        # Handle case where user is not found
+        # logger.warning(f"Attempted to delete non-existent user with ID {id}.")
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail=e.message
+            detail=e.message  # Custom message for user not found
         )
     except Exception as e:
+        # Log unexpected errors and raise a generic internal server error
+        # logger.error(f"Error occurred while deleting user with ID {id}: {str(e)}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Internal Server Error"
+            detail="Internal Server Error occurred while deleting user."
         )
+

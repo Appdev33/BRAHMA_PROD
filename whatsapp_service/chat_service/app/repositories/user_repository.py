@@ -133,7 +133,7 @@ class UserRepository:
             self.db.delete(db_user)
             self.db.commit()
             return UserResponseDTO(
-                id=db_user.id,
+                id=str(db_user.id),
                 name=db_user.name,
                 email=db_user.email,
                 created_at=db_user.created_at,

@@ -30,8 +30,13 @@ app.add_exception_handler(UserNotFoundException, user_not_found_exception_handle
 # Initialize the database (for dev purposes only)
 @app.on_event("startup")
 async def on_startup():
-    # Initialize the database (create tables)
-    initialize_db()
+    """Run during startup to initialize the database."""
+    try:
+        initialize_db()  # Synchronously initialize the database tables
+        print("Database initialized successfully.")
+    except Exception as e:
+        print(f"Error initializing the database: {e}")
+        # Optionally, handle errors like database connection failure
 
 if __name__ == "__main__":
     import uvicorn
