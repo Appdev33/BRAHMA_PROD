@@ -56,7 +56,15 @@ from exceptions.user_exceptions import EmailAlreadyTakenError, UserAlreadyExists
 from exceptions.handlers import email_already_taken_exception_handler, user_already_exists_exception_handler, user_not_found_exception_handler
 from fastapi import HTTPException
 import asyncio
+import logging.config
+from config.logging_config import get_logging_config
 
+# Apply the logging configuration
+logging.config.dictConfig(get_logging_config())
+
+
+# Initialize logger
+logger = logging.getLogger("Controller Chat Application")
 router = APIRouter()
 
 # Dependency Injection
@@ -107,10 +115,31 @@ async def get_user_by_id(id: int, user_service: UserService = Depends(get_user_s
         )
 
 
+# @router.get("/", response_model=list[UserResponseDTO])
+# async def get_all_users(user_service: UserService = Depends(get_user_service)):
+#     logger.info("Start processing request to get all users")  # Log when request starts
+
+#     try:
+#         logger.debug("Waiting for user data retrieval...")  # Debug log for async operation
+#         await asyncio.sleep(5)  # Simulating some async work, you can remove or replace it with real calls.
+#         users = await user_service.get_all_users()
+#         logger.info(f"Successfully retrieved {len(users)} users")  # Log the successful response
+#         return users
+#     except Exception as e:
+#         logger.error(f"An error occurred while fetching users: {e}", exc_info=True)  # Log error with stack trace
+#         raise
 @router.get("/", response_model=list[UserResponseDTO])
 async def get_all_users(user_service: UserService = Depends(get_user_service)):
-    await asyncio.sleep(5)
-    return user_service.get_all_users()
+    logger.info("Start processing request to get all users")
+    try:
+        logger.info("Fetching user data...") 
+        users = user_service.get_all_users()  # No need for await here
+        logger.error(f"Successfully retrieved {len(users)} users")
+        return users
+    except Exception as e:
+        logger.error(f"An error occurred while fetching users: {e}", exc_info=True)
+        raise
+
 
 
 @router.delete("/{id}", status_code=204)

@@ -1,0 +1,44 @@
+{"asctime": "2024-12-29 00:34:12,381", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:34:40,576", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:59783 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 00:34:40,600", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:59783 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:34:57,782", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:59787 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:36:59,378", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:37:06,743", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:59985 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:38:21,780", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:38:27,836", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60039 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:39:19,925", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:42:03,668", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:42:11,538", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60204 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:42:41,401", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:42:44,833", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:42:48,179", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60264 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:44:20,267", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:44:28,301", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60372 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:45:06,487", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:45:11,557", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60397 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:45:33,905", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:46:08,320", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:47:20,294", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:48:20,478", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:49:08,334", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:49:13,902", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:49:30,677", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:49:35,565", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60711 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:50:28,954", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:50:40,491", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60803 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:51:22,312", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:54:08,331", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:57:12,882", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:57:24,808", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:57:28,748", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61128 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:57:51,418", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 00:57:55,426", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61153 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 00:58:16,509", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61177 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 01:00:58,975", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 01:01:59,778", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 01:07:08,897", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 01:07:13,424", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61645 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 01:07:17,841", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61645 - \"GET /api/users/12 HTTP/1.1\" 404", "extra": null}
+{"asctime": "2024-12-29 01:07:20,692", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61645 - \"GET /api/users/13 HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 01:07:37,528", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61661 - \"POST /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 01:07:37,620", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61661 - \"POST /api/users/ HTTP/1.1\" 201", "extra": null}

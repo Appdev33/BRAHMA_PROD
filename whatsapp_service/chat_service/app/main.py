@@ -1,6 +1,9 @@
 # app/main.py
 from fastapi import FastAPI
 from api.routes.user_routes import router as user_router
+from config.base_settings import BaseSettingsConfig
+from app_logging.log_handler import setup_logger
+
 from db.init_db import initialize_db  # Import the DB initialization function (used for development)
 from exceptions.handlers import (
     email_already_taken_exception_handler, 
@@ -18,6 +21,8 @@ app = FastAPI(
     description="An extensible and modular FastAPI-based service for user management.",
     version="1.0.0"
 )
+settings = BaseSettingsConfig()
+logger = setup_logger()
 
 # Register Routes
 app.include_router(user_router, prefix="/api/users", tags=["Users"])
@@ -33,6 +38,7 @@ async def on_startup():
     """Run during startup to initialize the database."""
     try:
         initialize_db()  # Synchronously initialize the database tables
+        logger.info(f"Starting {settings.APP_NAME} in {settings.DEBUG} mode")
         print("Database initialized successfully.")
     except Exception as e:
         print(f"Error initializing the database: {e}")
