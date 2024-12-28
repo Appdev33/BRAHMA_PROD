@@ -46,7 +46,7 @@ public class UserController {
         return ResponseEntity.ok(userService.updateUser(id, userRequestDTO));
     }
     @GetMapping
-    public ResponseEntity<List<UserResponseDTO>> getAllUsers() throws InterruptedException {
+    public ResponseEntity<List<UserResponseDTO>> getAllUsers()  {
 
         return ResponseEntity.ok(userService.getAllUsers());
     }
