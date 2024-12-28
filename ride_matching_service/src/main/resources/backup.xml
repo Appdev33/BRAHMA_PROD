@@ -1,0 +1,47 @@
+<!-- logback-spring.xml -->
+<configuration>
+
+    <!-- Set context property for environment -->
+    <property name="LOGS" value="logs" />
+
+    <!-- Log Pattern -->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} - %msg%n" />
+
+    <!-- Console Appender (for development) -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File Appender (for production) -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOGS}/dev-ride-matching-service.log</file> 
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Rolling File Appender (for large production logs) -->
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/app-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory> <!-- Keep logs for the last 30 days -->
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger configuration -->
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <!-- Set logging level for specific packages -->
+    <logger name="org.springframework.web" level="DEBUG"/>
+    <logger name="com.example.ride_service" level="INFO"/>
+
+</configuration>

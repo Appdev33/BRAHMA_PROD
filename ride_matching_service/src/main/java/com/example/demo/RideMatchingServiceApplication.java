@@ -3,9 +3,16 @@ package com.example.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import io.github.cdimascio.dotenv.Dotenv;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 
 @SpringBootApplication
 public class RideMatchingServiceApplication {
+	
+	private static final Logger logger = LoggerFactory.getLogger(RideMatchingServiceApplication.class);
+
 
     public static void main(String[] args) {
     	
@@ -18,6 +25,7 @@ public class RideMatchingServiceApplication {
         
         
         SpringApplication app = new SpringApplication(RideMatchingServiceApplication.class);
+        logger.info("##########Welcome to Ride Matching Service!##############");
         app.setBanner((environment, sourceClass, out) -> out.println("Welcome to Ride Matching Service!"));
         app.run(args);
     }

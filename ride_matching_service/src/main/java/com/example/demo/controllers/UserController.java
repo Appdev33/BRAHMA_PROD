@@ -20,36 +20,51 @@ import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.services.IUserService;
 
 import jakarta.validation.Valid;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private IUserService userService;
 
     @PostMapping
     public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserRequestDTO userRequestDTO) {
-        return ResponseEntity.ok(userService.createUser(userRequestDTO));
+        logger.info("Creating user with username: {}", userRequestDTO.getName());
+        UserResponseDTO response = userService.createUser(userRequestDTO);
+        logger.info("User created successfully with ID: {}", response.getId());
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDTO> getUserById(@PathVariable Long id) {
-        return ResponseEntity.ok(userService.getUserById(id));
+        logger.debug("Fetching user with ID: {}", id);
+        UserResponseDTO response = userService.getUserById(id);
+        logger.debug("User fetched successfully: {}", response);
+        return ResponseEntity.ok(response);
     }
-    
+
     @PatchMapping("/{id}")
-    public ResponseEntity<UserResponseDTO> updateUser(
-            @PathVariable Long id, 
-            @Valid @RequestBody UserRequestDTO userRequestDTO) {
-        return ResponseEntity.ok(userService.updateUser(id, userRequestDTO));
+    public ResponseEntity<UserResponseDTO> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequestDTO userRequestDTO) {
+        logger.info("Updating user with ID: {}", id);
+        UserResponseDTO response = userService.updateUser(id, userRequestDTO);
+        logger.info("User updated successfully: {}", response);
+        return ResponseEntity.ok(response);
     }
+
     @GetMapping
     public ResponseEntity<List<UserResponseDTO>> getAllUsers()  {
-
-        return ResponseEntity.ok(userService.getAllUsers());
+        logger.info("Fetching all users");
+        List<UserResponseDTO> users = userService.getAllUsers();
+        logger.info("Successfully fetched all users, count: {}", users.size());
+        return ResponseEntity.ok(users);
     }
+
+
     
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
@@ -57,30 +72,28 @@ public class UserController {
             boolean isDeleted = userService.deleteUser(id);  // Attempt to delete the user
 
             if (isDeleted) {
-//                logger.info("User with ID {} successfully deleted.", id);  // Log successful deletion
+                logger.info("User with ID {} successfully deleted.", id);  // Log successful deletion
                 return ResponseEntity
                         .status(HttpStatus.NO_CONTENT)  // 204 No Content
                         .body("User with ID " + id + " deleted successfully.");  // Message body
             } else {
-//                logger.warn("User with ID {} not found for deletion.", id);  // Log when user is not found
+                logger.warn("User with ID {} not found for deletion.", id);  // Log when user is not found
                 return ResponseEntity
                         .status(HttpStatus.NOT_FOUND)  // 404 Not Found
                         .body("User with ID " + id + " not found for deletion.");  // Message body
             }
         } catch (ResourceNotFoundException e) {
-//            logger.error("User deletion failed: {}", e.getMessage());  // Log error with exception message
+            logger.error("User deletion failed: {}", e.getMessage());  // Log error with exception message
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)  // 404 Not Found
                     .body("Error: " + e.getMessage());  // Message body with exception details
         } catch (Exception e) {
-//            logger.error("Unexpected error occurred while deleting user with ID {}: {}", id, e.getMessage());  // Log unexpected error
+            logger.error("Unexpected error occurred while deleting user with ID {}: {}", id, e.getMessage());  // Log unexpected error
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)  // 500 Internal Server Error
                     .body("Unexpected error occurred while deleting the user: " + e.getMessage());  // Message body
         }
-    }
-
-    
+    }   
 }
 
 

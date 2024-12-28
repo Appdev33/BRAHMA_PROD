@@ -1,0 +1,72 @@
+<configuration>
+
+    <!-- Externalize log path for flexibility -->
+    <property name="LOG_PATH" value="${LOG_PATH:-logs}"/> <!-- Default to 'logs' folder if not set -->
+    <property name="LOG_FILE_NAME" value="ride-matching-service-${spring.profiles.active:-dev}.log"/>
+
+
+    <!-- Root appender configuration (Console) -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%-5level] [%t] - %msg%n</pattern> <!-- Basic pattern for console -->
+        </encoder>
+    </appender>
+
+    <!-- File appender with log rotation and structured JSON format -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${LOG_FILE_NAME}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/archived/ride-matching-service.%d{yyyy-MM-dd}.log</fileNamePattern> <!-- Rotates daily -->
+            <maxHistory>30</maxHistory> <!-- Keep logs for 30 days -->
+        </rollingPolicy>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <fieldNames>
+                <timestamp>timestamp</timestamp>
+                <level>log_level</level>
+                <thread>thread_name</thread>
+                <logger>logger_name</logger>
+                <message>message</message>
+                <stack_trace>stack_trace</stack_trace> <!-- Include stack traces for errors -->
+            </fieldNames>
+            <customFields>
+                <service>ride-matching-service</service>
+                <environment>${spring.profiles.active}</environment>
+                <host>${HOSTNAME}</host> <!-- Adds host name for distributed systems -->
+            </customFields>
+        </encoder>
+    </appender>
+
+    <!-- Logstash configuration for sending logs to a remote system (currently commented out) -->
+    <!--
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>logstash-server:5000</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <fieldNames>
+                <timestamp>timestamp</timestamp>
+                <level>log_level</level>
+                <thread>thread_name</thread>
+                <logger>logger_name</logger>
+                <message>message</message>
+            </fieldNames>
+            <customFields>
+                <service>ride-matching-service</service>
+                <environment>${spring.profiles.active}</environment>
+                <host>${HOSTNAME}</host>
+            </customFields>
+        </encoder>
+    </appender>
+    -->
+
+    <!-- Logger definitions for different log levels -->
+    <logger name="org.springframework" level="WARN"/> <!-- Adjust log level for Spring Framework -->
+    <logger name="com.example.ride_matching_service" level="DEBUG"/> <!-- Adjust log level for your services -->
+
+    <!-- Root logger configuration -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+        <!-- <appender-ref ref="LOGSTASH"/> --> <!-- Commented out until you implement Logstash -->
+    </root>
+
+</configuration>
