@@ -28,7 +28,8 @@ import org.slf4j.LoggerFactory;
 public class UserController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-
+	
+	
     @Autowired
     private IUserService userService;
 
@@ -44,7 +45,7 @@ public class UserController {
     public ResponseEntity<UserResponseDTO> getUserById(@PathVariable Long id) {
         logger.debug("Fetching user with ID: {}", id);
         UserResponseDTO response = userService.getUserById(id);
-        logger.debug("User fetched successfully: {}", response);
+        logger.debug("User fetched successfully: {}", response.getName());
         return ResponseEntity.ok(response);
     }
 
