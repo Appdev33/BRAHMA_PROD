@@ -64,8 +64,6 @@ public class UserController {
         logger.info("Successfully fetched all users, count: {}", users.size());
         return ResponseEntity.ok(users);
     }
-
-
     
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
