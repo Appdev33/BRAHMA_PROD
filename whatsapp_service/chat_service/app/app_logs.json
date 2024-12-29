@@ -1,44 +1,135 @@
-{"asctime": "2024-12-29 00:34:12,381", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:34:40,576", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:59783 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 00:34:40,600", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:59783 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:34:57,782", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:59787 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:36:59,378", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:37:06,743", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:59985 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:38:21,780", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:38:27,836", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60039 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:39:19,925", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:42:03,668", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:42:11,538", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60204 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:42:41,401", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:42:44,833", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:42:48,179", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60264 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:44:20,267", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:44:28,301", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60372 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:45:06,487", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:45:11,557", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60397 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:45:33,905", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:46:08,320", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:47:20,294", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:48:20,478", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:49:08,334", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:49:13,902", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:49:30,677", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:49:35,565", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60711 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:50:28,954", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:50:40,491", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:60803 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:51:22,312", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:54:08,331", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:57:12,882", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:57:24,808", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:57:28,748", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61128 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:57:51,418", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 00:57:55,426", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61153 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 00:58:16,509", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61177 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 01:00:58,975", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 01:01:59,778", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 01:07:08,897", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 01:07:13,424", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61645 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 01:07:17,841", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61645 - \"GET /api/users/12 HTTP/1.1\" 404", "extra": null}
-{"asctime": "2024-12-29 01:07:20,692", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61645 - \"GET /api/users/13 HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 01:07:37,528", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61661 - \"POST /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 01:07:37,620", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:61661 - \"POST /api/users/ HTTP/1.1\" 201", "extra": null}
+{"asctime": "2024-12-29 19:41:46,791", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 19:42:15,692", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 19:42:27,742", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 19:43:03,717", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 19:43:09,003", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:62975 - \"POST /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 19:43:09,027", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:62975 - \"POST /api/users/ HTTP/1.1\" 400", "extra": null}
+{"asctime": "2024-12-29 19:43:15,544", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:62980 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 19:43:15,565", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:62980 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 19:48:32,561", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:04:53,342", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:05:10,200", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:06:43,989", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:07:32,375", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:07:36,908", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64339 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 20:07:36,908", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64339 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 20:07:36,926", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64339 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:07:36,926", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64339 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:10:28,190", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:11:29,643", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:12:09,513", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:12:15,956", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64531 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 20:12:15,956", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64531 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 20:12:15,972", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64531 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:12:15,972", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64531 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:13:59,266", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:14:04,993", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64682 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 20:14:04,993", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64682 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 20:14:05,003", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "extra": null}
+{"asctime": "2024-12-29 20:14:05,003", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "extra": null}
+{"asctime": "2024-12-29 20:14:05,014", "name": "app", "levelname": "ERROR", "message": "Successfully retrieved 8 users", "extra": null}
+{"asctime": "2024-12-29 20:14:05,016", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64682 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:14:05,016", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64682 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:14:39,220", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:14:44,201", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:14:51,592", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64745 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:14:51,592", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64745 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:15:33,343", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:16:54,962", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:16:58,511", "name": "app", "levelname": "INFO", "message": "Successfully retrieved id='14' name='Shivni' email='shivk@gmail.com' created_at=datetime.datetime(2024, 12, 27, 12, 8, 7) updated_at=datetime.datetime(2024, 12, 27, 12, 8, 7) ", "extra": null}
+{"asctime": "2024-12-29 20:16:58,516", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64828 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:16:58,516", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64828 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:17:25,645", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:17:28,362", "name": "app", "levelname": "INFO", "message": "Successfully retrieved Shivni ", "extra": null}
+{"asctime": "2024-12-29 20:17:28,367", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64857 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:17:28,367", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64857 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:17:59,122", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:18:25,318", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:18:34,639", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:19:02,997", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:19:07,243", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:19:14,505", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64940 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 20:19:14,505", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64940 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
+{"asctime": "2024-12-29 20:19:14,516", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "extra": null}
+{"asctime": "2024-12-29 20:19:14,517", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "extra": null}
+{"asctime": "2024-12-29 20:19:14,517", "name": "app", "levelname": "INFO", "message": "Get all users", "extra": null}
+{"asctime": "2024-12-29 20:19:14,529", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "extra": null}
+{"asctime": "2024-12-29 20:19:14,531", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64940 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:19:14,531", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64940 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
+{"asctime": "2024-12-29 20:23:35,839", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
+{"asctime": "2024-12-29 20:27:35,424", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "funcName": "on_startup", "lineno": 52, "extra": null}
+{"asctime": "2024-12-29 20:30:15,595", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "funcName": "on_startup", "lineno": 52, "extra": null}
+{"asctime": "2024-12-29 20:30:20,172", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49202 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
+{"asctime": "2024-12-29 20:30:20,172", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49202 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
+{"asctime": "2024-12-29 20:30:20,185", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "funcName": "get_all_users", "lineno": 135, "extra": null}
+{"asctime": "2024-12-29 20:30:20,185", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "funcName": "get_all_users", "lineno": 137, "extra": null}
+{"asctime": "2024-12-29 20:30:20,186", "name": "app", "levelname": "INFO", "message": "Getting all Users application", "filename": "user_service.py", "funcName": "get_all_users", "lineno": 30, "extra": null, "file": "UserService", "version": "1.0"}
+{"asctime": "2024-12-29 20:30:20,208", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "funcName": "get_all_users", "lineno": 139, "extra": null}
+{"asctime": "2024-12-29 20:30:20,212", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49202 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
+{"asctime": "2024-12-29 20:30:20,212", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49202 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
+{"asctime": "2024-12-29 20:31:06,052", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49230 - \"GET /api/users/12 HTTP/1.1\" 404", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
+{"asctime": "2024-12-29 20:31:06,052", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49230 - \"GET /api/users/12 HTTP/1.1\" 404", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
+{"asctime": "2024-12-29 20:33:25,133", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:33:30,239", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users/12 HTTP/1.1\" 404", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:33:30,239", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users/12 HTTP/1.1\" 404", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:33:34,630", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:33:34,630", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:33:34,635", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:33:34,635", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:33:34,635", "name": "app", "levelname": "INFO", "message": "Getting all Users application", "filename": "user_service.py", "extra": null, "file": "UserService", "version": "1.0"}
+{"asctime": "2024-12-29 20:33:34,641", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:33:34,643", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:33:34,643", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:37:43,913", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
+{"asctime": "2024-12-29 20:37:47,436", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49599 - \"GET /api/users HTTP/1.1\" 307", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
+{"asctime": "2024-12-29 20:37:47,436", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49599 - \"GET /api/users HTTP/1.1\" 307", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
+{"asctime": "2024-12-29 20:37:47,441", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
+{"asctime": "2024-12-29 20:37:47,442", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
+{"asctime": "2024-12-29 20:37:47,442", "name": "app", "levelname": "INFO", "message": "Getting all Users application", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null, "file": "UserService", "version": "1.0"}
+{"asctime": "2024-12-29 20:37:47,446", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
+{"asctime": "2024-12-29 20:37:47,448", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49599 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
+{"asctime": "2024-12-29 20:37:47,448", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49599 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
+{"asctime": "2024-12-29 20:38:36,492", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:38:40,333", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49631 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:38:40,333", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49631 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:38:40,342", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:38:40,342", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:38:40,342", "name": "app", "levelname": "INFO", "message": "Getting all Users application", "filename": "user_service.py", "extra": null, "file": "UserService", "version": "1.0"}
+{"asctime": "2024-12-29 20:38:40,346", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:38:40,347", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49631 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:38:40,347", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49631 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:40:15,553", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:40:21,848", "name": "app", "levelname": "INFO", "message": "Successfully retrieved Shivani ", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:40:21,851", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49686 - \"GET /api/users/13 HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:40:21,851", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49686 - \"GET /api/users/13 HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:40:47,201", "name": "app", "levelname": "INFO", "message": "Successfully retrieved Shivni ", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:40:47,205", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49707 - \"GET /api/users/14 HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:40:47,205", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49707 - \"GET /api/users/14 HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:41:55,620", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:41:59,550", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:42:06,287", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49816 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:06,287", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49816 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:06,298", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:42:06,298", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:42:06,298", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
+{"asctime": "2024-12-29 20:42:06,307", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:42:06,309", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49816 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:06,309", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49816 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:38,181", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:42:41,948", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49884 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:41,948", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49884 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:41,957", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:42:41,957", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:42:41,957", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
+{"asctime": "2024-12-29 20:42:41,963", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:42:41,964", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49884 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:41,964", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49884 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:48,779", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:42:52,729", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49893 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:52,729", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49893 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:52,737", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:42:52,737", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:42:52,737", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
+{"asctime": "2024-12-29 20:42:52,741", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 20:42:52,743", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49893 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:42:52,743", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49893 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}

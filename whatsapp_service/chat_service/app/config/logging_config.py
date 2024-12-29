@@ -1,5 +1,4 @@
-import logging
-import logging.config
+
 from pythonjsonlogger import jsonlogger
 
 def get_logging_config():
@@ -9,20 +8,20 @@ def get_logging_config():
         "formatters": {
             "json": {
                 "()": jsonlogger.JsonFormatter,
-                "format": "%(asctime)s %(name)s %(levelname)s %(message)s %(extra)s"
+                  "format": "%(asctime)s %(name)s %(levelname)s %(message)s %(filename)s  %(extra)s"
             },
             "default": {
-                "format": "%(asctime)s %(name)s %(levelname)s %(message)s"
+                  "format": "%(asctime)s %(name)s %(levelname)s %(message)s %(filename)s  %(extra)s"
             }
         },
         "handlers": {
             "console": {
-                "level": "INFO",  # Make sure it's INFO or lower (e.g., DEBUG)
+                "level": "INFO",
                 "class": "logging.StreamHandler",
                 "formatter": "json",
             },
             "file": {
-                "level": "INFO",  # Same here, INFO level for file handler
+                "level": "INFO",
                 "class": "logging.FileHandler",
                 "filename": "app_logs.json",
                 "formatter": "json",
@@ -30,7 +29,7 @@ def get_logging_config():
         },
         "loggers": {
             "uvicorn": {
-                "level": "INFO",  # Ensure uvicorn logs at INFO level
+                "level": "INFO",
                 "handlers": ["console", "file"],
                 "propagate": True,
             },
@@ -40,15 +39,18 @@ def get_logging_config():
                 "propagate": False,
             },
             "uvicorn.access": {
-                "level": "INFO",  # Ensure access logs are captured at INFO level
+                "level": "INFO",
                 "handlers": ["console", "file"],
-                "propagate": False,
+                "propagate": True,  # Ensure propagation is enabled
             },
             "app": {
-                "level": "INFO",  # Ensure your app logs are also captured at INFO level
+                "level": "INFO",
                 "handlers": ["console", "file"],
                 "propagate": True,
             },
         },
     }
+
+
+
 

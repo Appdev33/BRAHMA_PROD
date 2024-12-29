@@ -55,16 +55,17 @@ from db.sql.config import get_db
 from exceptions.user_exceptions import EmailAlreadyTakenError, UserAlreadyExistsException, UserNotFoundException
 from exceptions.handlers import email_already_taken_exception_handler, user_already_exists_exception_handler, user_not_found_exception_handler
 from fastapi import HTTPException
-import asyncio
-import logging.config
-from config.logging_config import get_logging_config
+# import logging.config
+# from config.logging_config import get_logging_config
+from app_logging.log_handler import setup_logger
 
 # Apply the logging configuration
-logging.config.dictConfig(get_logging_config())
+# logging.config.dictConfig(get_logging_config())
 
 
 # Initialize logger
-logger = logging.getLogger("Controller Chat Application")
+# logger = logging.getLogger("Controller Chat Application")
+logger = setup_logger()
 router = APIRouter()
 
 # Dependency Injection
@@ -102,6 +103,7 @@ def create_user(user_request: UserRequestDTO, user_service: UserService = Depend
 @router.get("/{id}", response_model=UserResponseDTO)
 async def get_user_by_id(id: int, user_service: UserService = Depends(get_user_service)):
     try:
+        logger.info(f"Successfully retrieved {user_service.get_user_by_id(id).name} ")
         return user_service.get_user_by_id(id)
     except UserNotFoundException as e:
         raise HTTPException(
@@ -134,7 +136,7 @@ async def get_all_users(user_service: UserService = Depends(get_user_service)):
     try:
         logger.info("Fetching user data...") 
         users = user_service.get_all_users()  # No need for await here
-        logger.error(f"Successfully retrieved {len(users)} users")
+        logger.info(f"Successfully retrieved {len(users)} users")
         return users
     except Exception as e:
         logger.error(f"An error occurred while fetching users: {e}", exc_info=True)

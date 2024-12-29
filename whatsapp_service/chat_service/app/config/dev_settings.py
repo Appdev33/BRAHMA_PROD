@@ -7,3 +7,6 @@ class DevSettingsConfig(BaseSettingsConfig):
 
     class Config:
         env_file = ".env.dev"
+
+
+

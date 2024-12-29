@@ -4,6 +4,10 @@ from schemas.user_schema import UserRequestDTO, UserResponseDTO
 from typing import List
 from models.sql.User import User
 from exceptions.user_exceptions import EmailAlreadyTakenError, UserAlreadyExistsException, UserNotFoundException
+from app_logging.log_handler import setup_logger
+
+
+logger = setup_logger()
 
 
 class UserService:
@@ -23,6 +27,8 @@ class UserService:
 
     def get_all_users(self) -> List[UserResponseDTO]:
         # Use repository to fetch all users and return the list of DTOs
+        logger.info("#############Getting all Users application")
+
         return self.user_repository.get_all_users()
 
     def update_user(self, user_id: int, user_request: UserRequestDTO) -> UserResponseDTO:

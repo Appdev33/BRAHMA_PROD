@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from api.routes.user_routes import router as user_router
 from config.base_settings import BaseSettingsConfig
 from app_logging.log_handler import setup_logger
+from fastapi.middleware.cors import CORSMiddleware
 
 from db.init_db import initialize_db  # Import the DB initialization function (used for development)
 from exceptions.handlers import (
@@ -21,6 +22,16 @@ app = FastAPI(
     description="An extensible and modular FastAPI-based service for user management.",
     version="1.0.0"
 )
+
+# Middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Restrict in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 settings = BaseSettingsConfig()
 logger = setup_logger()
 
@@ -47,3 +58,4 @@ async def on_startup():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+
