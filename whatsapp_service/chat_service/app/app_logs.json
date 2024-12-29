@@ -1,135 +1,281 @@
-{"asctime": "2024-12-29 19:41:46,791", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 19:42:15,692", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 19:42:27,742", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 19:43:03,717", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 19:43:09,003", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:62975 - \"POST /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 19:43:09,027", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:62975 - \"POST /api/users/ HTTP/1.1\" 400", "extra": null}
-{"asctime": "2024-12-29 19:43:15,544", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:62980 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 19:43:15,565", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:62980 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 19:48:32,561", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:04:53,342", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:05:10,200", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:06:43,989", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:07:32,375", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:07:36,908", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64339 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 20:07:36,908", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64339 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 20:07:36,926", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64339 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:07:36,926", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64339 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:10:28,190", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:11:29,643", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:12:09,513", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:12:15,956", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64531 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 20:12:15,956", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64531 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 20:12:15,972", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64531 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:12:15,972", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64531 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:13:59,266", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:14:04,993", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64682 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 20:14:04,993", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64682 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 20:14:05,003", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "extra": null}
-{"asctime": "2024-12-29 20:14:05,003", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "extra": null}
-{"asctime": "2024-12-29 20:14:05,014", "name": "app", "levelname": "ERROR", "message": "Successfully retrieved 8 users", "extra": null}
-{"asctime": "2024-12-29 20:14:05,016", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64682 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:14:05,016", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64682 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:14:39,220", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:14:44,201", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:14:51,592", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64745 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:14:51,592", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64745 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:15:33,343", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:16:54,962", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:16:58,511", "name": "app", "levelname": "INFO", "message": "Successfully retrieved id='14' name='Shivni' email='shivk@gmail.com' created_at=datetime.datetime(2024, 12, 27, 12, 8, 7) updated_at=datetime.datetime(2024, 12, 27, 12, 8, 7) ", "extra": null}
-{"asctime": "2024-12-29 20:16:58,516", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64828 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:16:58,516", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64828 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:17:25,645", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:17:28,362", "name": "app", "levelname": "INFO", "message": "Successfully retrieved Shivni ", "extra": null}
-{"asctime": "2024-12-29 20:17:28,367", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64857 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:17:28,367", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64857 - \"GET /api/users/14 HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:17:59,122", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:18:25,318", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:18:34,639", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:19:02,997", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:19:07,243", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:19:14,505", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64940 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 20:19:14,505", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64940 - \"GET /api/users HTTP/1.1\" 307", "extra": null}
-{"asctime": "2024-12-29 20:19:14,516", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "extra": null}
-{"asctime": "2024-12-29 20:19:14,517", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "extra": null}
-{"asctime": "2024-12-29 20:19:14,517", "name": "app", "levelname": "INFO", "message": "Get all users", "extra": null}
-{"asctime": "2024-12-29 20:19:14,529", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "extra": null}
-{"asctime": "2024-12-29 20:19:14,531", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64940 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:19:14,531", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:64940 - \"GET /api/users/ HTTP/1.1\" 200", "extra": null}
-{"asctime": "2024-12-29 20:23:35,839", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "extra": null}
-{"asctime": "2024-12-29 20:27:35,424", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "funcName": "on_startup", "lineno": 52, "extra": null}
-{"asctime": "2024-12-29 20:30:15,595", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "funcName": "on_startup", "lineno": 52, "extra": null}
-{"asctime": "2024-12-29 20:30:20,172", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49202 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
-{"asctime": "2024-12-29 20:30:20,172", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49202 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
-{"asctime": "2024-12-29 20:30:20,185", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "funcName": "get_all_users", "lineno": 135, "extra": null}
-{"asctime": "2024-12-29 20:30:20,185", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "funcName": "get_all_users", "lineno": 137, "extra": null}
-{"asctime": "2024-12-29 20:30:20,186", "name": "app", "levelname": "INFO", "message": "Getting all Users application", "filename": "user_service.py", "funcName": "get_all_users", "lineno": 30, "extra": null, "file": "UserService", "version": "1.0"}
-{"asctime": "2024-12-29 20:30:20,208", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "funcName": "get_all_users", "lineno": 139, "extra": null}
-{"asctime": "2024-12-29 20:30:20,212", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49202 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
-{"asctime": "2024-12-29 20:30:20,212", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49202 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
-{"asctime": "2024-12-29 20:31:06,052", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49230 - \"GET /api/users/12 HTTP/1.1\" 404", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
-{"asctime": "2024-12-29 20:31:06,052", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49230 - \"GET /api/users/12 HTTP/1.1\" 404", "filename": "h11_impl.py", "funcName": "send", "lineno": 473, "extra": null}
-{"asctime": "2024-12-29 20:33:25,133", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
-{"asctime": "2024-12-29 20:33:30,239", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users/12 HTTP/1.1\" 404", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:33:30,239", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users/12 HTTP/1.1\" 404", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:33:34,630", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:33:34,630", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:33:34,635", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:33:34,635", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:33:34,635", "name": "app", "levelname": "INFO", "message": "Getting all Users application", "filename": "user_service.py", "extra": null, "file": "UserService", "version": "1.0"}
-{"asctime": "2024-12-29 20:33:34,641", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:33:34,643", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:33:34,643", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49332 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:37:43,913", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
-{"asctime": "2024-12-29 20:37:47,436", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49599 - \"GET /api/users HTTP/1.1\" 307", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
-{"asctime": "2024-12-29 20:37:47,436", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49599 - \"GET /api/users HTTP/1.1\" 307", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
-{"asctime": "2024-12-29 20:37:47,441", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
-{"asctime": "2024-12-29 20:37:47,442", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
-{"asctime": "2024-12-29 20:37:47,442", "name": "app", "levelname": "INFO", "message": "Getting all Users application", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null, "file": "UserService", "version": "1.0"}
-{"asctime": "2024-12-29 20:37:47,446", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
-{"asctime": "2024-12-29 20:37:47,448", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49599 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
-{"asctime": "2024-12-29 20:37:47,448", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49599 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/logging/__init__.py", "extra": null}
-{"asctime": "2024-12-29 20:38:36,492", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
-{"asctime": "2024-12-29 20:38:40,333", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49631 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:38:40,333", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49631 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:38:40,342", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:38:40,342", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:38:40,342", "name": "app", "levelname": "INFO", "message": "Getting all Users application", "filename": "user_service.py", "extra": null, "file": "UserService", "version": "1.0"}
-{"asctime": "2024-12-29 20:38:40,346", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:38:40,347", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49631 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:38:40,347", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49631 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:40:15,553", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
-{"asctime": "2024-12-29 20:40:21,848", "name": "app", "levelname": "INFO", "message": "Successfully retrieved Shivani ", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:40:21,851", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49686 - \"GET /api/users/13 HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:40:21,851", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49686 - \"GET /api/users/13 HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:40:47,201", "name": "app", "levelname": "INFO", "message": "Successfully retrieved Shivni ", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:40:47,205", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49707 - \"GET /api/users/14 HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:40:47,205", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49707 - \"GET /api/users/14 HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:41:55,620", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
-{"asctime": "2024-12-29 20:41:59,550", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
-{"asctime": "2024-12-29 20:42:06,287", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49816 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:06,287", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49816 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:06,298", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:42:06,298", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:42:06,298", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
-{"asctime": "2024-12-29 20:42:06,307", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:42:06,309", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49816 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:06,309", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49816 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:38,181", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
-{"asctime": "2024-12-29 20:42:41,948", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49884 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:41,948", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49884 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:41,957", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:42:41,957", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:42:41,957", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
-{"asctime": "2024-12-29 20:42:41,963", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:42:41,964", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49884 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:41,964", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49884 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:48,779", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
-{"asctime": "2024-12-29 20:42:52,729", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49893 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:52,729", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49893 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:52,737", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:42:52,737", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:42:52,737", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
-{"asctime": "2024-12-29 20:42:52,741", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
-{"asctime": "2024-12-29 20:42:52,743", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49893 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
-{"asctime": "2024-12-29 20:42:52,743", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:49893 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 20:50:34,275", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:50:34,296", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:50:34,296", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:50:34,296", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:51:25,983", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 20:51:26,013", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:51:26,032", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:51:26,032", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:51:26,032", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:53:24,545", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 20:53:24,573", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:53:24,593", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:53:24,593", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:53:24,593", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:53:37,592", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 20:53:37,958", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 20:53:37,980", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:53:37,997", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:53:37,997", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:53:37,997", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:56:25,210", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 20:56:25,212", "name": "app", "levelname": "INFO", "message": "Loaded environment settings from .env.dev", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:56:25,241", "name": "app", "levelname": "INFO", "message": "Loaded environment settings from .env.dev", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:56:25,242", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:56:25,260", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:56:25,260", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:56:25,260", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:56:48,355", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 20:56:48,383", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:56:48,404", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 20:56:48,404", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 20:56:48,404", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:00:51,987", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:00:52,015", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:00:52,039", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:00:52,039", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:00:52,039", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:01:18,666", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:01:18,693", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:01:18,715", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:01:18,715", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:01:18,715", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:01:24,123", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:01:24,157", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:01:24,179", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:01:24,179", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:01:24,179", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:02:09,697", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:02:10,068", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:02:10,093", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:02:10,120", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:02:10,121", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:02:10,121", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:02:17,052", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:02:17,078", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:02:17,097", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:02:17,097", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:02:17,097", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:02:26,801", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:02:26,836", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:02:26,862", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:02:26,862", "name": "app", "levelname": "INFO", "message": "Starting FastAPI Chat Microservice in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:02:26,862", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:07:48,654", "name": "app", "levelname": "INFO", "message": "Using development environment", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:08:38,111", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:08:38,133", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:08:38,133", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:08:38,133", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:08:46,688", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:08:46,702", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:08:46,702", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:08:46,702", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:09:08,194", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:51700 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:09:08,194", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:51700 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:09:08,206", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:09:08,206", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:09:08,206", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
+{"asctime": "2024-12-29 21:09:08,221", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:09:08,224", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:51700 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:09:08,224", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:51700 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:17:06,601", "name": "app", "levelname": "INFO", "message": ">>>>>>>>>>>>>User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:19:58,515", "name": "app", "levelname": "INFO", "message": ">>>>>>>>>>>>>User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:19:58,887", "name": "app", "levelname": "INFO", "message": ">>>>>>>>>>>>>User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:19:58,926", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:19:58,947", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:19:58,947", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:19:58,947", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:21:58,677", "name": "app", "levelname": "INFO", "message": ">>>>>>>>>>>>>User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:21:58,724", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:21:58,747", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:21:58,748", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:21:58,748", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:22:03,072", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:52708 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:22:03,072", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:52708 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:22:03,089", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:22:03,090", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:22:03,090", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
+{"asctime": "2024-12-29 21:22:03,099", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:22:03,102", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:52708 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:22:03,102", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:52708 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:22:39,556", "name": "app", "levelname": "INFO", "message": ">>>>>>>>>>>>>User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:23:23,695", "name": "app", "levelname": "INFO", "message": ">>>>>>>>>>>>>User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:24:08,855", "name": "app", "levelname": "INFO", "message": ">>>>>>>>>>>>>User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:24:19,912", "name": "app", "levelname": "INFO", "message": ">>>>>>>>>>>>>User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:24:19,964", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:24:19,995", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:24:19,995", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:24:19,995", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:24:22,181", "name": "app", "levelname": "INFO", "message": ">>>>>>>>>>>>>User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:24:22,293", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:24:22,308", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:24:22,308", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:24:22,308", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:27:28,735", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:27:54,246", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:33:05,256", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:34:44,111", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:35:43,711", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:36:35,336", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:36:35,715", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:36:35,754", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:36:35,781", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:36:35,781", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:36:35,781", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:36:50,378", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:36:50,426", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:36:50,451", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:36:50,452", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:36:50,452", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:37:32,080", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:37:32,128", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:37:32,148", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:37:32,148", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:37:32,148", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:38:13,561", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:38:22,505", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:38:22,554", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:38:22,579", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:38:22,579", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:38:22,579", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:38:31,519", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:38:31,910", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:38:31,949", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:38:31,972", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:38:31,972", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:38:31,972", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:38:40,923", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:38:40,962", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:38:40,979", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:38:40,979", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:38:40,979", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:39:17,432", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:39:42,012", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:39:42,063", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:39:42,084", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:39:42,084", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:39:42,084", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:39:59,683", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:39:59,732", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:39:59,746", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:39:59,746", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:39:59,746", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:40:16,549", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:40:16,896", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:40:16,934", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:40:16,957", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:40:16,957", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:40:16,957", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:40:24,847", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:40:25,204", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:40:25,241", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:40:25,256", "name": "app", "levelname": "INFO", "message": "Error initializing the database: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:40:45,239", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:40:45,618", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:40:45,656", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:40:45,678", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:40:45,678", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:40:45,678", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:40:49,584", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:54072 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:40:49,584", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:54072 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:40:49,591", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:40:49,591", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:40:49,591", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
+{"asctime": "2024-12-29 21:40:49,597", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:40:49,599", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:54072 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:40:49,599", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:54072 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:41:20,518", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:41:20,572", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:41:20,605", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:41:20,605", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:41:20,605", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:43:06,488", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:43:21,984", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:43:22,031", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:43:22,056", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:43:22,056", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:43:22,056", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:43:31,793", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:43:31,844", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:43:31,854", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:43:31,854", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:43:31,854", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:43:35,620", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:54254 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:43:35,620", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:54254 - \"GET /api/users HTTP/1.1\" 307", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:43:35,629", "name": "app", "levelname": "INFO", "message": "Start processing request to get all users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:43:35,629", "name": "app", "levelname": "INFO", "message": "Fetching user data...", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:43:35,629", "name": "app", "levelname": "INFO", "message": "#############Getting all Users application", "filename": "user_service.py", "extra": null}
+{"asctime": "2024-12-29 21:43:35,640", "name": "app", "levelname": "INFO", "message": "Successfully retrieved 8 users", "filename": "user_routes.py", "extra": null}
+{"asctime": "2024-12-29 21:43:35,642", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:54254 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:43:35,642", "name": "uvicorn.access", "levelname": "INFO", "message": "127.0.0.1:54254 - \"GET /api/users/ HTTP/1.1\" 200", "filename": "h11_impl.py", "extra": null}
+{"asctime": "2024-12-29 21:44:52,888", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:44:52,934", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:44:52,953", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:44:52,953", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:44:52,953", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:45:00,662", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:45:00,707", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:45:00,723", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:45:00,723", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:45:00,723", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:45:07,309", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:45:07,354", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:45:07,382", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:45:07,382", "name": "app", "levelname": "INFO", "message": "Starting User Service API in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:45:07,382", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:47:22,208", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:47:22,569", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:47:22,605", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:47:22,625", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:47:22,625", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:47:22,625", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:47:53,643", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:47:53,692", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:47:53,710", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:47:53,710", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:47:53,710", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:48:17,845", "name": "app", "levelname": "INFO", "message": "Loaded settings for User Service API + environmet loader ../.env.dev", "filename": "base_settings.py", "extra": null}
+{"asctime": "2024-12-29 21:48:17,891", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:48:17,912", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:48:17,912", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:48:17,912", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:49:51,324", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:49:51,344", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:49:51,344", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:49:51,344", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:06,193", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:06,209", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:06,209", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:06,209", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:13,678", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:13,692", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:13,692", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:13,692", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:18,902", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:18,918", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:18,919", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:18,919", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:30,416", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:30,441", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:30,441", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:30,441", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:56,515", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:56,532", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:50:56,532", "name": "app", "levelname": "INFO", "message": "Starting User Service API Production in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:50:56,532", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:51:45,853", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:51:45,873", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:51:45,873", "name": "app", "levelname": "INFO", "message": "Starting User Service API Production in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:51:45,873", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:52:13,469", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:52:13,490", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:52:13,490", "name": "app", "levelname": "INFO", "message": "Starting User Service API Production in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:52:13,490", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:52:18,751", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:52:18,766", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:52:18,766", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:52:18,766", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:52:23,272", "name": "app", "levelname": "INFO", "message": "Checking if tables need to be created...", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:52:23,291", "name": "app", "levelname": "INFO", "message": "Tables already exist. No action needed.", "filename": "init_db.py", "extra": null}
+{"asctime": "2024-12-29 21:52:23,291", "name": "app", "levelname": "INFO", "message": "Starting User Service API Development in False mode", "filename": "main.py", "extra": null}
+{"asctime": "2024-12-29 21:52:23,291", "name": "app", "levelname": "INFO", "message": "Database initialized successfully.", "filename": "main.py", "extra": null}

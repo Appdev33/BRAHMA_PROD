@@ -3,9 +3,9 @@ from fastapi import FastAPI
 from api.routes.user_routes import router as user_router
 from config.base_settings import BaseSettingsConfig
 from app_logging.log_handler import setup_logger
-from fastapi.middleware.cors import CORSMiddleware
-
+# from fastapi.middleware.cors import CORSMiddleware
 from db.init_db import initialize_db  # Import the DB initialization function (used for development)
+
 from exceptions.handlers import (
     email_already_taken_exception_handler, 
     user_already_exists_exception_handler, 
@@ -24,13 +24,13 @@ app = FastAPI(
 )
 
 # Middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Restrict in production
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],  # Restrict in production
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 settings = BaseSettingsConfig()
 logger = setup_logger()
@@ -50,9 +50,9 @@ async def on_startup():
     try:
         initialize_db()  # Synchronously initialize the database tables
         logger.info(f"Starting {settings.APP_NAME} in {settings.DEBUG} mode")
-        print("Database initialized successfully.")
+        logger.info("Database initialized successfully.")
     except Exception as e:
-        print(f"Error initializing the database: {e}")
+        logger.info(f"Error initializing the database: {e}")
         # Optionally, handle errors like database connection failure
 
 if __name__ == "__main__":
