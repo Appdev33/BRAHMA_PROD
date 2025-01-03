@@ -27,7 +27,7 @@ class UserService:
 
     def get_all_users(self) -> List[UserResponseDTO]:
         # Use repository to fetch all users and return the list of DTOs
-        logger.info("#############Getting all Users application")
+        logger.info("#Getting all Users application")
 
         return self.user_repository.get_all_users()
 

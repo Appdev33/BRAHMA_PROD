@@ -43,17 +43,30 @@ app.add_exception_handler(UserAlreadyExistsException, user_already_exists_except
 app.add_exception_handler(UserNotFoundException, user_not_found_exception_handler)
 
 
-# Initialize the database (for dev purposes only)
+# # Initialize the database (for dev purposes only)
+# @app.on_event("startup")
+# async def on_startup():
+#     """Run during startup to initialize the database."""
+#     try:
+#         initialize_db()  # Synchronously initialize the database tables
+#         logger.info(f"Starting {settings.APP_NAME} in {settings.DEBUG} mode")
+#         logger.info("Database initialized successfully.")
+#     except Exception as e:
+#         logger.info(f"Error initializing the database: {e}")
+#         # Optionally, handle errors like database connection failure
+
 @app.on_event("startup")
 async def on_startup():
     """Run during startup to initialize the database."""
     try:
-        initialize_db()  # Synchronously initialize the database tables
+        # Ensure the database is initialized asynchronously
+        await initialize_db()  # Ensure you're awaiting the async function
         logger.info(f"Starting {settings.APP_NAME} in {settings.DEBUG} mode")
         logger.info("Database initialized successfully.")
     except Exception as e:
-        logger.info(f"Error initializing the database: {e}")
+        logger.error(f"Error initializing the database: {e}")
         # Optionally, handle errors like database connection failure
+
 
 if __name__ == "__main__":
     import uvicorn

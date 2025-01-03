@@ -28,44 +28,5 @@ class BaseSettingsConfig(BaseSettings):
 # Create an instance of settings
 settings = BaseSettingsConfig()
 
-print("######################" + str(settings.APP_NAME))
 
-
-# from pydantic_settings import BaseSettings
-# from app_logging.log_handler import setup_logger
-
-
-# logger = setup_logger()
-
-# class BaseSettingsConfig(BaseSettings):
-#     APP_NAME: str = "FastAPI Chat Microservice"
-#     DEBUG: bool = False
-#     LOG_LEVEL: str = "INFO"
-
-#     class Config:
-#         logger.info("Using development environment")
-#         env_file = ".env.dev"
-        
-# from pydantic_settings import BaseSettings
-
-
-# class BaseSettingsConfig(BaseSettings):
-#     APP_NAME: str = "FastAPI Chat Microservice"
-#     DEBUG: bool = False
-#     LOG_LEVEL: str = "INFO"
-
-#     # Database configurations
-#     MYSQL_USER: str
-#     MYSQL_PASSWORD: str
-#     MYSQL_HOST: str
-#     MYSQL_PORT: int
-#     MYSQL_DATABASE: str
-
-#     class Config:
-#         # Specify the .env file if needed
-#         env_file = ".env"  # You can specify a different file based on your environment
-
-
-# # Initialize settings
-# settings = BaseSettingsConfig()
 

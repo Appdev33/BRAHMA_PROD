@@ -138,7 +138,10 @@ def main() -> None:
             print(i)
 
     dequeued_element = q.popleft()  
-    print("Dequeued element:", dequeued_element)     
+    print("Dequeued element:", dequeued_element)   
+    # popleft() removes an element from the front of the queue.
+    # pop() removes an element from the end of the queue.  
+    # q[0] gives you the first element (like peek()). python has no peek() method
 
     print("**********************PRIORITY QUEUE/ HEAPS*************************")
 

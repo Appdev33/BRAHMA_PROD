@@ -33,6 +33,10 @@ from sqlalchemy.exc import IntegrityError
 from exceptions.user_exceptions import EmailAlreadyTakenError, UserAlreadyExistsException, UserNotFoundException
 import time
 
+# LIBRARY FOR ASYNC SESSION
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.future import select
+
 
 class UserRepository:
     def __init__(self, db: Session):
@@ -67,12 +71,31 @@ class UserRepository:
 
 
 
-    def get_user_by_id(self, user_id: int) -> UserResponseDTO | None:
-        # Fetch user by ID
-        db_user = self.db.query(User).filter(User.id == user_id).first()
+    # def get_user_by_id(self, user_id: int) -> UserResponseDTO | None:
+    #     # Fetch user by ID
+    #     db_user = self.db.query(User).filter(User.id == user_id).first()
+    #     if db_user:
+    #         return UserResponseDTO(
+    #             id=str(db_user.id), 
+    #             name=db_user.name,
+    #             email=db_user.email,
+    #             created_at=db_user.created_at,
+    #             updated_at=db_user.updated_at,
+    #         )
+    #     return None
+
+    #ASYCN QUERIES FOR ASYNC DB CHANGES
+    
+    async def get_user_by_id(self, user_id: int) -> UserResponseDTO | None:
+        # Build and execute the async query
+        stmt = select(User).where(User.id == user_id)
+        result = await self.db.execute(stmt)  # Execute the query
+        db_user = result.scalars().first()  # Extract the first result
+
+        # Map the user to the response DTO if found
         if db_user:
             return UserResponseDTO(
-                id=str(db_user.id), 
+                id=str(db_user.id),
                 name=db_user.name,
                 email=db_user.email,
                 created_at=db_user.created_at,
