@@ -6,11 +6,12 @@ from config.base_settings import settings  # Import the settings from the config
 # Async engine library settings
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 
+
+# SYNCHRONUS API SETUP
+
 # Define the database URL using SQLAlchemy with MySQL and the settings from Pydantic BaseSettings
 
 # DATABASE_URL = f"mysql+pymysql://{settings.MYSQL_USER}:{settings.MYSQL_PASSWORD}@{settings.MYSQL_HOST}:{settings.MYSQL_PORT}/{settings.MYSQL_DATABASE}"
-
-
 
 # SQLAlchemy setup (synchronous)
 # engine = create_engine(DATABASE_URL, pool_pre_ping=True)
@@ -34,6 +35,13 @@ DATABASE_URL = f"mysql+aiomysql://{settings.MYSQL_USER}:{settings.MYSQL_PASSWORD
 
 # Async Engine
 engine = create_async_engine(DATABASE_URL, echo=True)
+# engine = create_async_engine(
+#     DATABASE_URL,
+#     echo=True,
+#     pool_size=20,  # Number of connections in the pool
+#     max_overflow=30,  # Extra connections allowed beyond the pool size
+#     pool_recycle=3600  # Time to recycle connections
+# )
 
 # Async session
 SessionLocal = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)

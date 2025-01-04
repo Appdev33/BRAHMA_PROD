@@ -19,6 +19,11 @@ class BaseSettingsConfig(BaseSettings):
     MYSQL_HOST: str
     MYSQL_PORT: int
     MYSQL_DATABASE: str
+    # REDIS_URL: str = "redis://localhost:6379"
+    REDIS_HOST: str = "localhost"
+    REDIS_PORT: int = 0
+    # REDIS_PASSWORD=secretpassword  # if your Redis requires a password
+    # REDIS_DB=0  # Default Redis database index
 
     # logger.info(f"Loaded settings for {APP_NAME} + environmet loader {env_file_path}")
 

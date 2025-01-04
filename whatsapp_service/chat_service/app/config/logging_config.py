@@ -21,7 +21,7 @@ def get_logging_config():
                 "formatter": "json",
             },
             "file": {
-                "level": "INFO",
+                "level": "ERROR",
                 "class": "logging.FileHandler",
                 "filename": "app_logs.json",
                 "formatter": "json",
