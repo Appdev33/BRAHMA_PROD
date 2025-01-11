@@ -1,10 +1,14 @@
 package com.example.demo.services;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.RideMatchingServiceApplication;
 import com.example.demo.dto.UserRequestDTO;
 import com.example.demo.dto.UserResponseDTO;
 import com.example.demo.exceptions.DatabaseException;
@@ -14,21 +18,21 @@ import com.example.demo.repostitories.UserRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.UUID;
-import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements IUserService {
 
     private final UserRepository userRepository;
+    
+    private static final Logger logger = LoggerFactory.getLogger(RideMatchingServiceApplication.class);
 
-    @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
+    @CacheEvict(value = "user-list", allEntries = true)
     public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
         User user = new User(
                 userRequestDTO.getName(),
@@ -40,13 +44,17 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Cacheable(value = "user", key = "#id")
     public UserResponseDTO getUserById(Long id) {
+    	logger.info("Fetching user with ID: {} from the database", id);
         User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + id));
         return mapToResponseDTO(user);
     }
 
     @Override
+    @Cacheable(value = "user-list")
     public List<UserResponseDTO> getAllUsers() {
+    	logger.info("Fetching all users from list from the database");
         List<User> users = userRepository.findAll();
         return users.stream()
                 .map(this::mapToResponseDTO)
@@ -54,6 +62,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @CacheEvict(value = {"user", "user-list"}, allEntries = true, key = "#id")
     public UserResponseDTO updateUser(Long id, UserRequestDTO userRequestDTO) {
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with ID: " + id));
@@ -67,6 +76,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @CacheEvict(value = {"user", "user-list"}, allEntries = true, key = "#id")
     public boolean deleteUser(Long id) {
 
         try {
@@ -99,6 +109,7 @@ public class UserServiceImpl implements IUserService {
         		user.getCreatedAt()
         		);
     }
+    
 }
 //@Service
 //public class UserServiceImpl implements IUserService {

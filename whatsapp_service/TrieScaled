@@ -1,0 +1,21 @@
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end_of_word = False
+
+class Trie:
+    
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word):
+        current = self.root
+        for char in word:    
+            if char not in self.children:
+                current.children[char] = TrieNode()
+            current = current[char]
+        current.is_end_of_word = True    
+
+
+t = Trie()
+t.insert("helll")

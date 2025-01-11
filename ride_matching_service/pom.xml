@@ -130,6 +130,30 @@
 		    <artifactId>java-dotenv</artifactId>
 		    <version>5.2.2</version>
 		</dependency>
+		
+		<!--Caching depencenies-->
+		
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-redis</artifactId>
+		    <version>3.2.0</version> <!-- Ensure the version supports Java 21 -->
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-redis</artifactId>
+		    <version>3.2.0</version> <!-- Matches Spring Boot's compatibility -->
+		</dependency>
+		<dependency>
+		    <groupId>io.lettuce</groupId>
+		    <artifactId>lettuce-core</artifactId>
+		    <version>6.5.2.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.datatype</groupId>
+		    <artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
