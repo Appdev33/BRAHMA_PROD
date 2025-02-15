@@ -1,0 +1,53 @@
+src/
+|-- controllers/
+|   |-- UserController.java
+|   |-- PlaylistController.java
+|   |-- SongController.java
+|   |-- AlbumController.java
+|   |-- ArtistController.java
+|   |-- SubscriptionController.java
+|-- services/
+|   |-- UserService.java
+|   |-- PlaylistService.java
+|   |-- SongService.java
+|   |-- AlbumService.java
+|   |-- ArtistService.java
+|   |-- SubscriptionService.java
+|   |-- GenericService.java
+|-- models/
+|   |-- User.java
+|   |-- Playlist.java
+|   |-- Song.java
+|   |-- Album.java
+|   |-- Artist.java
+|-- enums/
+|   |-- SubscriptionPlan.java
+|-- interfaces/
+|   |-- IUserService.java
+|   |-- IPlaylistService.java
+|   |-- ISongService.java
+|   |-- IAlbumService.java
+|   |-- IArtistService.java
+|   |-- ISubscriptionService.java
+|   |-- IRepository.java
+|-- repositories/
+|   |-- UserRepository.java
+|   |-- PlaylistRepository.java
+|   |-- SongRepository.java
+|   |-- AlbumRepository.java
+|   |-- ArtistRepository.java
+|-- utils/
+|   |-- Database.java
+|   |-- Logger.java
+|-- App.java
+
+
+
+Requirements
+Add User
+Add/Delete Track
+Play Songs
+Next song
+Shuffle songs
+Previous Song
+Top k Songs

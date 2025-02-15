@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author nirautel
+ *
+ */
+module TestJava {
+}
