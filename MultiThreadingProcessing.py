@@ -42,7 +42,7 @@ def increment_counter():
         print(f"Thread {threading.current_thread} : {counter}") 
         lock.release()
 
-threads = [threading.Thread(target =increment_counter) for _ in range(100) ]
+threads = [threading.Thread(target =increment_counter) for _ in range(10) ]
 
 for t in threads:
     t.start()

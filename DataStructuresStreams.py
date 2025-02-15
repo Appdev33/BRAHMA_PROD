@@ -1,4 +1,3 @@
-
 from functools import reduce
 import random
 from collections import deque
@@ -119,6 +118,26 @@ def main() -> None:
     # Convert to a list to see the result
     print(list(filtered_and_squared))
 
+
+    # class Solution:
+    # def calPoints(self, operations: List[str]) -> int:
+    #     stack = []
+    #     for ops in operations:
+    #         match ops:
+    #             case "C":  # Remove the last valid score
+    #                 if stack:
+    #                     stack.pop()
+    #             case "D":  # Double the last valid score
+    #                 if stack:
+    #                     stack.append(2 * stack[-1])
+    #             case "+":  # Sum the last two valid scores
+    #                 if len(stack) >= 2:
+    #                     stack.append(stack[-1] + stack[-2])
+    #             case _:
+    #                 stack.append(int(ops))  # Convert string number to integer
+
+    #     return sum(stack)  # Return the sum of valid scores
+
     print("**********************LINKED LIST*************************")
     linked_list = deque()
     linked_list.append(20)
@@ -165,6 +184,40 @@ def main() -> None:
 
     print(maxHeap)
     print(heapq.heappop(maxHeap)) 
+
+
+    # import heapq
+
+    # # Initialize a heap (as a list)
+    # heap = []
+
+    # # Insert elements (push)
+    # heapq.heappush(heap, 10)
+    # heapq.heappush(heap, 5)
+    # heapq.heappush(heap, 20)
+    # heapq.heappush(heap, 1)
+
+    # # Peek (get min element without removing)
+    # min_element = heap[0]  # Simulating peek
+    # print("Peek (Min Element):", min_element)  # Output: 1
+
+    # # Remove and return the smallest element (pop)
+    # min_removed = heapq.heappop(heap)
+    # print("Popped Element:", min_removed)  # Output: 1
+
+    # # Push and pop in a single operation
+    # new_min = heapq.heappushpop(heap, 2)
+    # print("Push-Pop Operation:", new_min)  # Output: 2
+
+    # # Replace the smallest element
+    # replaced = heapq.heapreplace(heap, 8)
+    # print("Replaced Min Element:", replaced)  # Output: 5
+
+    # # Convert an existing list into a heap (heapify)
+    # nums = [10, 5, 3, 8, 2]
+    # heapq.heapify(nums)
+    # print("Heapified List:", nums)  # Output: [2, 5, 3, 8, 10]
+        
 
     print("**********************DEQUEUE*************************")
     dq = deque()
