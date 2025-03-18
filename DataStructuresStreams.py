@@ -7,6 +7,8 @@ from collections import defaultdict
 from collections import OrderedDict
 from itertools import count
 
+# https://leetcode.com/discuss/study-guide/2122306/python-cheat-sheet-for-leetcode
+
 def main() -> None:
 
     # ARRAYS
@@ -51,11 +53,12 @@ def main() -> None:
 
     # Step 2: Square the filtered even numbers using map and lambda
     squared_evens = map(lambda x: x ** 2, even_numbers)
-    
+
+    # Step 3: Calculate the sum of the squares using reduce and lambda
     sum_of_squares_of_evens = reduce(
     lambda x, y: x + y,
     map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, numbers))
-)
+    )
     # print(sum_of_squares_of_evens)
     # print(list(squared_evens))
     res = reduce(lambda x,y : x-y, numbers)
@@ -151,7 +154,7 @@ def main() -> None:
     print("**********************QUEUE*************************")
     q = deque()
     q.extend(numbers)
-    # print(q)
+
     for i in q:
         if i%2 ==0: 
             print(i)
@@ -217,6 +220,21 @@ def main() -> None:
     # nums = [10, 5, 3, 8, 2]
     # heapq.heapify(nums)
     # print("Heapified List:", nums)  # Output: [2, 5, 3, 8, 10]
+
+# class Solution:
+#     def lastStoneWeight(self, stones: List[int]) -> int:
+#         maxheap = [(-stone, stone) for stone in stones]  # Store (-stone, stone) for max-heap behavior
+#         heapq.heapify(maxheap)  # Convert list into a heap
+
+#         while len(maxheap) > 1:
+#             _, first = heapq.heappop(maxheap)  # Extract max stone
+#             _, second = heapq.heappop(maxheap)  # Extract second max stone
+
+#             if first != second:
+#                 heapq.heappush(maxheap, (-abs(first - second), abs(first - second)))  # Push remaining weight
+
+#         return maxheap[0][1] if maxheap else 0  # Return last stone weight or 0 if empty
+    
         
 
     print("**********************DEQUEUE*************************")
@@ -294,7 +312,6 @@ def main() -> None:
         treeMap[key] = value
 
     print(treeMap)    
-
     key_to_check = "Mango"    
 
     print(f"Contains key '{key_to_check}'? ", key_to_check in treeMap) 
@@ -361,12 +378,15 @@ def main() -> None:
     # OrderedDict is a part of the collections module in Python that maintains the order of keys based on the order in
     # which they are inserted into the dictionary.
 
-
     # Create an OrderedDict and insert items
     od = OrderedDict()
     od['apple'] = 3
     od['banana'] = 2
     od['orange'] = 4
+
+    # from collections import deque
+    # first_element = my_deque[0]  # Peek first
+    # last_element = my_deque[-1]  # Peek last
 
     # Print the OrderedDict
     print("Initial OrderedDict:")
@@ -431,7 +451,6 @@ def decorator_function(original_function):
 @decorator_function
 def display():
     print("Display function executed.")
-
 
 
 # Calling the decorated function
@@ -558,5 +577,51 @@ print("**********************CODING SHORTCUTS************************")
 #         return None  # Return None if conversion fails
 
 # main()
+
+
+# class Solution:
+#     def isAlienSorted(self, words: List[str], order: str) -> bool:
+#         return words == sorted(words,key=lambda word:[order.index(c) for c in word])
+        
+# from typing import List
+# from functools import lru_cache
+
+# class Solution:
+#     def minPathSum(self, grid: List[List[int]]) -> int:
+#         rows, cols = len(grid), len(grid[0])
+
+#         @lru_cache(None)
+#         def helper(row, col):
+#             # Out of bounds → invalid path
+#             if row >= rows or col >= cols:
+#                 return float('inf')
+
+#             # Base case: reached destination
+#             if row == rows - 1 and col == cols - 1:
+#                 print(f"Reached end: grid[{row}][{col}] = {grid[row][col]}")
+#                 return grid[row][col]
+
+#             # Recursive calls
+#             down = helper(row + 1, col)
+#             right = helper(row, col + 1)
+
+#             result = grid[row][col] + min(down, right)
+
+#             print(f"At grid[{row}][{col}] = {grid[row][col]}, min(down: {down}, right: {right}) → total: {result}")
+
+#             return result
+
+#         return helper(0, 0)
+
+# a = "1010"     # Length = 4
+# b = "11"       # Length = 2
+
+# max_len = max(len(a), len(b))  # max_len = 4
+
+# a = a.zfill(max_len)  # "1010" (unchanged)
+# b = b.zfill(max_len)  # "0011" (padded)
+
+# print(a)  # "1010"
+# print(b)  # "0011"
 
 

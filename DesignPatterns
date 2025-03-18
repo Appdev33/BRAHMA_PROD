@@ -1,0 +1,10 @@
+from singleton import MultithreadedSingleton
+
+if __name__ == "__main__":
+    instance1 = MultithreadedSingleton()
+    instance2 = MultithreadedSingleton()
+
+    print(instance1)  # Should print the same ID as instance2
+    print(instance2)
+
+    print("Same instance:", instance1 is instance2)  # True
