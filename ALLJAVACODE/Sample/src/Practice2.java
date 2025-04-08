@@ -3,248 +3,174 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-
 public class Practice2 {
-	static int index = 0;
-	
-	static class Edge {
-	      int src;
-	      int nbr;
-	      int wt;
+    static int index = 0;
 
-	      Edge(int src, int nbr, int wt) {
-	         this.src = src;
-	         this.nbr = nbr;
-	         this.wt = wt;
-	      }
-	   }
+    static class Edge {
+        int src;
+        int nbr;
+        int wt;
 
-	   static class Pair{         //New node for prims krushkal
-	       int node;
-	       int wt;
-	       
-	       Pair(int node, int wt){
-	           this.node = node;
-	           this.wt = wt;
-	       }
-	   }
-	  
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		// TODO Auto-generated method stub
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Edge(int src, int nbr, int wt) {
+            this.src = src;
+            this.nbr = nbr;
+            this.wt = wt;
+        }
+    }
 
-	      int vtces = Integer.parseInt(br.readLine());
-	      ArrayList<Edge>[] graph = new ArrayList[vtces];
-	      for (int i = 0; i < vtces; i++) {
-	         graph[i] = new ArrayList<>();
-	      }
-	      ArrayList<Edge>[] graphD = new ArrayList[vtces];
-	      for (int i = 0; i < vtces; i++) {
-	         graphD[i] = new ArrayList<>();
-	      }
+    static class Pair {
+        int node;
+        int wt;
 
-	      int edges = Integer.parseInt(br.readLine());
-	      int indegree[] = new int[vtces];
-	      
-	      for (int i = 0; i < edges; i++) {
-	         String[] parts = br.readLine().split(" ");
-	         int v1 = Integer.parseInt(parts[0]);
-	         int v2 = Integer.parseInt(parts[1]);
-	         int wt = Integer.parseInt(parts[2]);
-	         
-	         graph[v1].add(new Edge(v1, v2, wt));
-	         graph[v2].add(new Edge(v2, v1, wt));
-	         
-	         graphD[v1].add(new Edge(v1, v2, wt));
-	         ++indegree[v2];
-	      }
-	      
-	      int src = Integer.parseInt(br.readLine());
-//	      DjikhstraAlgo(src, graph);
-//	      System.out.println(PrimsAlgo(src,graph,0));
+        Pair(int node, int wt) {
+            this.node = node;
+            this.wt = wt;
+        }
+    }
 
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	      
-	  	  boolean visited[] = new boolean[vtces];
-	      Stack<Integer> stack = new Stack<>();
-	      for(int v=0; v<vtces; v++) {
-	    	  if(visited[v]==false)
-	    	  TopoSortDfs(v,graphD, stack,visited);
-	      }
-	      
-	      System.out.println("size" +stack.size());
-	      while(stack.size()>0)
-	    	  System.out.println(stack.pop());
-     
-	      System.out.println("****************DFS*******************");
-	   
-	      Queue<Integer> queue = new LinkedList<>();
-	      for(int i=0; i<vtces; i++) {
-	    	  if(indegree[i]==0)
-	    		  queue.add(i);
-	      }
+        int vtces = Integer.parseInt(br.readLine());
+        ArrayList<Edge>[] graph = new ArrayList[vtces];
+        for (int i = 0; i < vtces; i++) {
+            graph[i] = new ArrayList<>();
+        }
+        ArrayList<Edge>[] graphD = new ArrayList[vtces];
+        for (int i = 0; i < vtces; i++) {
+            graphD[i] = new ArrayList<>();
+        }
 
-	      int order[] = new int[graphD.length];
-	      TopoSortBfs(src,graphD,queue,order,indegree);
-	      for(int i: order)
-	    	  System.out.println(i);
-	      
-	}
+        int edges = Integer.parseInt(br.readLine());
+        int indegree[] = new int[vtces];
 
-	private static void TopoSortBfs(int src, ArrayList<Edge>[] graphD, Queue<Integer> queue, int[] order, int[] indegree) {
-		
-		while(!queue.isEmpty()) {
-			int pop = queue.poll();
-			
-			order[index++]= pop;
-			
-			for(Edge e: graphD[pop]) {
-				--indegree[e.nbr];
-				
-	    		  if(indegree[e.nbr]==0)
-	    			  queue.add(e.nbr);
-	    	  }
-			}
-	}
+        for (int i = 0; i < edges; i++) {
+            String[] parts = br.readLine().split(" ");
+            int v1 = Integer.parseInt(parts[0]);
+            int v2 = Integer.parseInt(parts[1]);
+            int wt = Integer.parseInt(parts[2]);
 
-	private static void TopoSortDfs(int src, ArrayList<Edge>[] graphD, Stack<Integer> stack, boolean[] visited) {
-		// TODO Auto-generated method stub
-		visited[src] = true;
-		
-		for(Edge e: graphD[src]) {
-			if(visited[e.nbr]==false)
-				TopoSortDfs(e.nbr,graphD, stack,visited);
-		}
-		stack.push(src);
-	}
+            graph[v1].add(new Edge(v1, v2, wt));
+            graph[v2].add(new Edge(v2, v1, wt));
 
-	private static int PrimsAlgo(int src, ArrayList<Edge>[] graph, int MSTCost) {
-		PriorityQueue<Pair> pq = new PriorityQueue<>((a,b) -> a.wt-b.wt);
-		boolean visited[] = new boolean[graph.length];
-		
-		pq.add(new Pair(src,0));
-		while(!pq.isEmpty()) {
-			
-			Pair poll = pq.poll();
-			
-			if(visited[poll.node])
-				continue;
-			visited[poll.node] = true;
-			
-			System.out.println(poll.node + "--->" + poll.wt );
-			MSTCost+=poll.wt;
-			System.out.println(MSTCost);
-			
-			for(Edge e: graph[poll.node]) {
-				if(!visited[e.nbr]) {
-					pq.add(new Pair(e.nbr,  e.wt));
-				}
-			}
-		}
-		return MSTCost;
-	}
+            graphD[v1].add(new Edge(v1, v2, wt));
+            ++indegree[v2];
+        }
 
-	private static void DjikhstraAlgo(int src, ArrayList<Edge>[] graph) {
-		
-		PriorityQueue<Pair> pq = new PriorityQueue<>((a,b) -> a.wt-b.wt);
-		boolean visited[] = new boolean[graph.length];
-		
-		pq.add(new Pair(src,0));
-		while(!pq.isEmpty()) {
-			
-			Pair poll = pq.poll();
-			
-			if(visited[poll.node])
-				continue;
-			visited[poll.node] = true;
-			System.out.println(poll.node + "--->" + poll.wt );
-			
-			for(Edge e: graph[poll.node]) {
-				if(!visited[e.nbr]) {
-					pq.add(new Pair(e.nbr, poll.wt + e.wt));
-				}
-			}
-		}
-		
-	}
+        int src = Integer.parseInt(br.readLine());
 
-	
-	import java.util.*;
+        // DFS-based Topological Sort
+        boolean visited[] = new boolean[vtces];
+        Stack<Integer> stack = new Stack<>();
+        for (int v = 0; v < vtces; v++) {
+            if (!visited[v])
+                TopoSortDfs(v, graphD, stack, visited);
+        }
 
-	class DijkstraFixed {
-	    
-	    static class Edge {
-	        int nbr, wt;
+        System.out.println("********** DFS Topological Sort **********");
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop());
+        }
 
-	        Edge(int nbr, int wt) {
-	            this.nbr = nbr;
-	            this.wt = wt;
-	        }
-	    }
+        System.out.println("********** BFS (Kahn's Algorithm) **********");
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < vtces; i++) {
+            if (indegree[i] == 0)
+                queue.add(i);
+        }
 
-	    static class Pair {
-	        int node, wt;
+        int order[] = new int[vtces];
+        TopoSortBfs(graphD, queue, order, indegree);
+        for (int i : order)
+            System.out.println(i);
 
-	        Pair(int node, int wt) {
-	            this.node = node;
-	            this.wt = wt;
-	        }
-	    }
+        System.out.println("********** Dijkstra's Algorithm **********");
+        DijkstraAlgo(src, graph);
+    }
 
-//	    private static void dijkstraAlgo(int src, ArrayList<Edge>[] graph) {
-//	        PriorityQueue<Pair> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.wt));
-//	        boolean[] visited = new boolean[graph.length];
-//	        int[] dist = new int[graph.length];
-//	        Arrays.fill(dist, Integer.MAX_VALUE);
-//	        
-//	        pq.add(new Pair(src, 0));
-//	        dist[src] = 0;
-//	        
-//	        while (!pq.isEmpty()) {
-//	            Pair poll = pq.poll();
-//	            int currNode = poll.node;
-//	            int currWt = poll.wt;
-//	            
-//	            if (visited[currNode])
-//	                continue;
-//	            visited[currNode] = true;
-//
-//	            System.out.println(currNode + " ---> " + currWt);
-//
-//	            for (Edge e : graph[currNode]) {
-//	                if (!visited[e.nbr] && dist[e.nbr] > currWt + e.wt) {
-//	                    dist[e.nbr] = currWt + e.wt;
-//	                    pq.add(new Pair(e.nbr, dist[e.nbr]));
-//	                }
-//	            }
-//	        }
-//	    }
-//
-//	    public static void main(String[] args) {
-//	        int n = 4;  // Number of nodes
-//	        ArrayList<Edge>[] graph = new ArrayList[n];
-//
-//	        for (int i = 0; i < n; i++) {
-//	            graph[i] = new ArrayList<>();
-//	        }
-//
-//	        // Adding edges
-//	        graph[0].add(new Edge(1, 4));
-//	        graph[0].add(new Edge(2, 1));
-//	        graph[1].add(new Edge(3, 1));
-//	        graph[2].add(new Edge(1, 2));
-//	        graph[2].add(new Edge(3, 5));
-//
-//	        dijkstraAlgo(0, graph);
-//	    }
-//	}
+    private static void TopoSortBfs(ArrayList<Edge>[] graphD, Queue<Integer> queue, int[] order, int[] indegree) {
+        int idx = 0;
+        while (!queue.isEmpty()) {
+            int pop = queue.poll();
+            order[idx++] = pop;
+            for (Edge e : graphD[pop]) {
+                --indegree[e.nbr];
+                if (indegree[e.nbr] == 0)
+                    queue.add(e.nbr);
+            }
+        }
+    }
 
+    private static void TopoSortDfs(int src, ArrayList<Edge>[] graphD, Stack<Integer> stack, boolean[] visited) {
+        visited[src] = true;
+        for (Edge e : graphD[src]) {
+            if (!visited[e.nbr])
+                TopoSortDfs(e.nbr, graphD, stack, visited);
+        }
+        stack.push(src);
+    }
 
-    private static void Union() {}
-    
-    private static void Find() {}
+    private static int PrimsAlgo(int src, ArrayList<Edge>[] graph, int MSTCost) {
+        PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> a.wt - b.wt);
+        int cost = 0;
+        boolean[] taken = new boolean[graph.length];
+        pq.add(new Pair(src, 0));
+
+        while (!pq.isEmpty()) {
+            Pair curr = pq.poll();
+            
+            if (taken[curr.node]) 
+            		continue;
+
+            taken[curr.node] = true;
+            
+            cost += curr.wt;
+            System.out.println(curr.node + " ---> " + curr.wt);
+
+            for (Edge e : graph[curr.node]) {
+                if (!taken[e.nbr]) {
+                    pq.add(new Pair(e.nbr, e.wt));
+                }
+            }
+        }
+        return cost;
+    }
+
+    private static void DijkstraAlgo(int src, ArrayList<Edge>[] graph) {
+        PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> a.wt - b.wt);
+        int[] dist = new int[graph.length];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[src] = 0;
+
+        pq.offer(new Pair(src, 0));
+
+        while (!pq.isEmpty()) {
+            Pair current = pq.poll();
+            int u = current.node;
+            int w = current.wt;
+
+            if (w > dist[u]) 
+            		continue; // Lazy deletion
+
+            for (Edge edge : graph[u]) {
+                int v = edge.nbr;
+                int weight = edge.wt;
+
+                if (dist[u] + weight < dist[v]) {
+                    dist[v] = dist[u] + weight;
+                    pq.offer(new Pair(v, dist[v]));
+                }
+            }
+        }
+
+        System.out.println("\nFinal Distances from source node " + src + ":");
+        for (int i = 0; i < dist.length; i++) {
+            System.out.println("To node " + i + " = " + (dist[i] == Integer.MAX_VALUE ? "INF" : dist[i]));
+        }
+    }
 
 }
+
 /*
 7
 8

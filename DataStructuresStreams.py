@@ -47,6 +47,7 @@ def main() -> None:
     # With filter: filter(lambda x: condition, iterable)
 
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print(*range(1, 11))
 
     # Step 1: Filter out even numbers using filter and lambda
     even_numbers = filter(lambda x: x % 2 == 0, numbers)
@@ -165,6 +166,10 @@ def main() -> None:
     # pop() removes an element from the end of the queue.  
     # q[0] gives you the first element (like peek()). python has no peek() method
 
+    # Original deque: deque([10, 20, 30, 40])
+    # After pop(): deque([10, 20, 30]) -> popped: 40
+    # After popleft(): deque([20, 30]) -> popped: 10
+
     print("**********************PRIORITY QUEUE/ HEAPS*************************")
 
     minHeap = []
@@ -174,7 +179,7 @@ def main() -> None:
     heapq.heappush(minHeap,1)
     heapq.heappush(minHeap,2)
     print(minHeap)
-    print()  
+ 
     removed_element = heapq.heappop(minHeap)
     print("Removed element:", removed_element) 
     removed_element = heapq.heappop(minHeap)
@@ -578,10 +583,18 @@ print("**********************CODING SHORTCUTS************************")
 
 # main()
 
-
 # class Solution:
 #     def isAlienSorted(self, words: List[str], order: str) -> bool:
 #         return words == sorted(words,key=lambda word:[order.index(c) for c in word])
+
+# from typing import List
+
+# class Solution:
+#     def isAlienSorted(self, words: List[str], order: str) -> bool:
+#         order_map = {ch: i for i, ch in enumerate(order)}  # O(1) lookup
+
+#         return words == sorted(words, key=lambda word: [order_map[c] for c in word])
+
         
 # from typing import List
 # from functools import lru_cache
@@ -623,5 +636,24 @@ print("**********************CODING SHORTCUTS************************")
 
 # print(a)  # "1010"
 # print(b)  # "0011"
+
+
+# @lru_cache is a decorator in Python from the functools module that stands for Least Recently Used cache. 
+# It helps you cache/memoize the results of expensive function calls, so that when the same inputs are used again, 
+# the cached result is returned instead of recomputing the result.
+
+# from functools import lru_cache
+
+# @lru_cache(maxsize=3)
+# def add(a, b):
+#     print(f"Computing {a} + {b}")
+#     return a + b
+
+# print(add(2, 3))  # Computed
+# print(add(2, 3))  # Cached
+# print(add(4, 5))  # Computed
+# print(add(6, 7))  # Computed
+# print(add(2, 3))  # Might be recomputed if it was evicted (depends on maxsize policy)
+
 
 

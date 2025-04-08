@@ -1,49 +1,49 @@
-# import numpy as np
-# import time
-# from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
-# from threading import Thread
+import numpy as np
+import time
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
+from threading import Thread
 
-# print("**********************BASIC MULTIPROCESSING COMPARISONS************************")
+print("**********************BASIC MULTIPROCESSING COMPARISONS************************")
 
-# # Matrix multiplication function
-# def matrix_multiplication(start, end, matrix_a, matrix_b, result):
-#     for i in range(start, end):
-#         for j in range(len(matrix_b[0])):
-#             result[i][j] = sum(matrix_a[i][k] * matrix_b[k][j] for k in range(len(matrix_a[0])))
+# Matrix multiplication function
+def matrix_multiplication(start, end, matrix_a, matrix_b, result):
+    for i in range(start, end):
+        for j in range(len(matrix_b[0])):
+            result[i][j] = sum(matrix_a[i][k] * matrix_b[k][j] for k in range(len(matrix_a[0])))
 
-# # Generate random matrices for testing
-# def generate_matrix(size):
-#     return np.random.randint(1, 10, (size, size))
+# Generate random matrices for testing
+def generate_matrix(size):
+    return np.random.randint(1, 10, (size, size))
 
-# # 1. Using ThreadPoolExecutor
-# def thread_pool_executor_method(matrix_a, matrix_b):
-#     result = np.zeros((len(matrix_a), len(matrix_b[0])))
-#     num_threads = 4
-#     chunk_size = len(matrix_a) // num_threads
-#     with ThreadPoolExecutor(max_workers=num_threads) as pool:
-#         futures = []
-#         for i in range(num_threads):
-#             start = i * chunk_size
-#             end = (i + 1) * chunk_size if i != num_threads - 1 else len(matrix_a)
-#             futures.append(pool.submit(matrix_multiplication, start, end, matrix_a, matrix_b, result))
-#         for future in futures:
-#             future.result()  # wait for all threads to complete
-#     return result
+# 1. Using ThreadPoolExecutor
+def thread_pool_executor_method(matrix_a, matrix_b):
+    result = np.zeros((len(matrix_a), len(matrix_b[0])))
+    num_threads = 4
+    chunk_size = len(matrix_a) // num_threads
+    with ThreadPoolExecutor(max_workers=num_threads) as pool:
+        futures = []
+        for i in range(num_threads):
+            start = i * chunk_size
+            end = (i + 1) * chunk_size if i != num_threads - 1 else len(matrix_a)
+            futures.append(pool.submit(matrix_multiplication, start, end, matrix_a, matrix_b, result))
+        for future in futures:
+            future.result()  # wait for all threads to complete
+    return result
 
-# # 2. Using ProcessPoolExecutor
-# def process_pool_executor_method(matrix_a, matrix_b):
-#     result = np.zeros((len(matrix_a), len(matrix_b[0])))
-#     num_processes = 4
-#     chunk_size = len(matrix_a) // num_processes
-#     with ProcessPoolExecutor(max_workers=num_processes) as pool:
-#         futures = []
-#         for i in range(num_processes):
-#             start = i * chunk_size
-#             end = (i + 1) * chunk_size if i != num_processes - 1 else len(matrix_a)
-#             futures.append(pool.submit(matrix_multiplication, start, end, matrix_a, matrix_b, result))
-#         for future in futures:
-#             future.result()  # wait for all processes to complete
-#     return result
+# 2. Using ProcessPoolExecutor
+def process_pool_executor_method(matrix_a, matrix_b):
+    result = np.zeros((len(matrix_a), len(matrix_b[0])))
+    num_processes = 4
+    chunk_size = len(matrix_a) // num_processes
+    with ProcessPoolExecutor(max_workers=num_processes) as pool:
+        futures = []
+        for i in range(num_processes):
+            start = i * chunk_size
+            end = (i + 1) * chunk_size if i != num_processes - 1 else len(matrix_a)
+            futures.append(pool.submit(matrix_multiplication, start, end, matrix_a, matrix_b, result))
+        for future in futures:
+            future.result()  # wait for all processes to complete
+    return result
 
 # # 3. Using Threads (Manual Threading)
 # def thread_method(matrix_a, matrix_b):

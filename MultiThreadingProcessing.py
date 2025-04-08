@@ -1,21 +1,17 @@
 import threading
 import time
 
-
 print("**********************THREADING CONCEPTS************************")
-
 
 def print_numbers() -> None:
     for i in range(5):
         print(i)
         # time.sleep(1)
 
-
 def print_letters():
     for letters in 'abcde':
         print(letters)
         # time.sleep(1)
-
 
 thread1 = threading.Thread(target=print_numbers)    
 thread2 = threading.Thread(target=print_letters)
@@ -27,7 +23,6 @@ thread2.join()
 thread1.join()
 
 print('numbers printing for threading concept')
-
 
 
 print("**********************LOCK/SYNCHRONISED CONCEPTS************************")
@@ -65,27 +60,16 @@ def cubes(n) -> int:
 # if __name__ == "__main__":
     # Using ThreadPoolExecutor
 start = time.time()
+
 with ThreadPoolExecutor(max_workers=5) as pool:
     results = pool.map(cubes, range(5))
+
 stop = time.time()
 
 print("Results from ThreadPoolExecutor:")
 print(list(results))
 total_time_threads = stop - start
 print(f"Total time taken with ThreadPoolExecutor: {total_time_threads:.2f} seconds")
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #AGAIN
@@ -215,7 +199,6 @@ consumer_thread.start()
 producer_thread.join()
 q.put(None)  # Send signal to stop consumer
 consumer_thread.join()
-
 
 
 # from concurrent.futures import ThreadPoolExecutor

@@ -26,7 +26,7 @@ public class Practice1 {
  	    distance[source] = 0;
 
  	    // Relax edges |V| - 1 times
- 	    for (int i = 0; i < vertices - 1; i++) {
+ 	    for (int i = 0; i < vertices - 1; i++) {   //starting from zero hence v-1
  	        System.out.println("Iteration " + (i + 1) + ":");
  	        for (int u = 0; u < vertices; u++) {
  	            for (Edge edge : graph.get(u)) {

@@ -98,14 +98,26 @@ public class TriesPractice {
 	        }
 
 	        // Recursively delete the word from the child node
-	        boolean shouldDeleteCurrentNode = deleteWord(node, word, index + 1);
-
+	        boolean shouldDeleteCurrentNode = deleteWord(node, word, index + 1);        
+//	        🔹 ch is just the character pointing from current to its child node.
+//	        🔹 You're deleting the child, not the current node.
+//	        🔹 Then you're checking: "Is the current node now empty and not the end of any other word?"
+//	        So no — you're not deleting the current node, you're deciding if it can be deleted by its parent.
+//	        https://chatgpt.com/c/67ef8de9-7ed8-8008-9e10-14bdef8ff803
+	        
 	        // If true, delete the mapping of character and TrieNode reference from map
 	        if (shouldDeleteCurrentNode) {
 	            current.children.remove(ch);
 	            // Return true if no children and not end of another word
 	            return current.children.isEmpty() && !current.isEndWord;
 	        }
+//	        At each recursive level:
+//	        	You decide if the child can be deleted (shouldDeleteCurrentNode).
+//	        	If yes, you:
+//	        	Remove the child from the current.children map: current.children.remove(ch);
+//	        	Then you return:
+//	        	Whether current itself should also be deleted by its own parent.
+//	        	So you're not deleting current — you're checking if its parent can delete it.
 
 	        // No need for the final return true; just return false by default
 	        return false;

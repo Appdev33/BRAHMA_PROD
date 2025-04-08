@@ -42,6 +42,7 @@ import java.util.Stack;
 
 public class Graphs2 {
 	
+	
 static int index = 0;
 	
 	static class Edge {
