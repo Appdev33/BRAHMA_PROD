@@ -40,7 +40,6 @@ def main() -> None:
     # for number in array:
     #     print(array, end=' ')
 
-
     # [expression for item in iterable if condition] 
     # Lambda with map or filter:
     # With map: map(lambda x: expression, iterable)
@@ -243,22 +242,60 @@ def main() -> None:
         
 
     print("**********************DEQUEUE*************************")
-    dq = deque()
-    dq.extend(numbers)
+    # dq = deque()
+    # dq.extend(numbers)
 
-    print(list(dq))
-    dq.appendleft(99)  # Add to front
-    dq.append(12)      # Add to rear
+    # from collections import deque
 
-    # Remove elements from the front and rear
-    print("Removed from front:", dq.popleft())  # Output: 10
-    print("Removed from rear:", dq.pop()) 
+    # Initialize with some numbers
+    dq = deque([1, 2, 3])
+    print("Initial deque:", dq)
+    # Output: Initial deque: deque([1, 2, 3])
 
-    print("Front element:", dq[0])  # Output: 5
-    print("Rear element:", dq[-1])  # Output: 30
+    # Append to the right and left
+    dq.append(4)
+    dq.appendleft(0)
+    print("After append & appendleft:\n", dq)
+    # Output: After append & appendleft:
+    # deque([0, 1, 2, 3, 4])
 
-    filtered_dq = deque(filter(lambda x: x <4, dq))
-    print(filtered_dq)
+    # Pop from the right and left
+    right = dq.pop()
+    left = dq.popleft()
+    print("Popped from right:", right)
+    # Output: 4
+    print("Popped from left:", left)
+    # Output: 0
+    print("After pop & popleft:\n", dq)
+    # Output: deque([1, 2, 3])
+
+    # Extend right and left
+    dq.extend([5, 6])
+    dq.extendleft([-1, -2])
+    print("After extend & extendleft:\n", dq)
+    # Output: After extend & extendleft:
+    # deque([-2, -1, 1, 2, 3, 5, 6])
+
+    # Remove a specific element (first occurrence)
+    dq.remove(2)
+    print("After remove(2):\n", dq)
+    # Output: After remove(2):
+    # deque([-2, -1, 1, 3, 5, 6])
+
+    # Reverse and rotate
+    dq.reverse()
+    print("After reverse:\n", dq)
+    # Output: After reverse:
+    # deque([6, 5, 3, 1, -1, -2])
+
+    dq.rotate(2)
+    print("After rotate(2):\n", dq)
+    # Output: After rotate(2):
+    # deque([1, -1, -2, 6, 5, 3])
+
+    # Length and indexing
+    print("Length:", len(dq))
+    # Output: Length: 6
 
     print("**********************MAP/DICT*************************")
 
@@ -435,7 +472,6 @@ def main() -> None:
     for key, value in sorted_ordered_dict.items():
         print(key, value)
 
-
 print("**********************DECORATORS*************************")
 
 def decorator_function(original_function):
@@ -456,7 +492,6 @@ def decorator_function(original_function):
 @decorator_function
 def display():
     print("Display function executed.")
-
 
 # Calling the decorated function
 display()    
@@ -595,7 +630,72 @@ print("**********************CODING SHORTCUTS************************")
 
 #         return words == sorted(words, key=lambda word: [order_map[c] for c in word])
 
-        
+
+# class Solution:
+#     def isAlienSorted(self, words, order):
+#         # Step 1: Create a mapping from character to its position in the alien alphabet
+#         order_map = {char: index for index, char in enumerate(order)}
+
+#         # Step 2: Compare each pair of adjacent words
+#         for i in range(len(words) - 1):
+#             word1 = words[i]
+#             word2 = words[i + 1]
+
+#             # Compare character by character
+#             for j in range(min(len(word1), len(word2))):
+#                 if word1[j] != word2[j]:
+#                     if order_map[word1[j]] > order_map[word2[j]]:
+#                         return False
+#                     break  # Found the first different character, stop comparing
+#             else:
+#                 # If we didn't find any different character, shorter word should come first
+#                 if len(word1) > len(word2):
+#                     return False
+
+#         return True
+
+
+# import java.util.*;
+
+# class Solution {
+#     public boolean isAlienSorted(String[] words, String order) {
+#         // Step 1: Map each character to its index in the alien alphabet
+#         int[] orderMap = new int[26];
+#         for (int i = 0; i < order.length(); i++) {
+#             orderMap[order.charAt(i) - 'a'] = i;
+#         }
+
+#         // Step 2: Compare each pair of adjacent words
+#         for (int i = 0; i < words.length - 1; i++) {
+#             if (!inCorrectOrder(words[i], words[i + 1], orderMap)) {
+#                 return false;
+#             }
+#         }
+
+#         return true;
+#     }
+
+#     private boolean inCorrectOrder(String word1, String word2, int[] orderMap) {
+#         int len = Math.min(word1.length(), word2.length());
+
+#         for (int i = 0; i < len; i++) {
+#             char c1 = word1.charAt(i);
+#             char c2 = word2.charAt(i);
+
+#             if (c1 != c2) {
+#                 if (orderMap[c1 - 'a'] > orderMap[c2 - 'a']) {
+#                     return false;
+#                 }
+#                 return true;
+#             }
+#         }
+
+#         // If words are same up to min length, shorter word should come first
+#         return word1.length() <= word2.length();
+#     }
+# }
+
+
 # from typing import List
 # from functools import lru_cache
 
@@ -656,4 +756,123 @@ print("**********************CODING SHORTCUTS************************")
 # print(add(2, 3))  # Might be recomputed if it was evicted (depends on maxsize policy)
 
 
+# class Solution:
+#     def longestCommonPrefix(self, strs: List[str]) -> str:
+#         if not strs:
+#             return ""
 
+        
+#         prefix = strs[0]
+
+#         for s in strs[1:]:
+#             while not s.startswith(prefix):
+#                 prefix = prefix[:-1]
+#                 if not prefix:
+#                    return ""
+
+
+#         return prefix 
+# def encode(self, strs: List[str]) -> str:
+#         encoded = []
+#         for s in strs:
+#             encoded.append(f"{len(s)}#{s}")
+#             # sb.append(s.length()).append("#").append(s);
+
+#         return encoded
+
+
+# 1. .zfill(width)
+# Pads with zeros (0) on the left
+# Only works on strings
+# Preserves +/- signs
+
+
+# "42".zfill(5)     # '00042'
+# "-42".zfill(5)    # '-0042'
+# "+7".zfill(4)     # '+007'
+
+# 🧵 2. .rjust(width, fillchar=' ')
+# Right-justifies the string (pads on the left)
+# fillchar can be any single character
+
+
+# "42".rjust(5)          # '   42'  (default fill is space)
+# "42".rjust(5, '0')     # '00042'
+# "42".rjust(5, '*')     # '**42'
+
+# 🧵 3. .ljust(width, fillchar=' ')
+# Left-justifies the string (pads on the right)
+
+
+# "42".ljust(5)          # '42   '
+# "42".ljust(5, '-')     # '42---'
+# "42".ljust(5, '.')     # '42...'
+
+# 🧵 4. .center(width, fillchar=' ')
+# Centers the string with padding on both sides
+# If total padding is odd, right side gets one extra char
+
+
+# "42".center(6)         # '  42  '
+# "42".center(7, '*')    # '**42***'
+# "42".center(8, '-')    # '---42---'
+
+# 🧵 5. str.format() or f-strings with fill/alignment specifiers
+# More flexible control with formatting mini-language
+
+
+# f"{'42':>5}"        # '   42' (right-align)
+# f"{'42':<5}"        # '42   ' (left-align)
+# f"{'42':^6}"        # ' 42  ' (center)
+# f"{'42':*^6}"       # '**42**' (center with '*')
+# f"{'42':0>5}"       # '00042' (right-align with '0')
+
+
+
+# Syntax
+
+# s[start:stop:step]
+# start: index to begin (inclusive)
+
+# stop: index to end (exclusive)
+
+# step: how many characters to skip
+
+# 📚 Examples
+# ▶ Basic Slicing
+
+# s = "abcdef"
+
+# s[1:4]    # 'bcd'     (from index 1 to 3)
+# s[:3]     # 'abc'     (from start to index 2)
+# s[2:]     # 'cdef'    (from index 2 to end)
+# s[:]      # 'abcdef'  (full string copy)
+# 🔁 With Step
+
+# s[::2]    # 'ace'     (every 2nd character)
+# s[1::2]   # 'bdf'     (every 2nd character starting at index 1)
+# 🔙 Reverse a String
+
+# s[::-1]   # 'fedcba'  (reverse string)
+# s[::-2]   # 'fdb'     (reverse every 2nd character)
+# 📏 Using Negative Indices
+
+# abcdef
+# s[-1]     # 'f'       (last character)
+# s[-3:-1]  # 'de'      (3rd-last to 2nd-last)
+# s[-4:]    # 'cdef'    (last 4 characters)
+# 🧪 Out of Bounds
+# Python handles index overflow gracefully:
+
+
+# s[0:100]  # 'abcdef'  (no error, returns until end)
+# s[100:]   # ''        (empty string, index too high)
+# ⚠️ Strings are Immutable
+# You cannot assign using slicing:
+
+
+# s[0] = 'x'   # ❌ TypeError: 'str' object does not support item assignment
+# ✅ Combine Slicing + Concatenation to Modify
+
+# s = "abcdef"
+# s = s[:2] + 'Z' + s[3:]   # 'abZdef' (replaces 'c' with 'Z')

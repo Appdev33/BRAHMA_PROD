@@ -1,0 +1,69 @@
+<!-- 👇
+
+🔁 Basic Control Flow
+Print 1 to N using loop (for/while)
+
+Print 1 to N using recursion
+
+Print 1 to N without using loops or recursion (e.g., using goto or lambdas)
+
+Print 1 to N using array/list traversal
+
+🧵 Multithreading / Concurrency
+Print 1 to N using multiple threads (unordered output)
+
+Print 1 to N in order using multiple threads (each thread prints one number)
+
+Print 1 to N using divide and conquer with threads
+
+Print 1 to N using divide and conquer with concurrent.futures / ForkJoinPool
+
+Print odd and even numbers alternately using two threads
+
+Thread A prints 1, Thread B prints 2, ..., round-robin across N threads
+
+⚙️ Async / Futures / Promises
+Print 1 to N using async/await in Python/JavaScript
+
+Print 1 to N using CompletableFuture (Java)
+
+Print 1 to N using RxJava or Reactive Streams
+
+Print 1 to N using coroutines (Kotlin/Python)
+
+🧮 Functional / Declarative Style
+Print 1 to N using streams (Java 8+)
+
+Print 1 to N using map / lambda
+
+Print 1 to N using generators/yield (Python)
+
+Print 1 to N using recursion and memoization
+
+⛓️ Constraints and Challenges
+Print 1 to N without using arithmetic operators (+, *, etc.)
+
+Print 1 to N without using numbers (e.g., only using characters, 'a' + 1)
+
+Print 1 to N where N is very large (e.g., using BigInteger or lazy streams)
+
+Print 1 to N with constant space
+
+Print 1 to N backwards using recursion
+
+👨‍🎨 Object-Oriented Patterns
+Print 1 to N using a class for each number (OOP overload)
+
+Print 1 to N using polymorphism or interface delegation
+
+Print 1 to N using factory or builder pattern
+
+📜 Language-Specific Tricks
+Print 1 to N using reflection (Java/Python meta)
+
+Print 1 to N using method chaining (e.g., fluent APIs)
+
+Print 1 to N using template metaprogramming (C++)
+
+Print 1 to N using operator overloading
+ -->
