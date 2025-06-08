@@ -305,6 +305,7 @@ def main() -> None:
 
     # Remove a key-value pair
     my_dict.pop("Orange")
+    del my_dict["Orange"]
 
     # Iterate through the dictionary (keys and values)
     for key, value in my_dict.items():
@@ -647,10 +648,10 @@ print("**********************CODING SHORTCUTS************************")
 #                     if order_map[word1[j]] > order_map[word2[j]]:
 #                         return False
 #                     break  # Found the first different character, stop comparing
-#             else:
-#                 # If we didn't find any different character, shorter word should come first
-#                 if len(word1) > len(word2):
-#                     return False
+    #             else:
+    #                 # If we didn't find any different character, shorter word should come first
+    #                 if len(word1) > len(word2):
+    #                     return False
 
 #         return True
 
@@ -737,6 +738,33 @@ print("**********************CODING SHORTCUTS************************")
 # print(a)  # "1010"
 # print(b)  # "0011"
 
+# 1. str.ljust(width, fillchar=' ')
+# Left-justify the string, padding on the right
+
+
+# s = "abc"
+# print(s.ljust(6))          # 'abc   ' (pads with spaces by default)
+# print(s.ljust(6, '-'))     # 'abc---' (pads with '-')
+# 2. str.rjust(width, fillchar=' ')
+# Right-justify the string, padding on the left
+
+
+# s = "abc"
+# print(s.rjust(6))          # '   abc' (pads with spaces by default)
+# print(s.rjust(6, '0'))     # '000abc' (pads with '0')
+# 3. str.center(width, fillchar=' ')
+# Center the string, padding evenly on both sides (if odd, right side gets extra padding)
+
+
+# s = "abc"
+# print(s.center(7))         # '  abc  ' (pads with spaces)
+# print(s.center(7, '*'))    # '**abc**'
+# 4. str.zfill(width)
+# Pads with zeros on the left, keeping sign if any
+
+
+# s = "-42"
+# print(s.zfill(5))          # '-0042'
 
 # @lru_cache is a decorator in Python from the functools module that stands for Least Recently Used cache. 
 # It helps you cache/memoize the results of expensive function calls, so that when the same inputs are used again, 
@@ -876,3 +904,280 @@ print("**********************CODING SHORTCUTS************************")
 
 # s = "abcdef"
 # s = s[:2] + 'Z' + s[3:]   # 'abZdef' (replaces 'c' with 'Z')
+
+
+
+# Mixins
+
+# iterables
+
+
+# Most Important itertools Functions
+# 1. permutations(iterable, r=None)
+# Returns all possible orderings of r elements from the input iterable.
+
+
+# from itertools import permutations
+# list(permutations([1, 2, 3], 2))  # [(1, 2), (1, 3), (2, 1), ...]
+# 2. combinations(iterable, r)
+# Returns all unordered combinations of r elements.
+
+
+# from itertools import combinations
+# list(combinations([1, 2, 3], 2))  # [(1, 2), (1, 3), (2, 3)]
+# 3. combinations_with_replacement(iterable, r)
+# Like combinations, but allows repeating elements.
+
+
+# from itertools import combinations_with_replacement
+# list(combinations_with_replacement([1, 2], 2))  # [(1, 1), (1, 2), (2, 2)]
+# 4. product(*iterables, repeat=1)
+# Cartesian product (like nested loops).
+
+
+# from itertools import product
+# list(product([1, 2], ['a', 'b']))  # [(1, 'a'), (1, 'b'), (2, 'a'), ...]
+# 5. chain(*iterables)
+# Flatten multiple iterables into a single iterable.
+
+
+# from itertools import chain
+# list(chain([1, 2], [3, 4]))  # [1, 2, 3, 4]
+
+# 6. cycle(iterable)
+# Infinite cycle through iterable.
+# from itertools import cycle
+# # Example: next(cycle([1, 2, 3]))  → keeps repeating
+
+# 7. repeat(object, times=None)
+# Repeat a single object multiple times.
+# from itertools import repeat
+# list(repeat(10, 3))  # [10, 10, 10]
+
+# 8. islice(iterable, start, stop, step=1)
+# Slice an iterable (like slicing a generator).
+# from itertools import islice
+# list(islice(range(10), 2, 8, 2))  # [2, 4, 6]
+
+
+# 9. tee(iterable, n=2)
+# Create independent iterators from a single iterable.
+# from itertools import tee
+# a, b = tee([1, 2, 3])
+
+
+# 10. groupby(iterable, key=None)
+# Group adjacent elements that have the same key.
+# from itertools import groupby
+# data = [("a", 1), ("a", 2), ("b", 3)]
+# grouped = groupby(data, key=lambda x: x[0])
+
+
+# Character Type Check Methods (on strings):
+# Method	Description
+# str.isalpha()	Returns True if all characters are alphabetic (a–z, A–Z) and string is non-empty.
+# str.isdigit()	Returns True if all characters are digits (0–9).
+# str.isalnum()	Returns True if all characters are alphanumeric (a–z, A–Z, 0–9).
+# str.islower()	Returns True if all cased characters are lowercase, and there’s at least one cased character.
+# str.isupper()	Returns True if all cased characters are uppercase, and there’s at least one cased character.
+# str.isspace()	Returns True if all characters are whitespace (' ', \t, \n, etc.).
+# str.istitle()	Returns True if string is in title case (e.g., "Hello World").
+# str.isnumeric()	Returns True if all characters are numeric, including digits and other unicode numerals like superscripts.
+# str.isdecimal()	Returns True if all characters are decimal characters (0–9 only).
+
+
+
+# def rotate_right(nums, k):
+#     n = len(nums)
+#     k %= n  # Normalize k
+
+#     def reverse(start, end):
+#         while start < end:
+#             nums[start], nums[end] = nums[end], nums[start]
+#             start += 1
+#             end -= 1
+
+#     reverse(0, n - 1)       # Reverse whole array
+#     reverse(0, k - 1)       # Reverse first k elements
+#     reverse(k, n - 1)       # Reverse remaining n-k elements
+
+# def rotate_left(nums, k):
+#     n = len(nums)
+#     k %= n
+
+#     def reverse(start, end):
+#         while start < end:
+#             nums[start], nums[end] = nums[end], nums[start]
+#             start += 1
+#             end -= 1
+
+#     reverse(0, n - 1)
+#     reverse(0, n - k - 1)
+#     reverse(n - k, n - 1)
+
+# def rotate_array_left(nums, k):
+#     n = len(nums)
+#     dq = deque(nums)
+#     dq.rotate(-(k % n))  # Normalize k and rotate left
+#     return list(dq)
+
+
+
+
+# The functools module in Python provides higher-order functions and operations on callable objects. It’s essential for writing cleaner, more efficient, and functional-style code.
+
+# Here are the most important functools functions with usage examples:
+
+# ✅ 1. lru_cache – Caching / Memoization
+# Caches the result of function calls to improve performance, especially for expensive computations.
+
+
+# from functools import lru_cache
+
+# @lru_cache(maxsize=128)
+# def fib(n):
+#     if n < 2:
+#         return n
+#     return fib(n-1) + fib(n-2)
+
+# print(fib(30))  # Fast due to caching
+
+# ✅ 2. partial – Fixes some arguments of a function
+# Used to create a new version of a function with some arguments preset.
+# from functools import partial
+# def power(base, exponent):
+#     return base ** exponent
+# square = partial(power, exponent=2)
+# print(square(5))  # 25
+
+
+# ✅ 3. reduce – Reduces a sequence to a single value
+# Applies a function cumulatively to the items of an iterable.
+
+
+# from functools import reduce
+# nums = [1, 2, 3, 4]
+# product = reduce(lambda x, y: x * y, nums)
+# print(product)  # 24
+# ✅ 4. cmp_to_key – Convert old-style comparison to key function
+# Used to convert a comparison function into a key for sorted().
+
+
+# from functools import cmp_to_key
+# def compare(x, y):
+#     return (x > y) - (x < y)  # classic cmp style
+
+# sorted_list = sorted([3, 1, 2], key=cmp_to_key(compare))
+
+
+# print(sorted_list)  # [1, 2, 3]
+# ✅ 5. wraps – Preserve metadata in decorators
+# Used when writing decorators to maintain original function’s metadata (name, docstring).
+# from functools import wraps
+
+# def my_decorator(func):
+#     @wraps(func)
+#     def wrapper(*args, **kwargs):
+#         print("Before call")
+#         return func(*args, **kwargs)
+#     return wrapper
+
+# @my_decorator
+# def say_hello():
+#     """Says hello"""
+#     print("Hello!")
+
+# print(say_hello.__name__)  # say_hello (not 'wrapper')
+# print(say_hello.__doc__)   # Says hello
+
+# ✅ 6. cache (Python 3.9+) – Unbounded version of lru_cache
+# Just like lru_cache but with no size limit.
+# from functools import cache
+
+# @cache
+# def slow_add(x, y):
+#     return x + y
+
+# print(slow_add(2, 3))  # 5
+
+# ✅ 7. total_ordering – Auto-complete comparison methods
+# Simplifies writing rich comparison methods (<, <=, etc.).
+# from functools import total_ordering
+
+# @total_ordering
+# class Person:
+#     def __init__(self, age):
+#         self.age = age
+
+#     def __eq__(self, other):
+#         return self.age == other.age
+
+#     def __lt__(self, other):
+#         return self.age < other.age
+
+# p1 = Person(25)
+# p2 = Person(30)
+# print(p1 <= p2)  # True
+# Summary Table
+# Function	Use Case
+# lru_cache	Memoization with limited cache size
+# cache	Infinite cache (Python 3.9+)
+# partial	Pre-fill some arguments of a function
+# reduce	Cumulative reduction of iterable
+# cmp_to_key	Old-style comparison in sorting
+# wraps	Preserve function metadata in decorators
+# total_ordering	Auto-implement comparison methods
+
+
+# Got it! Let’s talk about index vs startswith in Python strings, and then I’ll list the most important string methods you should know.
+
+# 1. str.index(sub[, start[, end]])
+# Finds the first occurrence of substring sub in the string.
+
+# Returns the lowest index where sub starts.
+
+# Raises ValueError if sub is not found.
+
+# Optional start and end let you search within a substring slice.
+
+
+# s = "hello world"
+# print(s.index("o"))       # 4 (first 'o' at index 4)
+# print(s.index("o", 5))    # 7 (search starting from index 5)
+# # print(s.index("z"))     # Raises ValueError: substring not found
+# 2. str.startswith(prefix[, start[, end]])
+# Returns True if the string starts with the given prefix (can be a string or tuple of strings).
+
+# Optional start and end restrict the check to a substring slice.
+
+# Does not raise error, just returns False if no match.
+
+
+# s = "hello world"
+# print(s.startswith("he"))       # True
+# print(s.startswith("wo", 6))    # True (checks substring from index 6)
+# print(s.startswith("Wo"))       # False (case-sensitive)
+# Key difference:
+# Aspect	index()	startswith()
+# Purpose	Find position of substring	Check if string starts with prefix
+# Return type	Integer (index)	Boolean (True/False)
+# Behavior on no match	Raises ValueError	Returns False
+# Can search inside substring with start/end	Yes	Yes
+
+# Most Important Python String Methods
+# Method	What it does	Example
+# len(s)	Length of string	len("abc") → 3
+# s.lower()	Converts string to lowercase	"Hello".lower() → "hello"
+# s.upper()	Converts string to uppercase	"hello".upper() → "HELLO"
+# s.strip()	Removes leading and trailing whitespace	" hello ".strip() → "hello"
+# s.lstrip() / s.rstrip()	Removes leading/trailing whitespace	" hi ".lstrip() → "hi "
+# s.find(sub)	Returns lowest index of substring or -1 if not found	"abc".find("b") → 1
+# s.index(sub)	Same as find but raises error if not found	"abc".index("b") → 1
+# s.startswith(prefix)	Checks if string starts with prefix	"abc".startswith("a") → True
+# s.endswith(suffix)	Checks if string ends with suffix	"abc".endswith("c") → True
+# s.replace(old, new)	Replace all occurrences of substring	"abcabc".replace("a", "x") → "xbcxbc"
+# s.split(sep=None)	Split string into list by separator	"a,b,c".split(",") → ["a", "b", "c"]
+# sep.join(list_of_strings)	Join list elements into a string separated by sep	",".join(["a","b"]) → "a,b"
+# s.isdigit()	Returns True if all characters are digits	"123".isdigit() → True
+# s.isalpha()	Returns True if all characters are alphabetic	"abc".isalpha() → True
+# s.count(sub)	Counts occurrences of substring	"abab".count("ab") → 2
