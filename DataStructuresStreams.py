@@ -1119,6 +1119,23 @@ print("**********************CODING SHORTCUTS************************")
 # def compare(x, y):
 #     return (x > y) - (x < y)  # classic cmp style
 
+# def compare(x, y):
+#     if x > y:
+#         return 1
+#     elif x < y:
+#         return -1
+#     else:
+#         return 0
+
+# from functools import cmp_to_key
+
+# def compare(x, y):
+#     return (x > y) - (x < y)
+
+# arr = [5, 1, 9, 3]
+# sorted_arr = sorted(arr, key=cmp_to_key(compare))
+# print(sorted_arr)  # [1, 3, 5, 9]
+
 # sorted_list = sorted([3, 1, 2], key=cmp_to_key(compare))
 
 
