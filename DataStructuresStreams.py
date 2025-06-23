@@ -572,6 +572,10 @@ print("**********************CODING SHORTCUTS************************")
 # overall_sum =float('-inf')
 # overall_max = max(overall_max, current_sum)
 
+# import math
+# a = math.inf
+# print(a)
+
 # class Solution(object):
 #     def __init__(self):
 #         self.mp = {}
@@ -789,7 +793,6 @@ print("**********************CODING SHORTCUTS************************")
 #         if not strs:
 #             return ""
 
-        
 #         prefix = strs[0]
 
 #         for s in strs[1:]:
@@ -906,11 +909,7 @@ print("**********************CODING SHORTCUTS************************")
 # s = s[:2] + 'Z' + s[3:]   # 'abZdef' (replaces 'c' with 'Z')
 
 
-
-# Mixins
-
 # iterables
-
 
 # Most Important itertools Functions
 # 1. permutations(iterable, r=None)
@@ -1015,12 +1014,65 @@ print("**********************CODING SHORTCUTS************************")
 #     reverse(0, n - k - 1)
 #     reverse(n - k, n - 1)
 
+# from collections import deque
+
 # def rotate_array_left(nums, k):
+#     if not nums:
+#         return nums
+
 #     n = len(nums)
 #     dq = deque(nums)
-#     dq.rotate(-(k % n))  # Normalize k and rotate left
+#     dq.rotate(-(k % n))  # Negative for left rotation, modulo to avoid over-rotation
 #     return list(dq)
 
+
+# def rotate_left(nums, k):
+#     n = len(nums)
+#     k %= n
+
+#     def reverse(start, end):
+#         while start < end:
+#             nums[start], nums[end] = nums[end], nums[start]
+#             start += 1
+#             end -= 1
+
+#     reverse(0, k - 1)
+#     reverse(k, n - 1)
+#     reverse(0, n - 1)
+
+#     return nums
+
+# from collections import deque
+
+# def rotate_array_right(nums, k):
+#     if not nums:
+#         return nums
+
+#     n = len(nums)
+#     dq = deque(nums)
+#     dq.rotate(k % n)  # Positive value for right rotation
+#     return list(dq)
+
+# def rotate_right(nums, k):
+#     n = len(nums)
+#     k %= n  # Handle cases where k > n
+
+#     def reverse(start, end):
+#         while start < end:
+#             nums[start], nums[end] = nums[end], nums[start]
+#             start += 1
+#             end -= 1
+
+#     # Step 1: Reverse the entire array
+#     reverse(0, n - 1)
+
+#     # Step 2: Reverse the first k elements
+#     reverse(0, k - 1)
+
+#     # Step 3: Reverse the remaining elements
+#     reverse(k, n - 1)
+
+#     return nums
 
 
 
