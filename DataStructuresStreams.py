@@ -168,7 +168,6 @@ def main() -> None:
     # Original deque: deque([10, 20, 30, 40])
     # After pop(): deque([10, 20, 30]) -> popped: 40
     # After popleft(): deque([20, 30]) -> popped: 10
-
     print("**********************PRIORITY QUEUE/ HEAPS*************************")
 
     minHeap = []
@@ -224,6 +223,25 @@ def main() -> None:
     # nums = [10, 5, 3, 8, 2]
     # heapq.heapify(nums)
     # print("Heapified List:", nums)  # Output: [2, 5, 3, 8, 10]
+
+    # import heapq
+
+    # a = [1, 3, 5]
+    # b = [2, 4, 6]
+
+    # merged = heapq.merge(a, b)
+    # print(list(merged))  # Output: [1, 2, 3, 4, 5, 6]
+
+    # import heapq
+
+    # numbers = [5, 1, 3, 10, 7, 2]
+    # heapq.heapify(numbers)              # [1, 5, 2, 10, 7, 3]
+    # heapq.heappush(numbers, 4)          # [1, 5, 2, 10, 7, 3, 4]
+    # heapq.heappop(numbers)              # [2, 5, 3, 10, 7, 4]
+    # heapq.heappushpop(numbers, 9)       # [3, 5, 4, 10, 7, 9]
+    # heapq.heapreplace(numbers, 6)       # [4, 5, 6, 10, 7, 9]
+    # print(heapq.nlargest(4, numbers))   # [10, 9, 7, 6]
+    # print(heapq.nsmallest(4, numbers))  # [4, 5, 6, 7]
 
 # class Solution:
 #     def lastStoneWeight(self, stones: List[int]) -> int:
@@ -546,7 +564,6 @@ print("**********************MONKEY PATCHING*************************")
 # # Apply monkey patch by assigning the new function to the existing one
 # SomeClass.some_method = new_function
 
-
 class MathOperations:
     def add(self, a, b):
         return a + b
@@ -564,7 +581,6 @@ MathOperations.add = patched_add
 
 # Usage after patching
 print(math_op.add(2, 3))  # Output: 6
-
 
 
 print("**********************CODING SHORTCUTS************************")
@@ -895,12 +911,10 @@ print("**********************CODING SHORTCUTS************************")
 # 🧪 Out of Bounds
 # Python handles index overflow gracefully:
 
-
 # s[0:100]  # 'abcdef'  (no error, returns until end)
 # s[100:]   # ''        (empty string, index too high)
 # ⚠️ Strings are Immutable
 # You cannot assign using slicing:
-
 
 # s[0] = 'x'   # ❌ TypeError: 'str' object does not support item assignment
 # ✅ Combine Slicing + Concatenation to Modify
@@ -930,12 +944,13 @@ print("**********************CODING SHORTCUTS************************")
 
 # from itertools import combinations_with_replacement
 # list(combinations_with_replacement([1, 2], 2))  # [(1, 1), (1, 2), (2, 2)]
+
 # 4. product(*iterables, repeat=1)
 # Cartesian product (like nested loops).
 
-
 # from itertools import product
 # list(product([1, 2], ['a', 'b']))  # [(1, 'a'), (1, 'b'), (2, 'a'), ...]
+
 # 5. chain(*iterables)
 # Flatten multiple iterables into a single iterable.
 
@@ -964,12 +979,28 @@ print("**********************CODING SHORTCUTS************************")
 # from itertools import tee
 # a, b = tee([1, 2, 3])
 
+# from itertools import tee
+
+# a, b = tee([1, 2, 3])  # creates two independent iterators
+# print(list(a))         # [1, 2, 3]
+# print(list(b))         # [1, 2, 3]
+
+
 
 # 10. groupby(iterable, key=None)
 # Group adjacent elements that have the same key.
 # from itertools import groupby
 # data = [("a", 1), ("a", 2), ("b", 3)]
 # grouped = groupby(data, key=lambda x: x[0])
+
+
+# from itertools import groupby
+
+# data = [("a", 1), ("a", 2), ("b", 3)]
+# grouped = groupby(data, key=lambda x: x[0])
+
+# result = [(key, list(group)) for key, group in grouped]
+# print(result)
 
 
 # Character Type Check Methods (on strings):

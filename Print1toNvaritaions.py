@@ -32,6 +32,11 @@ printNos3(10)
 # 🧵 Multithreading / Concurrency
 # Print 1 to N using multiple threads (unordered output)
 
+import threading
+def printNos4(n):
+    
+
+
 # Print 1 to N in order using multiple threads (each thread prints one number)
 
 # Print 1 to N using divide and conquer with threads

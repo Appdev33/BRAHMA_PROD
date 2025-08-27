@@ -84,51 +84,202 @@ print(f"Shortest distances from node {src}: {distances}")
 
 
 
-def has_cycle_directed(v, graph, visited, rec_stack):
-    visited[v] = True
-    rec_stack[v] = True
 
-    for neighbor in graph[v]:
-        if not visited[neighbor]:
-            if has_cycle_directed(neighbor, graph, visited, rec_stack):
+from collections import defaultdict
+
+edges = [('a','b'), ('b','c'), ('c','a')]  # Cycle exists
+
+graph = defaultdict(list)
+for src, dest in edges:
+    graph[src].append(dest)
+
+def dfs(node, visited, rec_stack):
+    visited.add(node)
+    rec_stack.add(node)
+
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            if dfs(neighbor, visited, rec_stack):
                 return True
-        elif rec_stack[neighbor]:  # cycle found via back edge
-            return True
+        elif neighbor in rec_stack:
+            return True  
 
-    rec_stack[v] = False  # remove from recursion stack
+    rec_stack.remove(node)
     return False
 
+visited = set()
 
-def detect_cycle_directed(graph, num_vertices):
-    visited = [False] * num_vertices
-    rec_stack = [False] * num_vertices
-
-    for v in range(num_vertices):
-        if not visited[v]:
-            if has_cycle_directed(v, graph, visited, rec_stack):
-                return True
-    return False
-
+for node in graph:
+    if node not in visited:
+        if dfs(node, visited, set()):
+            print("Loop Detected")
+            break
+else:
+    print("No Loops")
 
 
-def has_cycle_undirected(v, graph, visited, parent):
-    visited[v] = True
 
-    for neighbor in graph[v]:
-        if not visited[neighbor]:
-            if has_cycle_undirected(neighbor, graph, visited, v):
+
+from collections import defaultdict
+
+edges = [('a','b'), ('b','c'), ('c','a')]  # Cycle exists
+
+graph = defaultdict(list)
+for src, dest in edges:
+    graph[src].append(dest)
+    graph[dest].append(src)
+
+def dfs(node, visited, parent):
+    
+    visited.add(node)
+
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            if dfs(neighbor, visited, node):
                 return True
         elif neighbor != parent:
-            return True
+            return True  
 
     return False
 
+visited = set()
 
-def detect_cycle_undirected(graph, num_vertices):
-    visited = [False] * num_vertices
+for node in graph:
+    if node not in visited:
+        if dfs(node, visited, -1):
+            print("Loop Detected")
+            break
+else:
+    print("No Loops")
 
-    for v in range(num_vertices):
-        if not visited[v]:
-            if has_cycle_undirected(v, graph, visited, -1):
-                return True
-    return False
+# def has_cycle_directed(v, graph, visited, rec_stack):
+#     visited[v] = True
+#     rec_stack[v] = True
+
+#     for neighbor in graph[v]:
+#         if not visited[neighbor]:
+#             if has_cycle_directed(neighbor, graph, visited, rec_stack):
+#                 return True
+#         elif rec_stack[neighbor]:  # cycle found via back edge
+#             return True
+
+#     rec_stack[v] = False  # remove from recursion stack
+#     return False
+
+
+# def detect_cycle_directed(graph, num_vertices):
+#     visited = [False] * num_vertices
+#     rec_stack = [False] * num_vertices
+
+#     for v in range(num_vertices):
+#         if not visited[v]:
+#             if has_cycle_directed(v, graph, visited, rec_stack):
+#                 return True
+#     return False
+
+
+
+# def has_cycle_undirected(v, graph, visited, parent):
+#     visited[v] = True
+
+#     for neighbor in graph[v]:
+#         if not visited[neighbor]:
+#             if has_cycle_undirected(neighbor, graph, visited, v):
+#                 return True
+#         elif neighbor != parent:
+#             return True
+
+#     return False
+
+
+# def detect_cycle_undirected(graph, num_vertices):
+#     visited = [False] * num_vertices
+
+#     for v in range(num_vertices):
+#         if not visited[v]:
+#             if has_cycle_undirected(v, graph, visited, -1):
+#                 return True
+#     return False
+
+
+# TOPOLOGICAL DIRECT GRAPHS
+
+from collections import defaultdict, deque
+
+edges = [('a', 'b'), ('b', 'c'), ('c', 'a')]  # Cycle exists
+
+graph = defaultdict(list)
+indegree = defaultdict(int)
+nodes = set()
+
+for src, dest in edges:
+    graph[src].append(dest)
+    indegree[dest] += 1
+    nodes.add(src)
+    nodes.add(dest)
+
+# Ensure all nodes are in indegree dict
+for node in nodes:
+    indegree[node] = indegree.get(node, 0)
+
+queue = deque()
+for node in indegree:
+    if indegree[node] == 0:
+        queue.append(node)
+
+visited_count = 0
+
+while queue:
+    curr = queue.popleft()
+    visited_count += 1
+
+    for neigh in graph[curr]:
+        indegree[neigh] -= 1
+        if indegree[neigh] == 0:
+            queue.append(neigh)
+
+# Final check
+if visited_count == len(indegree):
+    print("No Cycle")
+else:
+    print("Cycle Detected")
+
+
+class SparseVector:
+    def __init__(self, nums):
+        # Store only non-zero values with their indices
+        self.index_to_val = {}
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                self.index_to_val[i] = nums[i]
+    
+    def dot_product(self, vec):
+        result = 0
+
+        # Loop over the current vector's non-zero elements
+        for i in self.index_to_val:
+            if i in vec.index_to_val:
+                result += self.index_to_val[i] * vec.index_to_val[i]
+        
+        return result
+    
+class SparseVector:
+    def __init__(self, nums):
+        self.index_to_val = {ind: num for ind, num in enumerate(nums) if num != 0}
+        
+    def dot_product(self, vec: 'SparseVector') -> int:
+        result = 0
+        
+        # Iterate over the smaller dict to improve performance
+        if len(self.index_to_val) > len(vec.index_to_val):
+            return vec.dot_product(self)
+        
+        for i in self.index_to_val:
+            if i in vec.index_to_val:
+                result += self.index_to_val[i] * vec.index_to_val[i]
+        
+        return result
+      
+
+v1 = SparseVector([0, 3, 0, 4])
+v2 = SparseVector([0, 2, 0, 1])

@@ -104,7 +104,6 @@ print(map.items(), end="\n")
 print(type(map))
 
 
-
 # def isAlienSorted(self, words: List[str], order: str) -> bool:
 #     return words = sorted(words, key = lambda word : [ order.index(c) for char c in word ] )
 

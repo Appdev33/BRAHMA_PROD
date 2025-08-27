@@ -1,5 +1,5 @@
 from collections import defaultdict
-
+# http://youtube.com/watch?v=fzGVMOmBQWo
 
 class TrieNode:
 
@@ -169,3 +169,6 @@ if __name__ == "__main__":
 #     print(Trie.contains_word("work"))
 #     print(Trie.search("work"))
 #     print(Trie.root.children['h'].children['e'].children['l'].children['l'].children['o'].is_end_of_word)
+
+
+
