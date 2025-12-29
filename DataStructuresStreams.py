@@ -1665,3 +1665,31 @@ for num in [5, 1, 8, 3, 7]:
 # -((x > y) - (x < y)) → descending
 # -1 = swap
 # +1 = keep order
+
+# Dictionary creations WAYS
+
+# Sequence of key-value pairs
+student_dict2 = dict(name="Jane Doe", age=22, courses=["Biology", "Chemistry"])
+
+# From another dictionary
+student_dict_combined = dict(student, **student_dict2)
+
+keys = ["a", "b", "c"]
+values = [1, 2, 3]
+
+zipped = zip(keys, values)
+dict_from_zip = dict(zipped) # Result: {"a": 1, "b": 2, "c": 3}
+
+# Using the `dict()` constructor
+student_dict = dict([
+    ("name", "John Doe"),
+    ("age", 21),
+    ("courses", ["Math", "Physics"])
+])
+
+# Using the shorthand syntax
+student_dict_short = {
+    "name": "John Doe",
+    "age": 21,
+    "courses": ["Math", "Physics"]
+}
