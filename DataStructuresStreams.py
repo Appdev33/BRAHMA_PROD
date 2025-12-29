@@ -191,7 +191,6 @@ def main() -> None:
     print(maxHeap)
     print(heapq.heappop(maxHeap)) 
 
-
     # import heapq
 
     # # Initialize a heap (as a list)
@@ -255,9 +254,7 @@ def main() -> None:
 #             if first != second:
 #                 heapq.heappush(maxheap, (-abs(first - second), abs(first - second)))  # Push remaining weight
 
-#         return maxheap[0][1] if maxheap else 0  # Return last stone weight or 0 if empty
-    
-        
+#         return maxheap[0][1] if maxheap else 0  # Return last stone weight or 0 if empty       
 
     print("**********************DEQUEUE*************************")
     # dq = deque()
@@ -522,7 +519,6 @@ print("**********************ITERATORS*************************")
 # __iter__() – Returns the iterator object itself and is called at the start of loops like for.
 # __next__() – Returns the next item in the sequence, and raises StopIteration when there are no more items.
 
-
 list = [10,20,30,40,50,60,70]
 my_iter = iter(list)
 print(next(my_iter))
@@ -545,7 +541,6 @@ for num in count(10, 2):  # Starts at 10, increments by 2
 # # Usage (we'll only print the first 6 items to avoid an infinite loop)
 # for _ in range(6):
 #     print(next(color_cycle))
-
 
 print("**********************MONKEY PATCHING*************************")
 
@@ -638,6 +633,16 @@ print("**********************CODING SHORTCUTS************************")
 #         return None  # Return None if conversion fails
 
 # main()
+lambda word: [order.index(c) for c in word]
+
+def custom_key(word):
+    return [order.index(c) for c in word]
+
+order = "cba"
+word = "cab"
+print([order.index(c) for c in word])  
+# → [0, 2, 1]
+
 
 # class Solution:
 #     def isAlienSorted(self, words: List[str], order: str) -> bool:
@@ -761,13 +766,11 @@ print("**********************CODING SHORTCUTS************************")
 # 1. str.ljust(width, fillchar=' ')
 # Left-justify the string, padding on the right
 
-
 # s = "abc"
 # print(s.ljust(6))          # 'abc   ' (pads with spaces by default)
 # print(s.ljust(6, '-'))     # 'abc---' (pads with '-')
 # 2. str.rjust(width, fillchar=' ')
 # Right-justify the string, padding on the left
-
 
 # s = "abc"
 # print(s.rjust(6))          # '   abc' (pads with spaces by default)
@@ -775,13 +778,11 @@ print("**********************CODING SHORTCUTS************************")
 # 3. str.center(width, fillchar=' ')
 # Center the string, padding evenly on both sides (if odd, right side gets extra padding)
 
-
 # s = "abc"
 # print(s.center(7))         # '  abc  ' (pads with spaces)
 # print(s.center(7, '*'))    # '**abc**'
 # 4. str.zfill(width)
 # Pads with zeros on the left, keeping sign if any
-
 
 # s = "-42"
 # print(s.zfill(5))          # '-0042'
@@ -803,7 +804,6 @@ print("**********************CODING SHORTCUTS************************")
 # print(add(6, 7))  # Computed
 # print(add(2, 3))  # Might be recomputed if it was evicted (depends on maxsize policy)
 
-
 # class Solution:
 #     def longestCommonPrefix(self, strs: List[str]) -> str:
 #         if not strs:
@@ -817,8 +817,8 @@ print("**********************CODING SHORTCUTS************************")
 #                 if not prefix:
 #                    return ""
 
-
 #         return prefix 
+
 # def encode(self, strs: List[str]) -> str:
 #         encoded = []
 #         for s in strs:
@@ -832,7 +832,6 @@ print("**********************CODING SHORTCUTS************************")
 # Pads with zeros (0) on the left
 # Only works on strings
 # Preserves +/- signs
-
 
 # "42".zfill(5)     # '00042'
 # "-42".zfill(5)    # '-0042'
@@ -922,7 +921,6 @@ print("**********************CODING SHORTCUTS************************")
 # s = "abcdef"
 # s = s[:2] + 'Z' + s[3:]   # 'abZdef' (replaces 'c' with 'Z')
 
-
 # iterables
 
 # Most Important itertools Functions
@@ -953,8 +951,6 @@ print("**********************CODING SHORTCUTS************************")
 
 # 5. chain(*iterables)
 # Flatten multiple iterables into a single iterable.
-
-
 # from itertools import chain
 # list(chain([1, 2], [3, 4]))  # [1, 2, 3, 4]
 
@@ -985,23 +981,18 @@ print("**********************CODING SHORTCUTS************************")
 # print(list(a))         # [1, 2, 3]
 # print(list(b))         # [1, 2, 3]
 
-
-
 # 10. groupby(iterable, key=None)
 # Group adjacent elements that have the same key.
 # from itertools import groupby
 # data = [("a", 1), ("a", 2), ("b", 3)]
 # grouped = groupby(data, key=lambda x: x[0])
 
-
 # from itertools import groupby
-
 # data = [("a", 1), ("a", 2), ("b", 3)]
 # grouped = groupby(data, key=lambda x: x[0])
 
 # result = [(key, list(group)) for key, group in grouped]
 # print(result)
-
 
 # Character Type Check Methods (on strings):
 # Method	Description
@@ -1015,97 +1006,117 @@ print("**********************CODING SHORTCUTS************************")
 # str.isnumeric()	Returns True if all characters are numeric, including digits and other unicode numerals like superscripts.
 # str.isdecimal()	Returns True if all characters are decimal characters (0–9 only).
 
+def rotate_string(x: str, k: int) -> str:
+    n = len(x)
+    if n == 0:
+        return x
+    k %= n
+    if k >= 0:
+        # Right rotation
+        return x[-k:] + x[:-k]
+    else:
+        # Left rotation
+        k = -k
+        return x[k:] + x[:k]
+
+# Examples:
+# rotate_string("abcdef", 2) -> "efabcd"  (right)
+# rotate_string("abcdef", -2) -> "cdefab" (left)
+
+def rotate_right(nums, k):
+    n = len(nums)
+    if n == 0:
+        return nums
+    k %= n
+
+    def reverse(start, end):
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1
+            end -= 1
+
+    reverse(0, n - 1)
+    reverse(0, k - 1)
+    reverse(k, n - 1)
+    return nums
+
+def rotate_left(nums, k):
+    n = len(nums)
+    if n == 0:
+        return nums
+    k %= n
+
+    def reverse(start, end):
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1
+            end -= 1
+
+    reverse(0, n - 1)
+    reverse(0, n - k - 1)
+    reverse(n - k, n - 1)
+    return nums
 
 
-# def rotate_right(nums, k):
-#     n = len(nums)
-#     k %= n  # Normalize k
+def rotate_array(nums, k):
+    n = len(nums)
+    if n == 0:
+        return nums
 
-#     def reverse(start, end):
-#         while start < end:
-#             nums[start], nums[end] = nums[end], nums[start]
-#             start += 1
-#             end -= 1
+    # k > 0 → right rotation, k < 0 → left rotation
+    k %= n
+    if k < 0:
+        k += n  # convert negative left rotation to equivalent right rotation
 
-#     reverse(0, n - 1)       # Reverse whole array
-#     reverse(0, k - 1)       # Reverse first k elements
-#     reverse(k, n - 1)       # Reverse remaining n-k elements
+    def reverse(start, end):
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1
+            end -= 1
 
-# def rotate_left(nums, k):
-#     n = len(nums)
-#     k %= n
+    reverse(0, n - 1)
+    reverse(0, k - 1)
+    reverse(k, n - 1)
+    return nums
 
-#     def reverse(start, end):
-#         while start < end:
-#             nums[start], nums[end] = nums[end], nums[start]
-#             start += 1
-#             end -= 1
+from collections import deque
 
-#     reverse(0, n - 1)
-#     reverse(0, n - k - 1)
-#     reverse(n - k, n - 1)
-
-# from collections import deque
-
-# def rotate_array_left(nums, k):
-#     if not nums:
-#         return nums
-
-#     n = len(nums)
-#     dq = deque(nums)
-#     dq.rotate(-(k % n))  # Negative for left rotation, modulo to avoid over-rotation
-#     return list(dq)
+def rotate_deque(nums, k):
+    if not nums:
+        return nums
+    n = len(nums)
+    dq = deque(nums)
+    dq.rotate(k)  # k > 0 → right, k < 0 → left
+    return list(dq)
 
 
-# def rotate_left(nums, k):
-#     n = len(nums)
-#     k %= n
+def rotate_right_recursive(nums, k):
+    n = len(nums)
+    if n == 0 or k % n == 0:
+        return nums
+    k %= n
+    # Base case
+    if k == 0:
+        return nums
+    # Move last element to front
+    last = nums.pop()
+    nums.insert(0, last)
+    return rotate_right_recursive(nums, k - 1)
 
-#     def reverse(start, end):
-#         while start < end:
-#             nums[start], nums[end] = nums[end], nums[start]
-#             start += 1
-#             end -= 1
+def rotate_left_recursive(nums, k):
+    n = len(nums)
+    if n == 0 or k % n == 0:
+        return nums
+    k %= n
+    # Base case
+    if k == 0:
+        return nums
+    # Move first element to end
+    first = nums.pop(0)
+    nums.append(first)
+    return rotate_left_recursive(nums, k - 1)
 
-#     reverse(0, k - 1)
-#     reverse(k, n - 1)
-#     reverse(0, n - 1)
-
-#     return nums
-
-# from collections import deque
-
-# def rotate_array_right(nums, k):
-#     if not nums:
-#         return nums
-
-#     n = len(nums)
-#     dq = deque(nums)
-#     dq.rotate(k % n)  # Positive value for right rotation
-#     return list(dq)
-
-# def rotate_right(nums, k):
-#     n = len(nums)
-#     k %= n  # Handle cases where k > n
-
-#     def reverse(start, end):
-#         while start < end:
-#             nums[start], nums[end] = nums[end], nums[start]
-#             start += 1
-#             end -= 1
-
-#     # Step 1: Reverse the entire array
-#     reverse(0, n - 1)
-
-#     # Step 2: Reverse the first k elements
-#     reverse(0, k - 1)
-
-#     # Step 3: Reverse the remaining elements
-#     reverse(k, n - 1)
-
-#     return nums
-
-
+# from collections import deque # def rotate_array_left(nums, k): # if not nums: # return nums # n = len(nums) # dq = deque(nums) # dq.rotate(-(k % n)) # Negative for left rotation, modulo to avoid over-rotation # return list(dq)
 
 # The functools module in Python provides higher-order functions and operations on callable objects. It’s essential for writing cleaner, more efficient, and functional-style code.
 
@@ -1133,18 +1144,16 @@ print("**********************CODING SHORTCUTS************************")
 # square = partial(power, exponent=2)
 # print(square(5))  # 25
 
-
 # ✅ 3. reduce – Reduces a sequence to a single value
 # Applies a function cumulatively to the items of an iterable.
-
 
 # from functools import reduce
 # nums = [1, 2, 3, 4]
 # product = reduce(lambda x, y: x * y, nums)
 # print(product)  # 24
+
 # ✅ 4. cmp_to_key – Convert old-style comparison to key function
 # Used to convert a comparison function into a key for sorted().
-
 
 # from functools import cmp_to_key
 # def compare(x, y):
@@ -1229,7 +1238,8 @@ print("**********************CODING SHORTCUTS************************")
 # total_ordering	Auto-implement comparison methods
 
 
-# Got it! Let’s talk about index vs startswith in Python strings, and then I’ll list the most important string methods you should know.
+# Got it! Let’s talk about index vs startswith in Python strings,
+#  and then I’ll list the most important string methods you should know.
 
 # 1. str.index(sub[, start[, end]])
 # Finds the first occurrence of substring sub in the string.
@@ -1247,9 +1257,7 @@ print("**********************CODING SHORTCUTS************************")
 # # print(s.index("z"))     # Raises ValueError: substring not found
 # 2. str.startswith(prefix[, start[, end]])
 # Returns True if the string starts with the given prefix (can be a string or tuple of strings).
-
 # Optional start and end restrict the check to a substring slice.
-
 # Does not raise error, just returns False if no match.
 
 
@@ -1281,3 +1289,379 @@ print("**********************CODING SHORTCUTS************************")
 # s.isdigit()	Returns True if all characters are digits	"123".isdigit() → True
 # s.isalpha()	Returns True if all characters are alphabetic	"abc".isalpha() → True
 # s.count(sub)	Counts occurrences of substring	"abab".count("ab") → 2
+
+
+#A dictionary in Python is a mutable, unordered collection of key-value pairs. It’s also called a hash map in other languages.
+
+# Creating a dictionary
+my_dict = {"name": "Alice", "age": 25, "city": "New York"}
+print(my_dict)
+
+# 1. Dictionary Creation
+# a) Using curly braces
+d = {"a": 1, "b": 2}
+
+# b) Using dict() constructor
+d = dict(a=1, b=2)  # keys are strings
+
+# c) Using fromkeys()
+# Creates a dict with default value.
+keys = ['a', 'b', 'c']
+d = dict.fromkeys(keys, 0)  # {'a':0, 'b':0, 'c':0}
+
+# 2. Accessing Elements
+# a) Using keys
+print(my_dict['name'])  # Alice
+
+# b) Using get() (safer)
+print(my_dict.get('name'))  # Alice
+print(my_dict.get('salary', 0))  # 0, default if key not found
+
+# Tip for interviews: get() prevents KeyError; always consider it for optional keys.
+# 3. Updating Dictionary
+# a) Adding new key-value pair
+my_dict['salary'] = 50000
+
+# b) Updating multiple keys using update()
+my_dict.update({"age": 26, "city": "Boston"})
+
+# 4. Deleting Elements
+# del keyword
+del my_dict['city']
+
+# pop() (removes and returns value)
+salary = my_dict.pop('salary')
+
+# popitem() (removes last inserted key-value pair)
+last_item = my_dict.popitem()
+# clear() (empties dictionary)
+my_dict.clear()
+
+# 5. Iterating Over Dictionary
+# a) Keys
+for key in my_dict:
+    print(key)
+
+# b) Values
+for value in my_dict.values():
+    print(value)
+
+# c) Items (key-value pairs)
+for key, value in my_dict.items():
+    print(key, value)
+
+# 6. Dictionary Comprehensions
+# Powerful feature for transforming or filtering dicts.
+# Square numbers
+nums = [1, 2, 3]
+squares = {x: x**2 for x in nums}  # {1:1, 2:4, 3:9}
+
+# Filter even numbers
+even_squares = {x: x**2 for x in nums if x % 2 == 0}  # {2:4}
+
+# Interview Tip: Dictionary comprehension is often asked for transforming input to a mapping in one line.
+# 7. Advanced Dictionary Methods
+# Method	Description
+# setdefault(key, default)	Returns the value if key exists, else sets it to default.
+# copy()	Returns a shallow copy of dict.
+dict.items()	Returns view object of key-value pairs.
+dict.keys()	Returns view of keys.
+dict.values()	Returns view of values.
+
+# Example:
+my_dict.setdefault('age', 30)  # returns 26 (existing)
+my_dict.setdefault('country', 'USA')  # adds 'country': 'USA'
+
+# 8. Merging Dictionaries
+# a) Using update()
+
+d1 = {'a':1}
+d2 = {'b':2}
+d1.update(d2)  # {'a':1, 'b':2'}
+
+# b) Using | operator (Python 3.9+)
+d3 = d1 | d2
+
+# c) Using ChainMap (Python 3.3+)
+from collections import ChainMap
+d = ChainMap(d1, d2)  # searches in d1 first, then d2
+
+# 9. Nested Dictionaries
+users = {
+    "alice": {"age": 25, "city": "NY"},
+    "bob": {"age": 30, "city": "LA"}
+}
+print(users["alice"]["city"])  # NY
+
+# a) Updating nested values
+users["alice"]["age"] = 26
+# b) Safely accessing nested keys
+age = users.get("alice", {}).get("age", 0)
+
+# 10. Dictionary Sorting
+# Python dicts are insertion-ordered (Python 3.7+), but you may want sorted by key or value.
+
+d = {'b': 2, 'a': 1, 'c': 3}
+
+# Sort by key
+sorted_by_key = dict(sorted(d.items()))  # {'a':1, 'b':2, 'c':3}
+
+# Sort by value
+sorted_by_value = dict(sorted(d.items(), key=lambda item: item[1]))  # {'a':1,'b':2,'c':3}
+
+# 11. Common Interview Patterns
+# a) Frequency Counter
+from collections import Counter
+arr = [1,2,2,3,3,3]
+freq = Counter(arr)  # {1:1, 2:2, 3:3}
+
+# b) Grouping items
+from collections import defaultdict
+words = ["apple", "bat", "banana"]
+group = defaultdict(list)
+for word in words:
+    group[len(word)].append(word)
+# group: {5:['apple'], 3:['bat'], 6:['banana']}
+
+# c) Two-sum problem (using dictionary)
+nums = [2,7,11,15]
+target = 9
+d = {}
+for i, num in enumerate(nums):
+    if target - num in d:
+        print(d[target-num], i)
+    d[num] = i
+
+# Interview Tip: Using a dictionary reduces nested loops to O(n) time complexity.
+# 12. Dictionary Tricks
+# Defaultdict for automatic initialization
+
+from collections import defaultdict
+d = defaultdict(int)
+d['a'] += 1  # No KeyError
+
+# Dictionary unpacking
+d1 = {'a':1}
+d2 = {'b':2}
+d3 = {**d1, **d2}  # Merge dicts
+
+# Mapping with map() and comprehension
+numbers = [1,2,3]
+squared_dict = {x:x**2 for x in map(int, numbers)}
+
+# Using enumerate for index-value mapping
+lst = ['a','b','c']
+index_dict = {val: idx for idx, val in enumerate(lst)}  # {'a':0, 'b':1, 'c':2}
+
+# 13. Performance Tips
+# Dictionaries have O(1) average case for get, set, pop.
+# For large datasets:
+# Use defaultdict or Counter to avoid repetitive checks.
+# Minimize nested loops by leveraging dictionaries as lookup tables.
+# Python dictionaries are memory-efficient but have hashing overhead.
+
+# 14. Pitfalls / Gotchas
+# Mutable keys not allowed:
+d = {[1,2]: "value"}  # Error! list is unhashable
+
+# Order before Python 3.7:
+# Dictionaries were unordered, so iterations may not be deterministic.
+
+# Shallow copy:
+
+d1 = {'a':[1,2]}
+d2 = d1.copy()
+d2['a'].append(3)
+print(d1['a'])  # [1,2,3] -> points to same list
+
+# Accessing missing keys without get
+d = {}
+d['x']  # KeyError
+
+# ✅ Key Takeaways for Interviews
+
+# Know basic CRUD operations.
+# Understand get, setdefault, update, pop, popitem.
+# Be comfortable with nested dictionaries and safe access.
+# Use dictionary comprehensions for transformation.
+# Use dictionaries for lookup optimization, e.g., two-sum, grouping.
+# Understand defaultdict, Counter, ChainMap for advanced scenarios.
+# Avoid mutable keys and remember shallow copy issues.
+
+# 1. Python sort() and sorted()
+# Python provides two ways to sort lists:
+# 1.1 Using list.sort()
+# Sorts a list in-place (modifies the original list).
+# Default is ascending order.
+# Can accept a key function and a reverse flag.
+# Example:
+
+numbers = [5, 2, 9, 1, 7]
+
+# In-place sort
+numbers.sort()
+print(numbers)  # Output: [1, 2, 5, 7, 9]
+
+# Descending sort
+numbers.sort(reverse=True)
+print(numbers)  # Output: [9, 7, 5, 2, 1]
+
+# Sort by a key (length of string)
+words = ["apple", "banana", "kiwi", "cherry"]
+words.sort(key=len)
+print(words)  # Output: ['kiwi', 'apple', 'banana', 'cherry']
+
+# 1.2 Using sorted()
+# Returns a new sorted list without modifying the original.
+
+numbers = [5, 2, 9, 1, 7]
+sorted_numbers = sorted(numbers)
+print(sorted_numbers)  # [1, 2, 5, 7, 9]
+print(numbers)         # [5, 2, 9, 1, 7] (original unchanged)
+
+# 2. Python bisect Module
+# The bisect module helps you insert elements in a sorted list while maintaining order. It also helps to find insertion points efficiently using binary search.
+
+import bisect
+
+# 2.1 bisect.bisect_left(list, x)
+# Returns the index where x should be inserted to maintain order.
+# Inserts before any existing entries of x.
+
+import bisect
+
+numbers = [1, 3, 4, 4, 7]
+index = bisect.bisect_left(numbers, 4)
+print(index)  # Output: 2
+
+# 2.2 bisect.bisect_right(list, x) / bisect.bisect(list, x)
+# Returns the index after any existing entries of x.
+
+index = bisect.bisect_right(numbers, 4)
+print(index)  # Output: 4
+
+# Difference:
+# bisect_left → insert before duplicates.
+# bisect_right → insert after duplicates.
+
+# 3. Python insort Functions
+# The insort functions combine bisect and insert. They insert an element into a sorted list, keeping it sorted.
+
+3.1 bisect.insort_left(list, x)
+
+# Inserts x before existing duplicates.
+
+numbers = [1, 3, 4, 4, 7]
+bisect.insort_left(numbers, 4)
+print(numbers)  # Output: [1, 3, 4, 4, 4, 7]
+
+3.2 bisect.insort_right(list, x) / bisect.insort(list, x)
+
+# Inserts x after existing duplicates.
+
+numbers = [1, 3, 4, 4, 7]
+bisect.insort_right(numbers, 4)
+print(numbers)  # Output: [1, 3, 4, 4, 4, 7]
+
+
+# Use case:
+# insort is faster than manually sorting after each insertion, because it uses binary search to find the correct insertion index (O(log n)) and inserts at that position (O(n) for the shift).
+# 4. Practical Example: Maintaining a Sorted List
+import bisect
+
+# Start with empty list
+sorted_list = []
+
+# Insert elements in arbitrary order
+for num in [5, 1, 8, 3, 7]:
+    bisect.insort(sorted_list, num)
+    print(f"After inserting {num}: {sorted_list}")
+
+# Output:
+# After inserting 5: [5]
+# After inserting 1: [1, 5]
+# After inserting 8: [1, 5, 8]
+# After inserting 3: [1, 3, 5, 8]
+# After inserting 7: [1, 3, 5, 7, 8]
+
+
+# Notice how the list always stays sorted.
+
+# 5. Summary Table
+# Function	Purpose	Notes
+# list.sort()	Sorts list in place	O(n log n)
+# sorted(list)	Returns new sorted list	O(n log n)
+# bisect.bisect_left(l,x)	Find index to insert x before duplicates	O(log n)
+# bisect.bisect_right(l,x) / bisect.bisect(l,x)	Find index to insert x after duplicates	O(log n)
+# bisect.insort_left(l,x)	Insert x in sorted list before duplicates	O(n) for insertion
+# bisect.insort_right(l,x) / bisect.insort(l,x)	Insert x in sorted list after duplicates
+
+# from functools import cmp_to_key
+
+# arr = [5, 2, 8, 1]
+
+# asc = lambda x, y: (x > y) - (x < y)
+# desc = lambda x, y: -((x > y) - (x < y))
+
+# print(sorted(arr, key=cmp_to_key(asc)))   # [1, 2, 5, 8]
+# print(sorted(arr, key=cmp_to_key(desc)))  # [8, 5, 2, 1]
+# ✅ Final summary (for ascending):
+
+# Comparator return	Meaning	Effect
+# -1	x < y	Keep order
+# 0	x == y	Keep
+# +1	x > y	Swap (reverse just this pair)
+
+# So to answer your question directly:
+
+# ❌ No, return 1 does not mean “keep as is.”
+# ✅ It means “swap the two elements” (for ascending).
+# return -1 means “keep them as-is.”
+
+# You said:
+# if i hav 4 5 
+# 4<5 lambda becomes return -1-(-1) = 0 no change
+# 6>5 lambda is (1)-(?
+
+# ChatGPT said:
+# Perfect — you’re thinking exactly the right way 👏
+# Let’s slow it down carefully and compute it step by step so you never get confused again.
+
+# lambda x, y: (x > y) - (x < y)
+# Now let’s apply it case by case.
+
+# 🧠 Case 1: x = 4, y = 5
+# Check each part:
+# (x > y) → (4 > 5) → False → 0
+# (x < y) → (4 < 5) → True → 1
+# So result =
+# (x > y) - (x < y) = 0 - 1 = -1
+
+# ✅ Return = -1
+# Meaning (for ascending sort):
+# → x (4) is smaller than y (5),
+# → keep order (4 before 5).
+
+# So output stays [4, 5]
+# 🧠 Case 2: x = 6, y = 5
+# Check again:
+
+# (x > y) → (6 > 5) → True → 1
+# (x < y) → (6 < 5) → False → 0
+# So result =
+# (x > y) - (x < y) = 1 - 0 = +1
+
+# ✅ Return = +1
+# Meaning (for ascending sort):
+# → x (6) is greater than y (5),
+# → swap them (put 5 before 6).
+# So output becomes [5, 6]
+
+
+# (x > y) - (x < y) → ascending
+# -1 = keep order
+
+# +1 = swap
+# -((x > y) - (x < y)) → descending
+# -1 = swap
+# +1 = keep order
