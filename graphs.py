@@ -82,9 +82,6 @@ class Solution:
         return max(dist.values()) if len(dist) == n else -1
 
 
-
-
-
 from collections import defaultdict
 
 edges = [('a','b'), ('b','c'), ('c','a')]  # Cycle exists
@@ -169,14 +166,14 @@ for src, dest in edges:
 
 
 # def detect_cycle_directed(graph, num_vertices):
-    visited = [False] * num_vertices
-    rec_stack = [False] * num_vertices
+    # visited = [False] * num_vertices
+    # rec_stack = [False] * num_vertices
 
-    for v in range(num_vertices):
-        if not visited[v]:
-            if has_cycle_directed(v, graph, visited, rec_stack):
-                return True
-    return False
+    # for v in range(num_vertices):
+    #     if not visited[v]:
+    #         if has_cycle_directed(v, graph, visited, rec_stack):
+    #             return True
+    # return False
 
 
 
@@ -283,3 +280,125 @@ class SparseVector:
 
 v1 = SparseVector([0, 3, 0, 4])
 v2 = SparseVector([0, 2, 0, 1])
+
+
+
+# KOSARAJU ALGO
+# https://www.youtube.com/watch?v=QtdE7QPsWiU
+from collections import defaultdict
+
+def kosaraju(n, graph):
+    visited = [False] * n
+    stack = []
+
+    # Step 1: DFS to fill stack
+    def dfs(node):
+        visited[node] = True
+        for neigh in graph[node]:
+            if not visited[neigh]:
+                dfs(neigh)
+        stack.append(node)
+
+    for i in range(n):
+        if not visited[i]:
+            dfs(i)
+
+    # Step 2: Reverse graph
+    rev_graph = defaultdict(list)
+    for u in graph:
+        for v in graph[u]:
+            rev_graph[v].append(u)
+
+    # Step 3: DFS on reversed graph
+    visited = [False] * n
+    sccs = []
+
+    def dfs_rev(node, comp):
+        visited[node] = True
+        comp.append(node)
+        for neigh in rev_graph[node]:
+            if not visited[neigh]:
+                dfs_rev(neigh, comp)
+
+    while stack:
+        node = stack.pop()
+        if not visited[node]:
+            comp = []
+            dfs_rev(node, comp)
+            sccs.append(comp)
+
+    return sccs
+
+
+# ARTICULATION POINTS
+
+from collections import defaultdict
+
+class Solution:
+    def articulationPoints(self, V, edges):
+
+        # 🔹 Step 1: Build undirected graph
+        graph = defaultdict(list)
+        for u, v in edges:
+            graph[u].append(v)
+            graph[v].append(u)
+
+        # 🔹 Arrays initialization
+        parent = [-1] * V          # parent of each node in DFS tree
+        disc = [-1] * V            # discovery time of node
+        low = [-1] * V             # lowest reachable discovery time
+        visited = [False] * V
+        ap = [False] * V           # mark articulation points
+
+        time = [0]  # global timer (list used for mutability)
+
+        # 🔹 DFS function
+        def dfs(u):
+            visited[u] = True
+
+            # set discovery and low time
+            disc[u] = low[u] = time[0]
+            time[0] += 1
+
+            children = 0  # number of DFS children (for root case)
+
+            for v in graph[u]:
+
+                # 🔸 Ignore the edge to parent
+                if v == parent[u]:
+                    continue
+
+                # 🔸 Case 1: Back edge (already visited node)
+                if visited[v]:
+                    # update low value using discovery time
+                    low[u] = min(low[u], disc[v])
+
+                else:
+                    # 🔸 Case 2: Tree edge
+                    parent[v] = u
+                    children += 1
+
+                    dfs(v)
+
+                    # update low value after returning from DFS
+                    low[u] = min(low[u], low[v])
+
+                    # 🔥 Articulation condition (non-root)
+                    # If child cannot reach above u
+                    if parent[u] != -1 and low[v] >= disc[u]:
+                        ap[u] = True
+
+            # 🔥 Root articulation condition
+            if parent[u] == -1 and children > 1:
+                ap[u] = True
+
+        # 🔹 Run DFS for all components (graph may be disconnected)
+        for i in range(V):
+            if not visited[i]:
+                dfs(i)
+
+        # 🔹 Collect articulation points
+        result = [i for i in range(V) if ap[i]]
+
+        # 🔹 If none found, return [-1]
+        return result if result else [-1]

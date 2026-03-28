@@ -30,7 +30,7 @@ def main() -> None:
     array.insert(2,21)
     array.remove(2)
     # array.sort()
-    print()
+
     # array.append(ar)
     array.extend(ar)
 
@@ -381,14 +381,12 @@ def main() -> None:
     print("Filtered entries (value > 30):", filtered_dict)
 
     print("**********************SET*************************")
-
     my_set = set(range(0,100))
     my_set.add(999)
     my_set.discard(99)
 
     filtered_set = set(filter(lambda item: item>55, my_set))
     print("Filtered set (items starting with 'B'):", filtered_set)
-
     print("**********************TREE SET*************************")
 
     # Create a set of numbers (from 1 to 10)
@@ -430,7 +428,6 @@ def main() -> None:
         count[word] += 1
 
     print("Word Count:", count)  # Output: {'apple': 2, 'banana': 1, 'orange': 1}
-
     print("**********************ORDERED DICT*************************") 
 
     # OrderedDict is a part of the collections module in Python that maintains the order of keys based on the order in
@@ -765,25 +762,24 @@ print([order.index(c) for c in word])
 
 # 1. str.ljust(width, fillchar=' ')
 # Left-justify the string, padding on the right
-
 # s = "abc"
 # print(s.ljust(6))          # 'abc   ' (pads with spaces by default)
 # print(s.ljust(6, '-'))     # 'abc---' (pads with '-')
+
 # 2. str.rjust(width, fillchar=' ')
 # Right-justify the string, padding on the left
-
 # s = "abc"
 # print(s.rjust(6))          # '   abc' (pads with spaces by default)
 # print(s.rjust(6, '0'))     # '000abc' (pads with '0')
+
 # 3. str.center(width, fillchar=' ')
 # Center the string, padding evenly on both sides (if odd, right side gets extra padding)
-
 # s = "abc"
 # print(s.center(7))         # '  abc  ' (pads with spaces)
 # print(s.center(7, '*'))    # '**abc**'
+
 # 4. str.zfill(width)
 # Pads with zeros on the left, keeping sign if any
-
 # s = "-42"
 # print(s.zfill(5))          # '-0042'
 
@@ -848,8 +844,6 @@ print([order.index(c) for c in word])
 
 # 🧵 3. .ljust(width, fillchar=' ')
 # Left-justifies the string (pads on the right)
-
-
 # "42".ljust(5)          # '42   '
 # "42".ljust(5, '-')     # '42---'
 # "42".ljust(5, '.')     # '42...'
@@ -857,16 +851,12 @@ print([order.index(c) for c in word])
 # 🧵 4. .center(width, fillchar=' ')
 # Centers the string with padding on both sides
 # If total padding is odd, right side gets one extra char
-
-
 # "42".center(6)         # '  42  '
 # "42".center(7, '*')    # '**42***'
 # "42".center(8, '-')    # '---42---'
 
 # 🧵 5. str.format() or f-strings with fill/alignment specifiers
 # More flexible control with formatting mini-language
-
-
 # f"{'42':>5}"        # '   42' (right-align)
 # f"{'42':<5}"        # '42   ' (left-align)
 # f"{'42':^6}"        # ' 42  ' (center)
@@ -874,14 +864,10 @@ print([order.index(c) for c in word])
 # f"{'42':0>5}"       # '00042' (right-align with '0')
 
 
-
 # Syntax
-
 # s[start:stop:step]
 # start: index to begin (inclusive)
-
 # stop: index to end (exclusive)
-
 # step: how many characters to skip
 
 # 📚 Examples
@@ -1010,14 +996,19 @@ def rotate_string(x: str, k: int) -> str:
     n = len(x)
     if n == 0:
         return x
+
     k %= n
-    if k >= 0:
+    if k == 0:
+        return x
+
+    if k > 0:
         # Right rotation
         return x[-k:] + x[:-k]
     else:
         # Left rotation
         k = -k
         return x[k:] + x[:k]
+
 
 # Examples:
 # rotate_string("abcdef", 2) -> "efabcd"  (right)
@@ -1656,7 +1647,6 @@ for num in [5, 1, 8, 3, 7]:
 # → x (6) is greater than y (5),
 # → swap them (put 5 before 6).
 # So output becomes [5, 6]
-
 
 # (x > y) - (x < y) → ascending
 # -1 = keep order

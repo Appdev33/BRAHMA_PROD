@@ -152,7 +152,6 @@ class QuadTree:
         )
 
 # OPTIMSED CODE FOR ISSAME
-
 class QuadTree:
 
     def build_prefix(self, grid):
@@ -199,10 +198,6 @@ class QuadTree:
     def construct(self, grid):
         ps = self.build_prefix(grid)
         return self.solve(grid, ps, 0, 0, len(grid))
-
-
-
-
 
 
 #OPTIMAL BINARY SEARCH TREE
