@@ -191,37 +191,37 @@ def main() -> None:
     print(maxHeap)
     print(heapq.heappop(maxHeap)) 
 
-    # import heapq
+    import heapq
 
-    # # Initialize a heap (as a list)
-    # heap = []
+    # Initialize a heap (as a list)
+    heap = []
 
-    # # Insert elements (push)
-    # heapq.heappush(heap, 10)
-    # heapq.heappush(heap, 5)
-    # heapq.heappush(heap, 20)
-    # heapq.heappush(heap, 1)
+    # Insert elements (push)
+    heapq.heappush(heap, 10)
+    heapq.heappush(heap, 5)
+    heapq.heappush(heap, 20)
+    heapq.heappush(heap, 1)
 
-    # # Peek (get min element without removing)
-    # min_element = heap[0]  # Simulating peek
-    # print("Peek (Min Element):", min_element)  # Output: 1
+    # Peek (get min element without removing)
+    min_element = heap[0]  # Simulating peek
+    print("Peek (Min Element):", min_element)  # Output: 1
 
-    # # Remove and return the smallest element (pop)
-    # min_removed = heapq.heappop(heap)
-    # print("Popped Element:", min_removed)  # Output: 1
+    # Remove and return the smallest element (pop)
+    min_removed = heapq.heappop(heap)
+    print("Popped Element:", min_removed)  # Output: 1
 
-    # # Push and pop in a single operation
-    # new_min = heapq.heappushpop(heap, 2)
-    # print("Push-Pop Operation:", new_min)  # Output: 2
+    # Push and pop in a single operation
+    new_min = heapq.heappushpop(heap, 2)
+    print("Push-Pop Operation:", new_min)  # Output: 2
 
-    # # Replace the smallest element
-    # replaced = heapq.heapreplace(heap, 8)
-    # print("Replaced Min Element:", replaced)  # Output: 5
+    # Replace the smallest element
+    replaced = heapq.heapreplace(heap, 8)
+    print("Replaced Min Element:", replaced)  # Output: 5
 
-    # # Convert an existing list into a heap (heapify)
-    # nums = [10, 5, 3, 8, 2]
-    # heapq.heapify(nums)
-    # print("Heapified List:", nums)  # Output: [2, 5, 3, 8, 10]
+    # Convert an existing list into a heap (heapify)
+    nums = [10, 5, 3, 8, 2]
+    heapq.heapify(nums)
+    print("Heapified List:", nums)  # Output: [2, 5, 3, 8, 10]
 
     # import heapq
 
@@ -403,7 +403,6 @@ def main() -> None:
     # print("**********************SORTED SET*************************") 
 
     print("**********************DEFAULT DICT*************************") 
-
     # Create a defaultdict with default type as int
     d = defaultdict(int)
 
@@ -540,7 +539,6 @@ for num in count(10, 2):  # Starts at 10, increments by 2
 #     print(next(color_cycle))
 
 print("**********************MONKEY PATCHING*************************")
-
 # Monkey patching is a technique in Python where you dynamically modify or extend existing classes or modules at runtime.
 # This can be used to add new methods, override existing methods, or alter the behavior of classes or modules without changing
 # their original source code.
@@ -670,10 +668,10 @@ print([order.index(c) for c in word])
 #                     if order_map[word1[j]] > order_map[word2[j]]:
 #                         return False
 #                     break  # Found the first different character, stop comparing
-    #             else:
-    #                 # If we didn't find any different character, shorter word should come first
-    #                 if len(word1) > len(word2):
-    #                     return False
+#             else:
+#                 # If we didn't find any different character, shorter word should come first
+#                 if len(word1) > len(word2):
+#                     return False
 
 #         return True
 

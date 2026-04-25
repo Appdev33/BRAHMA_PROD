@@ -7,6 +7,7 @@ class SegmentTree:
         self.n = len(arr)
         self.seg_tree = [0] * (4 * self.n)
         self.build(arr, 0, self.n - 1, 0)
+        self.lazy = [0] * (4 * self.n)
 
     # Build the tree recursively
     def build(self, arr, left, right, node_index):
@@ -17,6 +18,79 @@ class SegmentTree:
         self.build(arr, left, mid, 2 * node_index + 1)
         self.build(arr, mid + 1, right, 2 * node_index + 2)
         self.seg_tree[node_index] = self.seg_tree[2 * node_index + 1] + self.seg_tree[2 * node_index + 2]
+
+    def lazy_propogate(self, node_index, left, right):
+        if self.lazy[node_index] != 0:
+            self.seg_tree[node_index] += (right - left + 1) * self.lazy[node_index]
+
+            if left != right:
+                self.lazy[2 * node_index + 1] += self.lazy[node_index]
+                self.lazy[2 * node_index + 2] += self.lazy[node_index]
+
+            self.lazy[node_index] = 0
+
+
+    def lazy_update(self, update_left, update_right, value, left, right, node_index):
+        self.lazy_propogate(node_index, left, right)
+
+        # No overlap
+        if update_right < left or update_left > right:
+            return
+
+        # Complete overlap
+        if update_left <= left and right <= update_right:
+            self.lazy[node_index] += value
+            self.lazy_propogate(node_index, left, right)
+            return
+
+        mid = (left + right) // 2
+
+        self.lazy_update(update_left, update_right, value, left, mid, 2 * node_index + 1)
+        self.lazy_update(update_left, update_right, value, mid + 1, right, 2 * node_index + 2)
+
+        self.seg_tree[node_index] = (
+            self.seg_tree[2 * node_index + 1] +
+            self.seg_tree[2 * node_index + 2]
+        )
+
+
+
+    def lazy_update(self, update_left, update_right, value, left, right, node_index):
+        
+        # 🔥 Inline propagation
+        if self.lazy[node_index] != 0:
+            self.seg_tree[node_index] += (right - left + 1) * self.lazy[node_index]
+            
+            if left != right:
+                self.lazy[2 * node_index + 1] += self.lazy[node_index]
+                self.lazy[2 * node_index + 2] += self.lazy[node_index]
+            
+            self.lazy[node_index] = 0
+
+        # ❌ No overlap
+        if update_right < left or update_left > right:
+            return
+
+        # ✅ Complete overlap
+        if update_left <= left and right <= update_right:
+            self.seg_tree[node_index] += (right - left + 1) * value
+            
+            if left != right:
+                self.lazy[2 * node_index + 1] += value
+                self.lazy[2 * node_index + 2] += value
+            
+            return
+
+        # 🔁 Partial overlap
+        mid = (left + right) // 2
+
+        self.lazy_update(update_left, update_right, value, left, mid, 2 * node_index + 1)
+        self.lazy_update(update_left, update_right, value, mid + 1, right, 2 * node_index + 2)
+
+        self.seg_tree[node_index] = (
+            self.seg_tree[2 * node_index + 1] +
+            self.seg_tree[2 * node_index + 2]
+        )
 
     # Internal update function
     def _update(self, index, value, left, right, node_index):
@@ -314,3 +388,106 @@ def numTrees(n):
             r -= 1
     
     return dp[n]
+
+
+#HUFFMANN TREE
+class Node:
+    def __init__(self, val, char):
+        self.val = val
+        self.char = bit
+        self.left = None
+        self.right = None
+        
+    def __lt__(self, other):
+        return self.val<other.val
+
+import heapq
+from collections import Counter
+class Solution:
+    def huffmanCodes(self,s,f):
+        
+        heap = [ Node(f[i],s[i])  for i in range(len(s)) ]
+        heapq.heapify(heap)
+        
+        while len(heap)>1:
+            left = heapq.heapify(heap)
+            right = heapq.heapify(heap)
+            
+            top = Node(left.val+right.val)
+            top.left = left
+            top.right = right
+            heapq.heapush(top)
+            
+        root = heap[0]
+        res = []
+        
+        def traverse(node, current_node):
+            if not node:
+                return None
+            
+            if node.char:
+                res.append(current_node)
+                return
+            
+            traverse(node.left, '0')
+            traverse(node.right, '1')
+            
+        traverse(root, "")
+        
+        return res
+        
+
+#https://www.geeksforgeeks.org/problems/huffman-encoding3345/1
+
+
+import heapq
+
+class Node:
+    def __init__(self, val=None, sum_=0, idx=-1):
+        self.val = val
+        self.sum = sum_
+        self.idx = idx
+        self.left = None
+        self.right = None
+
+    # needed for heap comparison
+    def __lt__(self, other):
+        if self.sum != other.sum:
+            return self.sum < other.sum
+        return self.idx < other.idx
+
+def preorder(root, path, mp):
+    if not root:
+        return
+    
+    if root.val is not None:
+        mp[root.val] = path if path != "" else "0"
+    
+    preorder(root.left, path + '0', mp)
+    preorder(root.right, path + '1', mp)
+
+
+class Solution:
+    def huffmanCodes(self, s, f):
+        # code here
+        pq = []
+        
+        for i in range(len(s)):
+            heapq.heappush(pq, Node(s[i], f[i], i))
+        
+        while len(pq) > 1:
+            t1 = heapq.heappop(pq)
+            t2 = heapq.heappop(pq)
+            
+            temp = Node(None, t1.sum + t2.sum, min(t1.idx, t2.idx))
+            temp.left = t1
+            temp.right = t2
+            
+            heapq.heappush(pq, temp)
+        
+        mp = {}
+        preorder(pq[0], "", mp)
+        
+        return sorted([mp[ch] for ch in s])
+
+        
