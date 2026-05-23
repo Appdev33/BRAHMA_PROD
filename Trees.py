@@ -438,8 +438,6 @@ class Solution:
         
 
 #https://www.geeksforgeeks.org/problems/huffman-encoding3345/1
-
-
 import heapq
 
 class Node:

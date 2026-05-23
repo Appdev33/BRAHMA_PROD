@@ -69,9 +69,9 @@ class Trie:
             del node.children[char]
 
             # Check if the current node is now empty and not the end of another word
-            return len(node.children) == 0 and not node.isEndOfWord
+        return len(node.children) == 0 and not node.isEndOfWord
 
-        return False
+
 
 
 if __name__ == "__main__":
@@ -161,14 +161,65 @@ if __name__ == "__main__":
 
 
 # if __name__ == "__main__":
-#     Trie.insert("hell")
-#     Trie.insert("world")
-#     Trie.delete(Trie.root, "world", 0)
-#     Trie.update("hell", "hello")
-#     print("Hello, world!")
-#     print(Trie.contains_word("work"))
-#     print(Trie.search("work"))
-#     print(Trie.root.children['h'].children['e'].children['l'].children['l'].children['o'].is_end_of_word)
+    Trie.insert("hell")
+    Trie.insert("world")
+    Trie.delete(Trie.root, "world", 0)
+    Trie.update("hell", "hello")
+    print("Hello, world!")
+    print(Trie.contains_word("work"))
+    print(Trie.search("work"))
+    print(Trie.root.children['h'].children['e'].children['l'].children['l'].children['o'].is_end_of_word)
 
 
+variable = "hello"
+var1, var2 = ""
+int_var,float_var =""
+#1️⃣ f-Strings (Python 3.6+) ✅ (Recommended)
+#Syntax:
+print(f"text {variable}")
+Example:
+key_to_check = "apple"
+treeMap = {"apple": 1, "banana": 2}
 
+print(f"Contains key '{key_to_check}'? {key_to_check in treeMap}")
+
+#2️⃣ .format() Method (Python 2.7 & 3.x)
+#Syntax:
+print("text {}".format(variable))
+print("text {0} {1}".format(var1, var2))
+print("text {name}".format(name=variable))
+#Example:
+print("Contains key '{}' ? {}".format(key_to_check, key_to_check in treeMap))
+print("Contains key '{0}'? {1}".format(key_to_check, key_to_check in treeMap))
+print("Contains key '{key}'? {value}".format(key=key_to_check, value=key_to_check in treeMap))
+
+#3️⃣ % Formatting (Old Style, Python 2 & 3)
+#Syntax:
+print("text %s" % variable)
+print("text %d %f" % (int_var, float_var))
+
+print("Contains key '%s'? %s" % (key_to_check, key_to_check in treeMap))
+
+#4️⃣ String Concatenation (+)
+#Syntax:
+print("text " + str(variable))
+
+print("Contains key '" + key_to_check + "'? " + str(key_to_check in treeMap))
+
+#5️⃣ Comma-Separated Printing
+#Syntax:
+print("text", variable)
+
+print("Contains key '", key_to_check, "'?", key_to_check in treeMap)
+
+#6️⃣ Using join() (For Lists or Multiple Variables)
+#Syntax:
+print("separator".join([str(var1), str(var2)]))
+Example:
+print(" ".join(["Contains key '", key_to_check, "'?", str(key_to_check in treeMap)]))
+
+#7️⃣ Using repr() for Debugging
+#Syntax:
+print(f"text {repr(variable)}")
+
+print(f"Contains key {repr(key_to_check)}? {repr(key_to_check in treeMap)}")

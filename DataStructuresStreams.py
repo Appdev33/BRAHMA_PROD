@@ -907,21 +907,21 @@ print([order.index(c) for c in word])
 
 # iterables
 
-# Most Important itertools Functions
+# # Most Important itertools Functions
 # 1. permutations(iterable, r=None)
-# Returns all possible orderings of r elements from the input iterable.
+# # Returns all possible orderings of r elements from the input iterable.
 
 
 # from itertools import permutations
 # list(permutations([1, 2, 3], 2))  # [(1, 2), (1, 3), (2, 1), ...]
-# 2. combinations(iterable, r)
+# # 2. combinations(iterable, r)
 # Returns all unordered combinations of r elements.
 
 
 # from itertools import combinations
 # list(combinations([1, 2, 3], 2))  # [(1, 2), (1, 3), (2, 3)]
 # 3. combinations_with_replacement(iterable, r)
-# Like combinations, but allows repeating elements.
+# # Like combinations, but allows repeating elements.
 
 
 # from itertools import combinations_with_replacement
@@ -933,12 +933,12 @@ print([order.index(c) for c in word])
 # from itertools import product
 # list(product([1, 2], ['a', 'b']))  # [(1, 'a'), (1, 'b'), (2, 'a'), ...]
 
-# 5. chain(*iterables)
+# # 5. chain(*iterables)
 # Flatten multiple iterables into a single iterable.
 # from itertools import chain
 # list(chain([1, 2], [3, 4]))  # [1, 2, 3, 4]
 
-# 6. cycle(iterable)
+# # 6. cycle(iterable)
 # Infinite cycle through iterable.
 # from itertools import cycle
 # # Example: next(cycle([1, 2, 3]))  → keeps repeating
@@ -948,14 +948,14 @@ print([order.index(c) for c in word])
 # from itertools import repeat
 # list(repeat(10, 3))  # [10, 10, 10]
 
-# 8. islice(iterable, start, stop, step=1)
+# # 8. islice(iterable, start, stop, step=1)
 # Slice an iterable (like slicing a generator).
 # from itertools import islice
 # list(islice(range(10), 2, 8, 2))  # [2, 4, 6]
 
 
 # 9. tee(iterable, n=2)
-# Create independent iterators from a single iterable.
+# # Create independent iterators from a single iterable.
 # from itertools import tee
 # a, b = tee([1, 2, 3])
 
@@ -966,7 +966,7 @@ print([order.index(c) for c in word])
 # print(list(b))         # [1, 2, 3]
 
 # 10. groupby(iterable, key=None)
-# Group adjacent elements that have the same key.
+# # Group adjacent elements that have the same key.
 # from itertools import groupby
 # data = [("a", 1), ("a", 2), ("b", 3)]
 # grouped = groupby(data, key=lambda x: x[0])
@@ -977,6 +977,16 @@ print([order.index(c) for c in word])
 
 # result = [(key, list(group)) for key, group in grouped]
 # print(result)
+
+from itertools import groupby
+
+data = [("a", 1), ("a", 2), ("b", 3)]
+
+# Correct way: Materialize the group into a list immediately
+grouped_list = [(k, list(g)) for k, g in groupby(data, key=lambda x: x[0])]
+
+print(grouped_list)
+# Output: [('a', [('a', 1), ('a', 2)]), ('b', [('b', 3)])]
 
 # Character Type Check Methods (on strings):
 # Method	Description
@@ -1105,7 +1115,11 @@ def rotate_left_recursive(nums, k):
     nums.append(first)
     return rotate_left_recursive(nums, k - 1)
 
-# from collections import deque # def rotate_array_left(nums, k): # if not nums: # return nums # n = len(nums) # dq = deque(nums) # dq.rotate(-(k % n)) # Negative for left rotation, modulo to avoid over-rotation # return list(dq)
+# from collections import deque
+# def rotate_array_left(nums, k): 
+#    if not nums: # return nums 
+#       n = len(nums) # dq = deque(nums) 
+#    dq.rotate(-(k % n)) # Negative for left rotation, modulo to avoid over-rotation # return list(dq)
 
 # The functools module in Python provides higher-order functions and operations on callable objects. It’s essential for writing cleaner, more efficient, and functional-style code.
 
@@ -1116,7 +1130,6 @@ def rotate_left_recursive(nums, k):
 
 
 # from functools import lru_cache
-
 # @lru_cache(maxsize=128)
 # def fib(n):
 #     if n < 2:
@@ -1161,32 +1174,47 @@ def rotate_left_recursive(nums, k):
 # def compare(x, y):
 #     return (x > y) - (x < y)
 
-# arr = [5, 1, 9, 3]
-# sorted_arr = sorted(arr, key=cmp_to_key(compare))
-# print(sorted_arr)  # [1, 3, 5, 9]
 
-# sorted_list = sorted([3, 1, 2], key=cmp_to_key(compare))
+def compare(x, y):
+    if x < y:
+        return 1
+    elif x > y:
+        return -1
+    else:
+        return 0
 
+from functools import cmp_to_key
 
-# print(sorted_list)  # [1, 2, 3]
+lists = [2,5,1,68,0,4]
+
+print(sorted(lists, key = cmp_to_key(compare)) )
+[68, 5, 4, 2, 1, 0]
+
 # ✅ 5. wraps – Preserve metadata in decorators
 # Used when writing decorators to maintain original function’s metadata (name, docstring).
 # from functools import wraps
 
-# def my_decorator(func):
-#     @wraps(func)
-#     def wrapper(*args, **kwargs):
-#         print("Before call")
-#         return func(*args, **kwargs)
-#     return wrapper
 
-# @my_decorator
-# def say_hello():
-#     """Says hello"""
-#     print("Hello!")
+from functools import wraps
 
-# print(say_hello.__name__)  # say_hello (not 'wrapper')
-# print(say_hello.__doc__)   # Says hello
+def my_decorator(func):
+    @wraps(func) # Preserves metadata like __name__ and docstrings
+    def wrappersing(*args, **kwargs):
+        print("Hello from decorator")
+        result = func(*args, **kwargs) # Pass arguments through
+        return result # Return the actual function result
+    return wrappersing
+        
+@my_decorator
+def say_hello():
+    """Says hello"""
+    print("Hello!")
+
+# Scenario A: Checking the function name
+print(f"Function name is: {say_hello.__name__}") 
+
+# Scenario B: Executing and getting the return value
+say_hello() # say_hello (not 'wrapper')
 
 # ✅ 6. cache (Python 3.9+) – Unbounded version of lru_cache
 # Just like lru_cache but with no size limit.
@@ -1216,29 +1244,27 @@ def rotate_left_recursive(nums, k):
 # p1 = Person(25)
 # p2 = Person(30)
 # print(p1 <= p2)  # True
-# Summary Table
-# Function	Use Case
-# lru_cache	Memoization with limited cache size
-# cache	Infinite cache (Python 3.9+)
-# partial	Pre-fill some arguments of a function
-# reduce	Cumulative reduction of iterable
-# cmp_to_key	Old-style comparison in sorting
-# wraps	Preserve function metadata in decorators
+
+######### Summary Table #########
+
+# Function	        Use Case
+# lru_cache	        Memoization with limited cache size
+# cache	            Infinite cache (Python 3.9+)
+# partial	        Pre-fill some arguments of a function
+# reduce	        Cumulative reduction of iterable
+# cmp_to_key	    Old-style comparison in sorting
+# wraps	Preserve    function metadata in decorators
 # total_ordering	Auto-implement comparison methods
 
 
-# Got it! Let’s talk about index vs startswith in Python strings,
-#  and then I’ll list the most important string methods you should know.
+# Got it! Let’s talk about index vs startswith in Python strings, 
+# and then I’ll list the most important string methods you should know.
 
 # 1. str.index(sub[, start[, end]])
 # Finds the first occurrence of substring sub in the string.
-
 # Returns the lowest index where sub starts.
-
 # Raises ValueError if sub is not found.
-
 # Optional start and end let you search within a substring slice.
-
 
 # s = "hello world"
 # print(s.index("o"))       # 4 (first 'o' at index 4)
@@ -1249,15 +1275,14 @@ def rotate_left_recursive(nums, k):
 # Optional start and end restrict the check to a substring slice.
 # Does not raise error, just returns False if no match.
 
-
 # s = "hello world"
 # print(s.startswith("he"))       # True
 # print(s.startswith("wo", 6))    # True (checks substring from index 6)
 # print(s.startswith("Wo"))       # False (case-sensitive)
 # Key difference:
-# Aspect	index()	startswith()
-# Purpose	Find position of substring	Check if string starts with prefix
-# Return type	Integer (index)	Boolean (True/False)
+# Aspect	        index()	startswith()
+# Purpose	        Find position of substring	Check if string starts with prefix
+# Return type	    Integer (index)	Boolean (True/False)
 # Behavior on no match	Raises ValueError	Returns False
 # Can search inside substring with start/end	Yes	Yes
 
@@ -1349,13 +1374,14 @@ squares = {x: x**2 for x in nums}  # {1:1, 2:4, 3:9}
 even_squares = {x: x**2 for x in nums if x % 2 == 0}  # {2:4}
 
 # Interview Tip: Dictionary comprehension is often asked for transforming input to a mapping in one line.
+
 # 7. Advanced Dictionary Methods
-# Method	Description
+# Method	                Description
 # setdefault(key, default)	Returns the value if key exists, else sets it to default.
-# copy()	Returns a shallow copy of dict.
-dict.items()	Returns view object of key-value pairs.
-dict.keys()	Returns view of keys.
-dict.values()	Returns view of values.
+# copy()	                Returns a shallow copy of dict.
+dict.items()	# Returns view object of key-value pairs.
+dict.keys()	    # Returns view of keys.
+dict.values()	# Returns view of values.
 
 # Example:
 my_dict.setdefault('age', 30)  # returns 26 (existing)

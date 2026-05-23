@@ -1,43 +1,15 @@
-from collections import defaultdict
+
 import heapq
+from collections import defaultdict
 
-
-# def dijkstra(n, graph, src ):
-#     distance = [float('inf')] * n
-#     # distance[u] represents the shortest known distance from the src node to node u, not the edge weight to u.
-#     distance[src] = 0  # distance from src to itself is 0
-    
-#     minhheap = [(0,src)]
-
-
-#     while minhheap:
-#         wt, u = heapq.heappop(minhheap)  # distance from src to itself is u is wt
-
-#         if wt>distance[u]:
-#             continue
-#         # This checks if the value we just popped (wt) is outdated.
-#         # Why outdated? Because a shorter path to u may have already been found and stored in distance[u].
-#         # If so, we skip processing this outdated version of u
-
-#         for v,w in graph[u]:
-#             if distance[v] > w+distance[u]:
-#                distance[v] = w+distance[u] 
-#                heapq.heappush(minhheap,(distance[v],v))
-
-#         # This checks if the new path to v through u is shorter than the previously known one.
-#         # distance[v]: current best known distance from src to v
-#         # w + distance[u]: going from src → … → u → v
-#         # (i.e., path to u + edge from u to v)       
-
-#     return distance           
-
-
-
-src = 0
+# Number of nodes
 n = 6
+
+# Graph as adjacency list:
+# graph[u] = list of (v, weight)
 graph = defaultdict(list)
 
-# Add edges (u, v, weight)
+# Build graph
 graph[0].append((1, 4))
 graph[0].append((2, 2))
 graph[1].append((2, 5))
@@ -46,9 +18,59 @@ graph[2].append((4, 3))
 graph[4].append((3, 4))
 graph[3].append((5, 11))
 
-distances = dijkstra(n, graph, src)
 
-print(f"Shortest distances from node {src}: {distances}")
+def dijkstra(source):
+    """
+    Returns shortest distance from source to all nodes
+    """
+
+    # Step 1: Initialize all distances as infinity
+    # Meaning: we don't know how to reach them yet
+    dist = [float('inf')] * n
+
+    # Distance to source is 0 (starting point)
+    dist[source] = 0
+
+    # Min-heap (priority queue)
+    # Stores (current_distance, node)
+    # Always expands the node with smallest distance first
+    min_heap = [(0, source)]
+
+    # Process nodes until heap is empty
+    while min_heap:
+
+        # Get node with smallest known distance
+        current_distance, current_node = heapq.heappop(min_heap)
+
+        # IMPORTANT OPTIMIZATION:
+        # If this entry is outdated (we already found a shorter path),
+        # skip it
+        if current_distance > dist[current_node]:
+            continue
+
+        # Explore all neighbors of current node
+        for neighbor, weight in graph[current_node]:
+
+            # Try taking this path through current_node
+            new_distance = current_distance + weight
+
+            # If this path is shorter than previously known path
+            if new_distance < dist[neighbor]:
+
+                # Update shortest distance
+                dist[neighbor] = new_distance
+
+                # Push updated distance into heap
+                # (we don't remove old one → lazy update)
+                heapq.heappush(min_heap, (new_distance, neighbor))
+
+    # Final shortest distances from source
+    return dist
+
+
+# Run algorithm
+result = dijkstra(0)
+print(result)
 
 
 import heapq
@@ -82,164 +104,240 @@ class Solution:
         return max(dist.values()) if len(dist) == n else -1
 
 
+
+# CYCLES DIRECTED GRAPH
+
 from collections import defaultdict
 
-edges = [('a','b'), ('b','c'), ('c','a')]  # Cycle exists
+# -------------------------------
+# BUILD DIRECTED GRAPH
+# -------------------------------
+def build_directed_graph():
+    """
+    Example graph:
+    0 → 1 → 2 → 3 → 1 (cycle)
+          ↓
+          4 → 5
+    """
+    graph = defaultdict(list)
 
-graph = defaultdict(list)
-for src, dest in edges:
-    graph[src].append(dest)
+    edges = [
+        (0, 1),
+        (1, 2),
+        (2, 3),
+        (3, 1),  # 🔥 cycle here
+        (1, 4),
+        (4, 5)
+    ]
 
-# def dfs(node, visited, rec_stack):
-#     visited.add(node)
-#     rec_stack.add(node)
+    for src, dest in edges:
+        graph[src].append(dest)  # directed → one direction only
 
-#     for neighbor in graph[node]:
-#         if neighbor not in visited:
-#             if dfs(neighbor, visited, rec_stack):
-#                 return True
-#         elif neighbor in rec_stack:
-#             return True  
-
-#     rec_stack.remove(node)
-#     return False
-
-# visited = set()
-
-# for node in graph:
-#     if node not in visited:
-#         if dfs(node, visited, set()):
-#             print("Loop Detected")
-#             break
-# else:
-#     print("No Loops")
+    return graph, 6
 
 
+# -------------------------------
+# DIRECTED CYCLE DETECTION
+# -------------------------------
+def has_cycle_directed(graph, num_nodes):
+    """
+    Detect cycle in directed graph using DFS + recursion stack
+    """
 
-# from collections import defaultdict
+    visited = [False] * num_nodes      # node has been fully processed
+    in_current_path = [False] * num_nodes  # node is in current DFS path
 
-# edges = [('a','b'), ('b','c'), ('c','a')]  # Cycle exists
+    def dfs(node):
+        # Mark node as visited and part of current recursion path
+        visited[node] = True
+        in_current_path[node] = True
 
-# graph = defaultdict(list)
-# for src, dest in edges:
-#     graph[src].append(dest)
-#     graph[dest].append(src)
+        # Explore neighbors
+        for neighbor in graph[node]:
 
-# def dfs(node, visited, parent):
-    
-#     visited.add(node)
+            # If neighbor not visited → go deeper
+            if not visited[neighbor]:
+                if dfs(neighbor):
+                    return True
 
-#     for neighbor in graph[node]:
-#         if neighbor not in visited:
-#             if dfs(neighbor, visited, node):
-#                 return True
-#         elif neighbor != parent:
-#             return True  
-
-#     return False
-
-# visited = set()
-
-# for node in graph:
-#     if node not in visited:
-#         if dfs(node, visited, -1):
-#             print("Loop Detected")
-#             break
-# else:
-#     print("No Loops")
-
-
-
-# def has_cycle_directed(v, graph, visited, rec_stack):
-#     visited[v] = True
-#     rec_stack[v] = True
-
-#     for neighbor in graph[v]:
-#         if not visited[neighbor]:
-#             if has_cycle_directed(neighbor, graph, visited, rec_stack):
-#                 return True
-#         elif rec_stack[neighbor]:  # cycle found via back edge
-#             return True
-
-#     rec_stack[v] = False  # remove from recursion stack
-#     return False
-
-
-# def detect_cycle_directed(graph, num_vertices):
-    # visited = [False] * num_vertices
-    # rec_stack = [False] * num_vertices
-
-    # for v in range(num_vertices):
-    #     if not visited[v]:
-    #         if has_cycle_directed(v, graph, visited, rec_stack):
-    #             return True
-    # return False
-
-
-
-# def has_cycle_undirected(v, graph, visited, parent):
-#     visited[v] = True
-
-#     for neighbor in graph[v]:
-#         if not visited[neighbor]:
-#             if has_cycle_undirected(neighbor, graph, visited, v):
-#                 return True
-#         elif neighbor != parent:
-#             return True
-
-#     return False
-
-# def detect_cycle_undirected(graph, num_vertices):
-    visited = [False] * num_vertices
-
-    for v in range(num_vertices):
-        if not visited[v]:
-            if has_cycle_undirected(v, graph, visited, -1):
+            # If neighbor already in current path → BACK EDGE → cycle
+            elif in_current_path[neighbor]:
                 return True
+
+        # Done exploring this node → remove from current path
+        in_current_path[node] = False
+        return False
+
+    # Handle disconnected components
+    for node in range(num_nodes):
+        if not visited[node]:
+            if dfs(node):
+                return True
+
     return False
 
 
-# TOPOLOGICAL DIRECT GRAPHS
+# -------------------------------
+# RUN DIRECTED
+# -------------------------------
+graph, n = build_directed_graph()
 
-# from collections import defaultdict, deque
+if has_cycle_directed(graph, n):
+    print("Cycle Detected (Directed)")
+else:
+    print("No Cycle (Directed)")
 
-# edges = [('a', 'b'), ('b', 'c'), ('c', 'a')]  # Cycle exists
+# CYCLES UNDIRECTED GRAPH
 
-# graph = defaultdict(list)
-# indegree = defaultdict(int)
-# nodes = set()
+from collections import defaultdict
 
-# for src, dest in edges:
-#     graph[src].append(dest)
-#     indegree[dest] += 1
-#     nodes.add(src)
-#     nodes.add(dest)
+# -------------------------------
+# BUILD UNDIRECTED GRAPH
+# -------------------------------
+def build_undirected_graph():
+    """
+    Example graph:
+          0
+         / \
+        1—— 2
+             \
+              3 — 4
+    """
+    graph = defaultdict(list)
+    edges = [
+        (0, 1),
+        (1, 2),
+        (2, 0),  # 🔥 cycle here
+        (2, 3),
+        (3, 4)
+    ]
 
-# # Ensure all nodes are in indegree dict
-# for node in nodes:
-#     indegree[node] = indegree.get(node, 0)
+    for u, v in edges:
+        graph[u].append(v)
+        graph[v].append(u)  # undirected → both directions
 
-# queue = deque()
-# for node in indegree:
-#     if indegree[node] == 0:
-#         queue.append(node)
+    return graph, 5
 
-# visited_count = 0
+# -------------------------------
+# UNDIRECTED CYCLE DETECTION
+# -------------------------------
+def has_cycle_undirected(graph, num_nodes):
+    """
+    Detect cycle in undirected graph using DFS + parent tracking
+    """
+    visited = [False] * num_nodes
 
-# while queue:
-#     curr = queue.popleft()
-#     visited_count += 1
+    def dfs(node, parent):
+        # Mark current node as visited
+        visited[node] = True
 
-#     for neigh in graph[curr]:
-#         indegree[neigh] -= 1
-#         if indegree[neigh] == 0:
-#             queue.append(neigh)
+        for neighbor in graph[node]:
 
-# # Final check
-# if visited_count == len(indegree):
-#     print("No Cycle")
-# else:
-#     print("Cycle Detected")
+            # If not visited → explore deeper
+            if not visited[neighbor]:
+                if dfs(neighbor, node):
+                    return True
+
+            # If visited AND not parent → cycle detected
+            elif neighbor != parent:
+                return True
+
+        return False
+
+    # Handle disconnected components
+    for node in range(num_nodes):
+        if not visited[node]:
+            if dfs(node, -1):   # -1 means no parent
+                return True
+
+    return False
+# -------------------------------
+# RUN UNDIRECTED
+# -------------------------------
+graph, n = build_undirected_graph()
+
+if has_cycle_undirected(graph, n):
+    print("Cycle Detected (Undirected)")
+else:
+    print("No Cycle (Undirected)")
+
+from collections import defaultdict, deque
+# -------------------------------
+# BUILD DIRECTED GRAPH
+# -------------------------------
+def build_graph():
+    """
+    Example graph:
+    a → b → c → a  (cycle)
+    """
+    edges = [
+        ('a', 'b'),
+        ('b', 'c'),
+        ('c', 'a')   # 🔥 cycle
+    ]
+
+    graph = defaultdict(list)
+    indegree = defaultdict(int)
+    nodes = set()
+
+    # Build graph + indegree
+    for src, dest in edges:
+        graph[src].append(dest)
+
+        indegree[dest] += 1
+
+        # IMPORTANT: track ALL nodes
+        nodes.add(src)
+        nodes.add(dest)
+
+    # Ensure every node exists in indegree (even if 0)
+    for node in nodes:
+        indegree[node] = indegree.get(node, 0)
+
+    return graph, indegree, nodes
+
+# -------------------------------
+# KAHN'S ALGORITHM (BFS)
+# -------------------------------
+def has_cycle_kahn(graph, indegree):
+    """
+    Detect cycle using topological sort (BFS)
+    """
+
+    # Step 1: Start with nodes having indegree 0
+    queue = deque()
+    for node in indegree:
+        if indegree[node] == 0:
+            queue.append(node)
+
+    processed_nodes = 0  # count how many nodes we process
+
+    # Step 2: Process nodes
+    while queue:
+        current = queue.popleft()
+        processed_nodes += 1
+
+        # Reduce indegree of neighbors
+        for neighbor in graph[current]:
+            indegree[neighbor] -= 1
+
+            # If indegree becomes 0 → ready to process
+            if indegree[neighbor] == 0:
+                queue.append(neighbor)
+
+    # Step 3: Check if all nodes were processed
+    # If not → cycle exists
+    return processed_nodes != len(indegree)
+
+# -------------------------------
+# RUN
+# -------------------------------
+graph, indegree, nodes = build_graph()
+
+if has_cycle_kahn(graph, indegree):
+    print("Cycle Detected (Kahn's Algo)")
+else:
+    print("No Cycle (Kahn's Algo)")
 
 
 class SparseVector:
@@ -262,26 +360,47 @@ class SparseVector:
     
 class SparseVector:
     def __init__(self, nums):
-        self.index_to_val = {ind: num for ind, num in enumerate(nums) if num != 0}
-        
+        # Store only non-zero values
+        self.index_to_val = {i: num for i, num in enumerate(nums) if num != 0}
+
     def dot_product(self, vec: 'SparseVector') -> int:
         result = 0
-        
-        # Iterate over the smaller dict to improve performance
+
+        # Always iterate over the smaller dictionary (optimization)
         if len(self.index_to_val) > len(vec.index_to_val):
             return vec.dot_product(self)
-        
-        for i in self.index_to_val:
-            if i in vec.index_to_val:
-                result += self.index_to_val[i] * vec.index_to_val[i]
-        
+
+        # Multiply only matching indices
+        for i, val in self.index_to_val.items():
+            result += val * vec.index_to_val.get(i, 0)
+
         return result
       
-
 v1 = SparseVector([0, 3, 0, 4])
 v2 = SparseVector([0, 2, 0, 1])
 
+print(v1.dot_product(v2))
+# https://chatgpt.com/c/69f859df-507c-8322-9230-b99ff36112b6
 
+class SparseVector:
+    def __init__(self, nums):
+        self.index_to_val = {i: num for i, num in enumerate(nums) if num != 0}
+
+    def __mul__(self, other: 'SparseVector') -> int:
+        result = 0
+
+        # Optimization: iterate over smaller dict
+        if len(self.index_to_val) > len(other.index_to_val):
+            return other * self   # reuse same logic
+
+        for i, val in self.index_to_val.items():
+            result += val * other.index_to_val.get(i, 0)
+
+        return result
+
+v1 = SparseVector([0, 3, 0, 4])
+v2 = SparseVector([0, 2, 0, 1])
+print(v1 * v2)
 
 # KOSARAJU ALGO
 # https://www.youtube.com/watch?v=QtdE7QPsWiU
@@ -326,12 +445,11 @@ def kosaraju(n, graph):
             comp = []
             dfs_rev(node, comp)
             sccs.append(comp)
-
     return sccs
 
 
 # ARTICULATION POINTS
-
+# https://www.youtube.com/watch?v=sAk4W8q0Rmw
 from collections import defaultdict
 
 class Solution:
@@ -363,7 +481,6 @@ class Solution:
             children = 0  # number of DFS children (for root case)
 
             for v in graph[u]:
-
                 # 🔸 Ignore the edge to parent
                 if v == parent[u]:
                     continue
@@ -372,14 +489,11 @@ class Solution:
                 if visited[v]:
                     # update low value using discovery time
                     low[u] = min(low[u], disc[v])
-
                 else:
                     # 🔸 Case 2: Tree edge
                     parent[v] = u
                     children += 1
-
                     dfs(v)
-
                     # update low value after returning from DFS
                     low[u] = min(low[u], low[v])
 
@@ -402,3 +516,8 @@ class Solution:
 
         # 🔹 If none found, return [-1]
         return result if result else [-1]
+    
+# Core Difference
+# Problem	Condition
+# Articulation Point	low[v] >= disc[u]
+# Bridge	low[v] > disc[u]

@@ -73,7 +73,6 @@ print(f"Total time taken with ThreadPoolExecutor: {total_time_threads:.2f} secon
 
 
 #AGAIN
-
 # Creating and Starting a Thread
 
 import threading
