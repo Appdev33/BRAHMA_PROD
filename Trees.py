@@ -132,7 +132,6 @@ seg.update(1, 10)
 print("After update sum [1,3]:", seg.query(1, 3))  # 10+5+7=22
 
 
-
 # FENWICK TREES    
 # https://www.youtube.com/watch?v=pTg7NezkV28&list=PL-Jc9J83PIiGkI_pL8l67OVvbpnwf-5yO&index=7
 
@@ -274,6 +273,48 @@ class QuadTree:
         return self.solve(grid, ps, 0, 0, len(grid))
 
 
+#COUNT OF BST CATALAN NUMBER
+def numTrees(n):
+    # dp[i] = number of unique BSTs possible using i nodes
+    dp = [0] * (n + 1)
+
+    # Base Case:
+    # Empty tree is also considered 1 valid BST
+    dp[0] = 1
+
+    # Build answers from smaller node counts -> larger
+    for nodes in range(1, n + 1):
+
+        # Try every possible left subtree size
+        # If total nodes = 5:
+        #
+        # root takes 1 node
+        # remaining = 4 nodes
+        #
+        # left can take:
+        # 0,1,2,3,4 nodes
+        #
+        # right automatically gets:
+        # 4,3,2,1,0 nodes
+
+        for left in range(nodes):
+
+            # Remaining nodes go to right subtree
+            right = nodes - 1 - left
+
+            # Number of BSTs formed:
+            #
+            # (ways to build left subtree)
+            # *
+            # (ways to build right subtree)
+            #
+            # because every left BST can combine
+            # with every right BST
+            dp[nodes] += dp[left] * dp[right]
+
+    return dp[n]
+
+
 #OPTIMAL BINARY SEARCH TREE
 # https://www.youtube.com/watch?v=HnslzEs8dbY
 
@@ -371,23 +412,6 @@ def optimal_bst(keys, frequency):
             j += 1
     
     return dp[0][n - 1]
-
-# BST COUNT
-def numTrees(n):
-    dp = [0] * (n + 1)
-    
-    dp[0] = 1  # empty tree
-    dp[1] = 1  # single node
-    
-    for i in range(2, n + 1):
-        l = 0
-        r = i - 1
-        while l <= i - 1:
-            dp[i] += dp[l] * dp[r]
-            l += 1
-            r -= 1
-    
-    return dp[n]
 
 
 #HUFFMANN TREE

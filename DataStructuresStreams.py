@@ -1707,3 +1707,34 @@ student_dict_short = {
     "age": 21,
     "courses": ["Math", "Physics"]
 }
+
+
+# 1. Mental Model
+# bisect_left(x)
+# Returns:
+# First position where x can be inserted
+# or
+# First element >= x
+# bisect_right(x)
+# Returns:
+# Last position where x can be inserted
+# or
+# First element > x
+
+import bisect
+
+arr = [1,2,3,4,6,7,9]
+
+print(bisect.bisect_left(arr,4) )
+print(bisect.bisect_right(arr,4) )
+
+arr = [1,2,3,4,4,4,6,7,9]
+
+print(bisect.bisect_left(arr,4) )
+print(bisect.bisect_right(arr,4) )
+
+
+arr = [1,2,3,6,7,9]
+
+print(bisect.bisect_left(arr,4) )
+print(bisect.bisect_right(arr,4) )
