@@ -12,13 +12,12 @@ from itertools import count
 def main() -> None:
 
     # ARRAYS
-
     print("**********************ARRAYS/LIST*************************")
     array = [1,2,3,4,5,6,7]
     squares = [x**2 for x in array]
     print(squares)   
 
-    squaredEvens = [ x**3 for x in array if x%2 == 0]
+    squaredEvens = [ x**2 for x in array if x%2 == 0]
     print(squaredEvens) 
 
     ar = ["my", "name", "anthony"]
@@ -31,7 +30,6 @@ def main() -> None:
     array.remove(2)
     # array.sort()
 
-    # array.append(ar)
     array.extend(ar)
 
     # subarray = array[1:4]
@@ -103,7 +101,6 @@ def main() -> None:
     stack.append("23")
     stack.append("44")
 
-
     top = stack[-1]
     pop = stack.pop()
     sizeStack = len(stack)
@@ -138,7 +135,6 @@ def main() -> None:
     #                     stack.append(stack[-1] + stack[-2])
     #             case _:
     #                 stack.append(int(ops))  # Convert string number to integer
-
     #     return sum(stack)  # Return the sum of valid scores
 
     print("**********************LINKED LIST*************************")
@@ -192,7 +188,6 @@ def main() -> None:
     print(heapq.heappop(maxHeap)) 
 
     import heapq
-
     # Initialize a heap (as a list)
     heap = []
 
@@ -313,7 +308,6 @@ def main() -> None:
     # Output: Length: 6
 
     print("**********************MAP/DICT*************************")
-
     my_dict = {"Apple": 50, "Banana": 30, "Orange": 20}
 
     print("Contains key 'Banana'? ", "Banana" in my_dict)  # Output: True
@@ -428,7 +422,6 @@ def main() -> None:
 
     print("Word Count:", count)  # Output: {'apple': 2, 'banana': 1, 'orange': 1}
     print("**********************ORDERED DICT*************************") 
-
     # OrderedDict is a part of the collections module in Python that maintains the order of keys based on the order in
     # which they are inserted into the dictionary.
 
@@ -485,7 +478,6 @@ def main() -> None:
         print(key, value)
 
 print("**********************DECORATORS*************************")
-
 def decorator_function(original_function):
     def wrapper_function(*args, **kwargs):
         # Code to execute before calling the original function
@@ -571,7 +563,6 @@ MathOperations.add = patched_add
 
 # Usage after patching
 print(math_op.add(2, 3))  # Output: 6
-
 
 print("**********************CODING SHORTCUTS************************")
 # current_sum = 0
@@ -716,7 +707,6 @@ print([order.index(c) for c in word])
 #     }
 # }
 
-
 # from typing import List
 # from functools import lru_cache
 
@@ -740,11 +730,8 @@ print([order.index(c) for c in word])
 #             right = helper(row, col + 1)
 
 #             result = grid[row][col] + min(down, right)
-
 #             print(f"At grid[{row}][{col}] = {grid[row][col]}, min(down: {down}, right: {right}) → total: {result}")
-
 #             return result
-
 #         return helper(0, 0)
 
 # a = "1010"     # Length = 4
@@ -917,12 +904,10 @@ print([order.index(c) for c in word])
 # # 2. combinations(iterable, r)
 # Returns all unordered combinations of r elements.
 
-
 # from itertools import combinations
 # list(combinations([1, 2, 3], 2))  # [(1, 2), (1, 3), (2, 3)]
 # 3. combinations_with_replacement(iterable, r)
 # # Like combinations, but allows repeating elements.
-
 
 # from itertools import combinations_with_replacement
 # list(combinations_with_replacement([1, 2], 2))  # [(1, 1), (1, 2), (2, 2)]
@@ -1256,7 +1241,6 @@ say_hello() # say_hello (not 'wrapper')
 # wraps	Preserve    function metadata in decorators
 # total_ordering	Auto-implement comparison methods
 
-
 # Got it! Let’s talk about index vs startswith in Python strings, 
 # and then I’ll list the most important string methods you should know.
 
@@ -1483,7 +1467,6 @@ d = {[1,2]: "value"}  # Error! list is unhashable
 # Dictionaries were unordered, so iterations may not be deterministic.
 
 # Shallow copy:
-
 d1 = {'a':[1,2]}
 d2 = d1.copy()
 d2['a'].append(3)
@@ -1494,7 +1477,6 @@ d = {}
 d['x']  # KeyError
 
 # ✅ Key Takeaways for Interviews
-
 # Know basic CRUD operations.
 # Understand get, setdefault, update, pop, popitem.
 # Be comfortable with nested dictionaries and safe access.
@@ -1681,10 +1663,9 @@ for num in [5, 1, 8, 3, 7]:
 # +1 = keep order
 
 # Dictionary creations WAYS
-
 # Sequence of key-value pairs
 student_dict2 = dict(name="Jane Doe", age=22, courses=["Biology", "Chemistry"])
-
+student ={}
 # From another dictionary
 student_dict_combined = dict(student, **student_dict2)
 
@@ -1738,3 +1719,4 @@ arr = [1,2,3,6,7,9]
 
 print(bisect.bisect_left(arr,4) )
 print(bisect.bisect_right(arr,4) )
+

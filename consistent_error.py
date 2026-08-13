@@ -1,3 +1,4 @@
+# https://claude.ai/chat/0642eab9-182e-49f9-a2ed-208f49ab87e4
 """
 ============================================================
   PYTHON ERROR & EXCEPTION HANDLING — INTERVIEW PRACTICE

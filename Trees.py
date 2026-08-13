@@ -315,6 +315,125 @@ def numTrees(n):
     return dp[n]
 
 
+
+#BINARY LIFTING
+
+import math
+
+class TreeAncestor:
+
+    def _init_(self, n: int, parent: List[int]):
+        self.bit = int(math.log2(n)) + 1
+        self.ancestor = [[-1] * self.bit for _ in range(n)]
+
+        for i in range(n):
+            self.ancestor[i][0] = parent[i]
+
+        for j in range(1, self.bit):
+            for node in range(n):
+                mid = self.ancestor[node][j - 1]
+                if mid != -1:
+                    self.ancestor[node][j] = self.ancestor[mid][j - 1]
+
+    def getKthAncestor(self, node: int, k: int) -> int:
+
+        for i in range(self.bit):
+            if k & (1 << i):
+                node = self.ancestor[node][i]
+                if node == -1:
+                    return -1
+        return node
+    
+
+from collections import defaultdict
+import math
+
+class LCA:
+
+    def __init__(self, n, edges, root=0):
+        self.bit = math.ceil(math.log2(n)) + 1
+        self.graph = defaultdict(list)
+
+        for u, v in edges:
+            self.graph[u].append(v)
+            self.graph[v].append(u)
+        self.depth = [0] * n
+        self.ancestor = [[-1] * self.bit for _ in range(n)]
+        self.dfs(root, -1)
+
+    def dfs(self, node, parent):
+        self.ancestor[node][0] = parent
+
+        for j in range(1, self.bit):
+            prev = self.ancestor[node][j - 1]
+            if prev != -1:
+                self.ancestor[node][j] = self.ancestor[prev][j - 1]
+
+        for nei in self.graph[node]:
+            if nei == parent:
+                continue
+            self.depth[nei] = self.depth[node] + 1
+            self.dfs(nei, node)
+
+    def kth_ancestor(self, node, k):
+        for j in range(self.bit):
+            if k & (1 << j):
+                node = self.ancestor[node][j]
+                if node == -1:
+                    return -1
+        return node
+
+    def lca(self, u, v):
+        if self.depth[u] < self.depth[v]:
+            u, v = v, u
+
+        diff = self.depth[u] - self.depth[v]
+        u = self.kth_ancestor(u, diff)
+
+        if u == v:
+            return u
+
+        for j in range(self.bit - 1, -1, -1):
+            if self.ancestor[u][j] != self.ancestor[v][j]:
+                u = self.ancestor[u][j]
+                v = self.ancestor[v][j]
+        return self.ancestor[u][0]    
+
+
+#SPARSE TABLE MIN MAX SEARCH
+class SparseTable:
+    def __init__(self, arr):
+        n = len(arr)
+        self.log = [0] * (n + 1)
+
+        for i in range(2, n + 1):
+            self.log[i] = self.log[i // 2] + 1
+
+        max_power = self.log[n] + 1
+
+        # dp[i][j] = min in range [i, i + 2^j - 1]
+        self.dp = [[0] * max_power for _ in range(n)]
+
+        for i in range(n):
+            self.dp[i][0] = arr[i]
+
+        for power in range(1, max_power):
+            half = 1 << (power - 1)
+
+            for start in range(n - (1 << power) + 1):
+                self.dp[start][power] = min(
+                    self.dp[start][power - 1],
+                    self.dp[start + half][power - 1]
+                )
+
+    def query(self, left, right):
+        length = right - left + 1
+        power = self.log[length]
+
+        return min(
+            self.dp[left][power],
+            self.dp[right - (1 << power) + 1][power]
+        )
 #OPTIMAL BINARY SEARCH TREE
 # https://www.youtube.com/watch?v=HnslzEs8dbY
 
