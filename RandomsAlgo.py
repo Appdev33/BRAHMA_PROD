@@ -48,13 +48,162 @@ pattern = "ABABCABAB"
 print(kmp_search(text, pattern))  # Output: [10]
 # RABIN KARP
 
+# Intuition:
+# Convert each fixed-size window into a number (hash).
+# If window-hash == pattern-hash, then verify characters to avoid false positives.
+# Rolling hash lets us update hash in O(1) when window slides.
+def rabin_karp_search(text, pattern):
+    if not pattern or len(pattern) > len(text):
+        return []
+
+    base = 256
+    mod = 10**9 + 7
+    n, m = len(text), len(pattern)
+
+    high_base = pow(base, m - 1, mod)
+    p_hash = 0
+    w_hash = 0
+
+    for i in range(m):
+        p_hash = (p_hash * base + ord(pattern[i])) % mod
+        w_hash = (w_hash * base + ord(text[i])) % mod
+
+    result = []
+    for i in range(n - m + 1):
+        if p_hash == w_hash and text[i:i + m] == pattern:
+            result.append(i)
+
+        if i < n - m:
+            # Remove left char, shift, add next char.
+            w_hash = (w_hash - ord(text[i]) * high_base) % mod
+            w_hash = (w_hash * base + ord(text[i + m])) % mod
+
+    return result
 
 
 # MANACHER ALGO
 
+# Intuition:
+# 1) Insert separators to treat even/odd palindromes uniformly.
+# 2) p[i] = palindrome radius around i in transformed string.
+# 3) Use mirror info around current center to skip re-checking.
+def longest_palindrome_manacher(s):
+    if not s:
+        return ""
+
+    t = "^#" + "#".join(s) + "#$"
+    p = [0] * len(t)
+    center = right = 0
+
+    for i in range(1, len(t) - 1):
+        mirror = 2 * center - i
+        if i < right:
+            p[i] = min(right - i, p[mirror])
+
+        while t[i + 1 + p[i]] == t[i - 1 - p[i]]:
+            p[i] += 1
+
+        if i + p[i] > right:
+            center, right = i, i + p[i]
+
+    max_len = max(p)
+    center_idx = p.index(max_len)
+    start = (center_idx - max_len) // 2
+    return s[start:start + max_len]
 
 
 # Z ALGORITHM
+
+# Intuition:
+# z[i] = length of longest prefix of string that matches starting at i.
+# For pattern search, build pattern + "$" + text.
+# Whenever z[i] == len(pattern), we found a match.
+def z_array(s):
+    n = len(s)
+    z = [0] * n
+    l = r = 0
+
+    for i in range(1, n):
+        if i <= r:
+            z[i] = min(r - i + 1, z[i - l])
+
+        while i + z[i] < n and s[z[i]] == s[i + z[i]]:
+            z[i] += 1
+
+        if i + z[i] - 1 > r:
+            l, r = i, i + z[i] - 1
+
+    return z
+
+
+def z_search(text, pattern):
+    if not pattern:
+        return []
+
+    combined = pattern + "$" + text
+    z = z_array(combined)
+    m = len(pattern)
+    ans = []
+
+    for i in range(m + 1, len(combined)):
+        if z[i] == m:
+            ans.append(i - m - 1)
+
+    return ans
+
+
+# Other useful string matching algorithms
+
+# 1) Naive search (baseline, easiest to reason about)
+def naive_search(text, pattern):
+    if not pattern:
+        return []
+    n, m = len(text), len(pattern)
+    out = []
+    for i in range(n - m + 1):
+        if text[i:i + m] == pattern:
+            out.append(i)
+    return out
+
+
+# 2) Boyer-Moore (bad character heuristic only)
+# Intuition: compare from right to left and jump farther on mismatch.
+def boyer_moore_bad_char_search(text, pattern):
+    if not pattern:
+        return []
+
+    n, m = len(text), len(pattern)
+    last = {}
+    for i, ch in enumerate(pattern):
+        last[ch] = i
+
+    res = []
+    shift = 0
+    while shift <= n - m:
+        j = m - 1
+        while j >= 0 and pattern[j] == text[shift + j]:
+            j -= 1
+
+        if j < 0:
+            res.append(shift)
+            shift += 1
+        else:
+            bad = text[shift + j]
+            shift += max(1, j - last.get(bad, -1))
+
+    return res
+
+
+# String matching examples
+txt = "AABAACAADAABAABA"
+pat = "AABA"
+print(rabin_karp_search(txt, pat))           # [0, 9, 12]
+print(z_search(txt, pat))                    # [0, 9, 12]
+print(naive_search(txt, pat))                # [0, 9, 12]
+print(boyer_moore_bad_char_search(txt, pat)) # [0, 9, 12]
+
+# Manacher example
+print(longest_palindrome_manacher("babad"))  # "bab" or "aba"
 
 
 
