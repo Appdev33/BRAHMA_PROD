@@ -21,7 +21,6 @@ def main() -> None:
     print(squaredEvens) 
 
     ar = ["my", "name", "anthony"]
-
     # for number in array:
     #   print(number, end=' ')
 
@@ -466,6 +465,30 @@ def main() -> None:
     for key, value in od.items():
         print(key, value)
 
+    # Initial OrderedDict:
+    # apple 3
+    # banana 2
+    # orange 4
+
+    # After moving 'banana' to the end:
+    # apple 3
+    # orange 4
+    # banana 2
+
+    # After moving 'orange' to the start:
+    # orange 4
+    # apple 3
+    # banana 2
+
+    # After popping the last item:
+    # Popped item: ('banana', 2)
+    # orange 4
+    # apple 3
+
+    # After popping the first item:
+    # Popped item: ('orange', 4)
+    # apple 3
+
     # Reinsert items and sort by values using a lambda function
     od['apple'] = 3
     od['banana'] = 2
@@ -611,7 +634,6 @@ print("**********************CODING SHORTCUTS************************")
 #     # Initialize a 2D array to store the edit distances
 #     dp = [[0] * (n + 1) for _ in range(m + 1)]
 
-
 # def safe_convert(x):
 #     try:
 #         return int(x)  # Attempt to convert to int
@@ -629,7 +651,6 @@ word = "cab"
 print([order.index(c) for c in word])  
 # → [0, 2, 1]
 
-
 # class Solution:
 #     def isAlienSorted(self, words: List[str], order: str) -> bool:
 #         return words == sorted(words,key=lambda word:[order.index(c) for c in word])
@@ -639,7 +660,7 @@ print([order.index(c) for c in word])
 # class Solution:
 #     def isAlienSorted(self, words: List[str], order: str) -> bool:
 #         order_map = {ch: i for i, ch in enumerate(order)}  # O(1) lookup
-
+#
 #         return words == sorted(words, key=lambda word: [order_map[c] for c in word])
 
 
@@ -647,12 +668,12 @@ print([order.index(c) for c in word])
 #     def isAlienSorted(self, words, order):
 #         # Step 1: Create a mapping from character to its position in the alien alphabet
 #         order_map = {char: index for index, char in enumerate(order)}
-
+#
 #         # Step 2: Compare each pair of adjacent words
 #         for i in range(len(words) - 1):
 #             word1 = words[i]
 #             word2 = words[i + 1]
-
+#
 #             # Compare character by character
 #             for j in range(min(len(word1), len(word2))):
 #                 if word1[j] != word2[j]:
@@ -663,7 +684,7 @@ print([order.index(c) for c in word])
 #                 # If we didn't find any different character, shorter word should come first
 #                 if len(word1) > len(word2):
 #                     return False
-
+#
 #         return True
 
 
@@ -789,15 +810,15 @@ print([order.index(c) for c in word])
 #     def longestCommonPrefix(self, strs: List[str]) -> str:
 #         if not strs:
 #             return ""
-
+#
 #         prefix = strs[0]
-
+#
 #         for s in strs[1:]:
 #             while not s.startswith(prefix):
 #                 prefix = prefix[:-1]
 #                 if not prefix:
 #                    return ""
-
+#
 #         return prefix 
 
 # def encode(self, strs: List[str]) -> str:
@@ -805,7 +826,7 @@ print([order.index(c) for c in word])
 #         for s in strs:
 #             encoded.append(f"{len(s)}#{s}")
 #             # sb.append(s.length()).append("#").append(s);
-
+#
 #         return encoded
 
 
@@ -853,7 +874,7 @@ print([order.index(c) for c in word])
 # s[start:stop:step]
 # start: index to begin (inclusive)
 # stop: index to end (exclusive)
-# step: how many characters to skip
+# step: how many characters to skip and direction (positive for forward, negative for backward)
 
 # 📚 Examples
 # ▶ Basic Slicing
@@ -1114,50 +1135,50 @@ def rotate_left_recursive(nums, k):
 # Caches the result of function calls to improve performance, especially for expensive computations.
 
 
-# from functools import lru_cache
-# @lru_cache(maxsize=128)
-# def fib(n):
-#     if n < 2:
-#         return n
-#     return fib(n-1) + fib(n-2)
+from functools import lru_cache
+@lru_cache(maxsize=128)
+def fib(n):
+    if n < 2:
+        return n
+    return fib(n-1) + fib(n-2)
 
-# print(fib(30))  # Fast due to caching
+print(fib(30))  # Fast due to caching
 
 # ✅ 2. partial – Fixes some arguments of a function
 # Used to create a new version of a function with some arguments preset.
-# from functools import partial
-# def power(base, exponent):
-#     return base ** exponent
-# square = partial(power, exponent=2)
-# print(square(5))  # 25
+from functools import partial
+def power(base, exponent):
+    return base ** exponent
+square = partial(power, exponent=2)
+print(square(5))  # 25
 
 # ✅ 3. reduce – Reduces a sequence to a single value
 # Applies a function cumulatively to the items of an iterable.
 
-# from functools import reduce
-# nums = [1, 2, 3, 4]
-# product = reduce(lambda x, y: x * y, nums)
-# print(product)  # 24
+from functools import reduce
+nums = [1, 2, 3, 4]
+product = reduce(lambda x, y: x * y, nums)
+print(product)  # 24
 
 # ✅ 4. cmp_to_key – Convert old-style comparison to key function
 # Used to convert a comparison function into a key for sorted().
 
-# from functools import cmp_to_key
-# def compare(x, y):
-#     return (x > y) - (x < y)  # classic cmp style
+from functools import cmp_to_key
+def compare(x, y):
+    return (x > y) - (x < y)  # classic cmp style
 
-# def compare(x, y):
-#     if x > y:
-#         return 1
-#     elif x < y:
-#         return -1
-#     else:
-#         return 0
+def compare(x, y):
+    if x > y:
+        return 1
+    elif x < y:
+        return -1
+    else:
+        return 0
 
-# from functools import cmp_to_key
+from functools import cmp_to_key
 
-# def compare(x, y):
-#     return (x > y) - (x < y)
+def compare(x, y):
+    return (x > y) - (x < y)
 
 
 def compare(x, y):
@@ -1177,8 +1198,6 @@ print(sorted(lists, key = cmp_to_key(compare)) )
 
 # ✅ 5. wraps – Preserve metadata in decorators
 # Used when writing decorators to maintain original function’s metadata (name, docstring).
-# from functools import wraps
-
 
 from functools import wraps
 
@@ -1708,15 +1727,20 @@ arr = [1,2,3,4,6,7,9]
 
 print(bisect.bisect_left(arr,4) )
 print(bisect.bisect_right(arr,4) )
+3
+4
 
 arr = [1,2,3,4,4,4,6,7,9]
 
 print(bisect.bisect_left(arr,4) )
 print(bisect.bisect_right(arr,4) )
+3
+6
 
 
 arr = [1,2,3,6,7,9]
 
 print(bisect.bisect_left(arr,4) )
 print(bisect.bisect_right(arr,4) )
-
+3
+3

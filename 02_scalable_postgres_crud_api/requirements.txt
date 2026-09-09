@@ -1,0 +1,9 @@
+fastapi>=0.115,<1
+uvicorn[standard]>=0.30,<1
+pydantic-settings>=2.6,<3
+SQLAlchemy[asyncio]>=2.0,<3
+asyncpg>=0.29,<1
+redis>=5.2,<6
+PyJWT[crypto]>=2.10,<3
+pwdlib[argon2]>=0.2,<1
+python-multipart>=0.0.18,<1
