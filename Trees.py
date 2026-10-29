@@ -29,7 +29,6 @@ class SegmentTree:
 
             self.lazy[node_index] = 0
 
-
     def lazy_update(self, update_left, update_right, value, left, right, node_index):
         self.lazy_propogate(node_index, left, right)
 
@@ -52,8 +51,6 @@ class SegmentTree:
             self.seg_tree[2 * node_index + 1] +
             self.seg_tree[2 * node_index + 2]
         )
-
-
 
     def lazy_update(self, update_left, update_right, value, left, right, node_index):
         
@@ -109,6 +106,9 @@ class SegmentTree:
         self._update(index, value, 0, self.n - 1, 0)
 
     # Internal query function
+    # query_left <= left and right <= query_right mean the current node’s interval [left, right]
+    # is fully inside the requested interval [query_left, query_right]. 
+    # So we can use that node’s stored sum directly, without visiting its children.
     def _query(self, query_left, query_right, left, right, node_index):
         if query_right < left or query_left > right:  # No overlap
             return 0
@@ -132,7 +132,20 @@ seg.update(1, 10)
 print("After update sum [1,3]:", seg.query(1, 3))  # 10+5+7=22
 
 
-# FENWICK TREES    
+# FENWICK TREE / BINARY INDEXED TREE
+#
+# A Fenwick tree stores partial sums in a clever way:
+# tree[index] covers the previous lowbit(index) values.
+#
+# Example:
+#   index = 12 (1100 in binary)
+#   lowbit(12) = 4
+#   tree[12] stores the sum of positions 9, 10, 11, and 12.
+#
+# With this structure:
+#   prefix sum: O(log n)
+#   point update: O(log n)
+#   build: O(n) with the direct build below
 # https://www.youtube.com/watch?v=pTg7NezkV28&list=PL-Jc9J83PIiGkI_pL8l67OVvbpnwf-5yO&index=7
 
 class FenwickTree:
@@ -141,9 +154,37 @@ class FenwickTree:
         self.n = len(arr)
         self.tree = [0] * (self.n + 1)
 
-        # Build Fenwick Tree using point updates
-        for i in range(self.n):
-            self.update(i + 1, arr[i])
+        # Use the faster O(n) build for normal construction.
+        self.build_linear(arr)
+
+    def build_using_updates(self, arr):
+        """Simple build: add every value using the public update operation.
+
+        This is easy to understand because it uses the same operation used
+        after construction, but it costs O(n log n).
+        """
+        for index, value in enumerate(arr, start=1):
+            self.update(index, value)
+
+    def build_linear(self, arr):
+        """Fast build: create every Fenwick block in O(n).
+
+        First place each value at its 1-based index. Then pass the current
+        partial sum to its Fenwick parent. The parent is found by adding the
+        lowest set bit (lowbit).
+
+        Example: index 4 -> lowbit(4) is 4 -> parent is 8.
+        """
+        # Position 0 is unused because Fenwick trees are 1-based.
+        for index, value in enumerate(arr, start=1):
+            self.tree[index] = value
+
+        # Combine each block into its parent. Because indexes are processed
+        # from left to right, the child's block is already complete here.
+        for index in range(1, self.n + 1):
+            parent = index + (index & -index)
+            if parent <= self.n:
+                self.tree[parent] += self.tree[index]
 
     def update(self, index, delta):
         """

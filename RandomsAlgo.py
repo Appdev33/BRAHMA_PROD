@@ -1,7 +1,18 @@
-# KMP
+# KMP (Knuth-Morris-Pratt)
+#
+# Intuition: when a mismatch happens, do not restart from the next text
+# character. The LPS table says how much of the pattern's prefix still matches
+# the text suffix already seen. That lets KMP keep scanning forward without
+# rechecking text characters.
+#
+# Use it to find one exact pattern in a large text, such as searching logs,
+# documents, or DNA strings. Its O(n + m) time is guaranteed, including for
+# patterns with many repeated characters; extra space is O(m).
 # https://www.youtube.com/watch?v=qases-9gOpk
 
 def compute_lps(pattern):
+    # lps[i] is the longest proper prefix of pattern[:i + 1] that is also its
+    # suffix. On mismatch, it gives the next pattern position to try.
     n = len(pattern)
     lps = [0] * n
     length = 0
@@ -41,17 +52,22 @@ def kmp_search(text, pattern):
                 j = lps[j - 1]
     return results          
 
-# Example
+# Example: the pattern occurs once, starting at index 10.
 text = "ABABDABACDABABCABAB"
 pattern = "ABABCABAB"
 
 print(kmp_search(text, pattern))  # Output: [10]
-# RABIN KARP
+#
+# RABIN-KARP
 
-# Intuition:
-# Convert each fixed-size window into a number (hash).
-# If window-hash == pattern-hash, then verify characters to avoid false positives.
-# Rolling hash lets us update hash in O(1) when window slides.
+# Intuition: hash the pattern and the first text window of the same length.
+# Slide that window across the text, updating its hash in O(1). Only compare
+# characters when the hashes match, because different strings can share a hash.
+#
+# Use it when checking many same-length candidate substrings, for example in
+# plagiarism or duplicate-sequence detection. This function searches for one
+# pattern; multi-pattern variants reuse the same rolling-window idea. Its
+# expected time is O(n + m), with O(n * m) worst case if many hashes collide.
 def rabin_karp_search(text, pattern):
     if not pattern or len(pattern) > len(text):
         return []
@@ -208,6 +224,52 @@ print(longest_palindrome_manacher("babad"))  # "bab" or "aba"
 
 
 
+# ORDERLY QUEUE: LEXICOGRAPHICALLY SMALLEST STRING
+#
+# If k > 1, the allowed operation can produce any permutation, so sorting is
+# optimal. If k == 1, each operation moves the first character to the end;
+# therefore the only reachable strings are rotations of the original string.
+# Booth's algorithm finds the smallest rotation in O(n) time.
+class OrderlyQueueSolution:
+    def orderlyQueue(self, s: str, k: int) -> str:
+        if k > 1:
+            return "".join(sorted(s))
+
+        n = len(s)
+        if n == 0:
+            return s
+
+        # left_window and right_window are candidate rotation start indexes.
+        # offset counts matching characters compared between the candidates.
+        left_window = 0
+        right_window = 1
+        offset = 0
+
+        while left_window < n and right_window < n and offset < n:
+            left_char = s[(left_window + offset) % n]
+            right_char = s[(right_window + offset) % n]
+
+            if left_char == right_char:
+                offset += 1
+                continue
+
+            # Skip starts that lose at this same first differing character.
+            if right_char < left_char:
+                left_window = max(left_window + offset + 1, right_window + 1)
+            else:
+                right_window = max(right_window + offset + 1, left_window + 1)
+            offset = 0
+
+        winning_start = min(left_window, right_window)
+        return s[winning_start:] + s[:winning_start]
+
+
+# For k == 1, the smallest rotation of "cba" is "acb".
+print(OrderlyQueueSolution().orderlyQueue("cba", 1))  # "acb"
+# For k > 1, any permutation is reachable, so the result is sorted.
+print(OrderlyQueueSolution().orderlyQueue("baaca", 3))  # "aaabc"
+
+
 # QUICK SELECT ALGO
 from typing import List
 import random
@@ -335,56 +397,78 @@ class ConvexHullDequeSolution:
 print(ConvexHullDequeSolution().outerTrees(fence_points))
 
 
-# LIS (Longest Increasing Subsequence)
-# ------------------------------------------------------------
-# Goal: return the length of the longest strictly increasing subsequence.
-# Example: [10, 9, 2, 5, 3, 7, 101, 18] -> 4 (one LIS is [2, 3, 7, 18])
+# LIS: LONGEST INCREASING SUBSEQUENCE
+#
+# A subsequence keeps the original order, but may skip elements.
+# It must be strictly increasing: [2, 3, 7, 18] is valid, but [2, 2] is not.
+# Example: [10, 9, 2, 5, 3, 7, 101, 18] -> answer is 4.
 
 
+# LIS METHOD 1: DYNAMIC PROGRAMMING - O(n^2)
+# Best for learning because dp[i] directly describes a real subsequence.
 def lis_n2(nums: List[int]) -> int:
-    # O(n^2) DP intuition:
-    # dp[i] = length of LIS that MUST end at index i.
-    # For each i, look at all previous j < i.
-    # If nums[j] < nums[i], then nums[i] can extend subsequence ending at j.
+    # DP meaning:
+    # dp[i] = the longest increasing subsequence that ends exactly at i.
+    #
+    # Example for nums = [2, 5, 3]:
+    # - dp[0] = 1 because [2] is the best sequence ending at 2.
+    # - dp[1] = 2 because [2, 5] is possible.
+    # - dp[2] = 2 because [2, 3] is possible.
+    #
+    # To calculate dp[i], try every earlier position j. If nums[j] is smaller,
+    # append nums[i] to the sequence that ended at j.
+    # Time: O(n^2), space: O(n).
     if not nums:
         return 0
 
     n = len(nums)
-    dp = [1] * n  # Each element alone is an LIS of length 1.
+    # Every single number is an increasing subsequence of length 1.
+    dp = [1] * n
 
     for i in range(n):
         for j in range(i):
             if nums[j] < nums[i]:
+                # Either keep the old answer or extend the sequence at j.
                 dp[i] = max(dp[i], dp[j] + 1)
 
-    # Best LIS can end anywhere, so return max over dp.
+    # The best sequence does not have to end at the last index.
     return max(dp)
 
 
 from bisect import bisect_left
 
 
+# LIS METHOD 2: BINARY SEARCH / TAILS - O(n log n)
+# Best for large inputs when only the LIS length is required.
 def lis_nlogn(nums: List[int]) -> int:
-    # O(n log n) intuition with tails:
-    # tails[k] = smallest possible tail value of an increasing subsequence
-    #            of length (k + 1) seen so far.
+    # Instead of storing every sequence, store only the best tail values.
     #
-    # Why this works:
-    # - Smaller tails are better because they are easier to extend later.
-    # - For each x, find first tail >= x and replace it with x.
-    # - If x is larger than all tails, append it (we found longer subsequence).
+    # tails[length - 1] = the smallest possible final value of an increasing
+    # subsequence of this length found so far.
+    #
+    # Smaller tails are better: a sequence ending in 5 is easier to extend
+    # than a sequence of the same length ending in 10.
+    #
+    # For each number:
+    # - If it is bigger than every tail, it creates a longer sequence.
+    # - Otherwise replace the first tail >= number. The length stays the same,
+    #   but the smaller tail gives future numbers more room to extend it.
+    #
+    # bisect_left finds that first tail in O(log n).
+    # Time: O(n log n), space: O(n).
     if not nums:
         return 0
 
     tails = []
-    for x in nums:
-        idx = bisect_left(tails, x)
-        if idx == len(tails):
-            tails.append(x)
+    for number in nums:
+        position = bisect_left(tails, number)
+        if position == len(tails):
+            tails.append(number)
         else:
-            tails[idx] = x
+            tails[position] = number
 
-    # Length of tails equals LIS length.
+    # tails does not necessarily contain the actual LIS.
+    # Its length does equal the LIS length, which is all this function needs.
     return len(tails)
 
 
@@ -392,3 +476,213 @@ def lis_nlogn(nums: List[int]) -> int:
 lis_input = [10, 9, 2, 5, 3, 7, 101, 18]
 print(lis_n2(lis_input))     # 4
 print(lis_nlogn(lis_input))  # 4
+
+
+# ============================================================================
+# SQUARE-ROOT DECOMPOSITION
+# ============================================================================
+# Split the array into blocks of about sqrt(n) values.
+# Store one sum per block, so a range query can skip complete blocks.
+#
+# Build: O(n) | update: O(1) | range sum: O(sqrt(n))
+class SqrtDecomposition:
+    def __init__(self, values: List[int]):
+        self.values = values[:]
+        self.block_size = max(1, int(len(values) ** 0.5))
+        block_count = (len(values) + self.block_size - 1) // self.block_size
+        self.block_sum = [0] * block_count
+
+        for index, value in enumerate(self.values):
+            self.block_sum[index // self.block_size] += value
+
+    def update(self, index: int, value: int) -> None:
+        """Replace values[index] with value."""
+        block = index // self.block_size
+        self.block_sum[block] += value - self.values[index]
+        self.values[index] = value
+
+    def range_sum(self, left: int, right: int) -> int:
+        """Return the inclusive sum from left to right."""
+        if not (0 <= left <= right < len(self.values)):
+            raise IndexError("invalid inclusive range")
+
+        answer = 0
+
+        # Consume the unaligned values at the left edge.
+        while left <= right and left % self.block_size != 0:
+            answer += self.values[left]
+            left += 1
+
+        # Consume complete blocks in one operation.
+        while left + self.block_size - 1 <= right:
+            answer += self.block_sum[left // self.block_size]
+            left += self.block_size
+
+        # Consume the unaligned values at the right edge.
+        while left <= right:
+            answer += self.values[left]
+            left += 1
+        return answer
+
+
+# ============================================================================
+# MO'S ALGORITHM
+# ============================================================================
+# Use this for many OFFLINE range queries when the array does not change.
+# Queries are reordered so the current window moves only a small distance.
+# This version returns the number of distinct values in every range.
+def mo_distinct_queries(values: List[int], queries: List[tuple[int, int]]) -> List[int]:
+    if not values:
+        return [0] * len(queries)
+
+    block_size = max(1, int(len(values) ** 0.5))
+    ordered_queries = sorted(
+        enumerate(queries),
+        key=lambda item: (
+            item[1][0] // block_size,
+            item[1][1] if (item[1][0] // block_size) % 2 == 0 else -item[1][1],
+        ),
+    )
+
+    frequency = {}
+    distinct = 0
+    current_left, current_right = 0, -1
+    answer = [0] * len(queries)
+
+    def add(index: int) -> None:
+        nonlocal distinct
+        value = values[index]
+        frequency[value] = frequency.get(value, 0) + 1
+        if frequency[value] == 1:
+            distinct += 1
+
+    def remove(index: int) -> None:
+        nonlocal distinct
+        value = values[index]
+        frequency[value] -= 1
+        if frequency[value] == 0:
+            distinct -= 1
+
+    for query_index, (left, right) in ordered_queries:
+        if not (0 <= left <= right < len(values)):
+            raise IndexError("invalid inclusive range")
+
+        while current_left > left:
+            current_left -= 1
+            add(current_left)
+        while current_right < right:
+            current_right += 1
+            add(current_right)
+        while current_left < left:
+            remove(current_left)
+            current_left += 1
+        while current_right > right:
+            remove(current_right)
+            current_right -= 1
+        answer[query_index] = distinct
+
+    return answer
+
+
+# ============================================================================
+# MODULAR ARITHMETIC
+# ============================================================================
+# Modular exponentiation: calculate base^exponent % modulus in O(log exponent).
+def modular_power(base: int, exponent: int, modulus: int) -> int:
+    if modulus <= 0 or exponent < 0:
+        raise ValueError("modulus must be positive and exponent non-negative")
+
+    result = 1 % modulus
+    base %= modulus
+
+    while exponent:
+        # If the current binary bit is 1, use this power of base.
+        if exponent & 1:
+            result = result * base % modulus
+        base = base * base % modulus
+        exponent >>= 1
+
+    return result
+
+
+def gcd(a: int, b: int) -> int:
+    """Euclid's algorithm: repeatedly keep the remainder."""
+    while b:
+        a, b = b, a % b
+    return abs(a)
+
+
+def lcm(a: int, b: int) -> int:
+    return 0 if a == 0 or b == 0 else abs(a // gcd(a, b) * b)
+
+
+def extended_gcd(a: int, b: int) -> tuple[int, int, int]:
+    """Return g, x, y where a*x + b*y = g = gcd(a, b)."""
+    if b == 0:
+        return abs(a), (1 if a >= 0 else -1), 0
+
+    g, x1, y1 = extended_gcd(b, a % b)
+    return g, y1, x1 - (a // b) * y1
+
+
+# Modular inverse means: (a * inverse) % modulus == 1.
+# For a prime modulus, Fermat says inverse(a) = a^(modulus - 2).
+def modular_inverse_prime(a: int, prime_modulus: int) -> int:
+    if a % prime_modulus == 0:
+        raise ValueError("inverse does not exist")
+    return modular_power(a, prime_modulus - 2, prime_modulus)
+
+
+# Extended GCD works with any modulus, but only if gcd(a, modulus) == 1.
+def modular_inverse(a: int, modulus: int) -> int:
+    g, x, _ = extended_gcd(a, modulus)
+    if g != 1:
+        raise ValueError("inverse exists only when gcd(a, modulus) == 1")
+    return x % modulus
+
+
+# ============================================================================
+# SIEVE AND COMBINATIONS
+# ============================================================================
+def primes_up_to(limit: int) -> List[int]:
+    """Return all primes <= limit in O(n log log n)."""
+    if limit < 2:
+        return []
+
+    is_prime = [True] * (limit + 1)
+    is_prime[0] = is_prime[1] = False
+    number = 2
+
+    while number * number <= limit:
+        if is_prime[number]:
+            for multiple in range(number * number, limit + 1, number):
+                is_prime[multiple] = False
+        number += 1
+
+    return [number for number, prime in enumerate(is_prime) if prime]
+
+
+def combinations_mod_prime(n: int, r: int, prime_modulus: int) -> int:
+    """Return nCr % prime_modulus for a prime modulus."""
+    if r < 0 or r > n:
+        return 0
+
+    factorial = [1] * (n + 1)
+    for value in range(1, n + 1):
+        factorial[value] = factorial[value - 1] * value % prime_modulus
+
+    denominator = factorial[r] * factorial[n - r] % prime_modulus
+    inverse_denominator = modular_inverse_prime(denominator, prime_modulus)
+    return factorial[n] * inverse_denominator % prime_modulus
+
+
+# Small checks/examples:
+# sqrt_data = SqrtDecomposition([1, 2, 3, 4, 5])
+# print(sqrt_data.range_sum(1, 3))                    # 9
+# sqrt_data.update(2, 10)
+# print(sqrt_data.range_sum(1, 3))                    # 16
+# print(mo_distinct_queries([1, 2, 1, 3], [(0, 2), (1, 3)]))  # [2, 3]
+# print(modular_power(2, 10, 1_000_000_007))         # 1024
+# print(modular_inverse_prime(3, 11))                # 4
+# print(modular_inverse(3, 10))                      # 7
+# print(primes_up_to(20))                            # [2, 3, 5, 7, 11, ...]
